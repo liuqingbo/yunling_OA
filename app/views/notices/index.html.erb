@@ -1,0 +1,33 @@
+<h1 style="margin-top:0;">公司通知</h1>
+<p class="subtitle">
+  共有<%= @notices.size %>条通知
+</p>
+<table border="0" cellspacing="0" cellpadding="0" class="wide notices">
+  <tr>
+    <th class="la" width="70%" colspan="2"><%= t 'txt.notice', :default => '通知' %></th>
+    <th class="la" width="30%" colspan="1"><%= t 'txt.latest_post', :default => '发布时间' %></th>
+  </tr>
+  <% for notice in @notices do %>
+  <tr class="notice" id="notice_<%= notice.id %>_row">
+    <td class="c2 vat" width="50%">
+      <%= link_to notice.title, notice_path(notice), :class => "title" %>
+      <p class="desc"><%= truncate(strip_tags(notice.description),
+                 :length => 60)%></p>
+    </td>
+    <td class="c3" width="20%">
+      <%= link_to  '编辑', edit_notice_path(notice), :class => "tiny", :rel => "directory", :style => "float:right" %><br/>
+      <%= link_to '删除', notice, :class => "tiny", :rel => "directory", :style => "float:right", :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+
+    <td class="inv lp">
+      <%= I18n.t 'txt.post_age', :when => time_ago_in_words(notice.created_at), :default => "发布于 %{when} 之前" %><br />
+      <strong><%= I18n.t 'txt.by_user', :default => '发布者: %{user}', :user => notice.user.real_name %></strong>
+    </td>
+  </tr>
+<% end %>
+
+</table>
+<br />
+
+<p><%= link_to t('txt.new_topic', :default => '新建通知'), new_notice_path, :class => "utility" %></p>
+

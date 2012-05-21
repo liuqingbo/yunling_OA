@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  resoure: MyString
+  operation: MyString
+
+two:
+  resoure: MyString
+  operation: MyString

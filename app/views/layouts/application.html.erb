@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>云灵OA</title>
+    <%= stylesheet_link_tag %w(display captcha) %>
+    <%= javascript_include_tag %w(prototype effects  rails application), :cache => "beast" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="header">
+      <%= render "layouts/head" %>
+    </div>
+
+    <div id="container">
+      <div id="content">
+        <%= flash_messages %>
+        <%= yield %>
+      </div>
+
+      <div id="right">
+        <%= yield(:right) %>
+      </div>
+
+      <br style="clear:both;" />
+    </div>
+
+    <div id="footer">
+      <%= render "layouts/footer" %>
+      <br style="clear:both;" />
+    </div>
+  </body>
+</html>
