@@ -15,15 +15,15 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate(params[:name], params[:password])
       session[:user_id] = user.id
-      redirect_to notices_url, :notice => "登录成功"
+      redirect_to notices_url, :notice => I18n.t("login.login_success")
     else
-      redirect_to login_url, :notice => "用户名或密码不正确"
+      redirect_to login_url, :notice => I18n.t("login.login_error")
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to notices_url, :notice => "  退出成功"
+    redirect_to notices_url, :notice => I18n.t("login.logout_prompt")
   end
 
 end

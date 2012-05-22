@@ -5,24 +5,27 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+#encoding: utf-8
 User.delete_all
-user1 = User.create!(:name=>"matthew_liu", :real_name=>"qingbo.liu", :email=>"qingbo_matthew@163.com",
+Notice.delete_all
+user1 = User.create!(:name=>"matthew_liu", :real_name=>I18n.t("init_data.user.name1"), :email=>"qingbo_matthew@163.com",
         :password=>"198612", :password_confirmation=>"198612")
-user_operator = User.create!(:name=>"operator", :real_name=>"system_operator_A", :email=>"qingbo_matthew@163.com",
+user_operator = User.create!(:name=>"operator", :real_name=>I18n.t("init_data.user.name2"), :email=>"qingbo_matthew@163.com",
         :password=>"123456", :password_confirmation=>"123456")
-user_admin = User.create!(:name=>"admin", :real_name=>"admin_operator_A", :email=>"qingbo_matthew@163.com",
+user_admin = User.create!(:name=>"admin", :real_name=>I18n.t("init_data.user.name3"), :email=>"qingbo_matthew@163.com",
         :password=>"123456", :password_confirmation=>"123456")
-user_finance = User.create!(:name=>"finance", :real_name=>"finance_operator_A", :email=>"qingbo_matthew@163.com",
+user_finance = User.create!(:name=>"finance", :real_name=>I18n.t("init_data.user.name4"), :email=>"qingbo_matthew@163.com",
         :password=>"123456", :password_confirmation=>"123456")
-user_sale = User.create!(:name=>"sale", :real_name=>"sale_operator_A", :email=>"qingbo_matthew@163.com",
+user_sale = User.create!(:name=>"sale", :real_name=>I18n.t("init_data.user.name5"), :email=>"qingbo_matthew@163.com",
         :password=>"123456", :password_confirmation=>"123456")
 
 
 Role.delete_all
-operator = Role.create!(:name=>"operator")
-admin = Role.create!(:name=>"admin")
-finance = Role.create!(:name=>"finance");
-sale = Role.create!(:name=>"sale")
+operator = Role.create!(:name=>I18n.t("init_data.role.operator"))
+admin = Role.create!(:name=>I18n.t("init_data.role.admin"))
+finance = Role.create!(:name=>I18n.t("init_data.role.finance"));
+sale = Role.create!(:name=>I18n.t("init_data.role.sale"))
 
 user1.roles << operator
 user1.roles << admin
@@ -34,7 +37,12 @@ user_admin.roles << admin
 user_finance.roles << finance
 user_sale.roles << sale
 
-
+Position.delete_all
+staff = Position.create!(:name=>I18n.t("init_data.position.staff"))
+project_manager = Position.create!(:name=>I18n.t("init_data.position.project_manager"))
+department_manager = Position.create!(:name=>I18n.t("init_data.position.department_manager"))
+vice_president = Position.create!(:name=>I18n.t("init_data.position.vice_president"))
+president = Position.create!(:name=>I18n.t("init_data.position.president"))
 
 
 Right.delete_all

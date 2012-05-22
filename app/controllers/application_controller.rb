@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
     def authorize
       unless User.find_by_id(session[:user_id])
-        redirect_to login_url, :notice => "Please log in"
+        redirect_to login_url, :notice => I18n.t("login.login_prompt")
       end
     end
 
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       end
       unless current_user.can?(action_name, controller_name)
         redirect_to root_url,
-                      :notice=>"sorry,您的权限不够, 不能访问该功能"
+                      :notice=>I18n.t("error.permit_deny")
       end
     end
   

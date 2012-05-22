@@ -1,18 +1,15 @@
 
-<h1>请登录</h1>
+<h1><%= I18n.t('login.login.prompt', :default => 'Login')%></h1>
 
 <%= form_tag session_path do %>
 <div id="password_fields">
-<p><%= label_tag I18n.t('txt.login_name', :default => '用户名') %><br />
+<p><%= label_tag I18n.t('activerecord.attributes.user.name', :default => 'user name') %><br />
 <%= text_field_tag 'name', @name %></p>
 
-<p><%= label_tag I18n.t('txt.password', :default => '密码') %><br/>
+<p><%= label_tag I18n.t('activerecord.attributes.user.password', :default => 'password') %><br/>
 <%= password_field_tag 'password', nil %></p>
 
-<p><%= label_tag 'remember_me', I18n.t('txt.remember_me', :default => 'Remember me') %>
-<%= check_box_tag 'remember_me', '1', @remember_me %></p>
-
-<p><%= submit_tag '登录' %>
+<p><%= submit_tag I18n.t("login.login") %>
 </p>
 </div>
 

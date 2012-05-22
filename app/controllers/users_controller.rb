@@ -83,7 +83,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     respond_to do |format|
-      if @user.update_attributes(params[:user]) && @user.roles << Role.find(params[:role_ids])
+      if @user.update_attributes(params[:user])
         format.html { redirect_to(user_path(@user),
           :notice => "User #{@user.name} was successfully updated.") }
         format.xml  { head :ok }

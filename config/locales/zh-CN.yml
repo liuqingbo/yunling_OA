@@ -1,0 +1,86 @@
+#encoding: utf-8
+zh-CN:
+  operate:
+    edit: "编辑"
+    delete: "删除"
+    back: "返回"
+    show: "详情"
+    new: "新建"
+    create: "新建"
+    update: "更新"
+
+  application:
+    title: "云灵OA"
+    company_name: "上海云灵信息技术有限公司"
+
+  menu:
+    daily_office: "日常办公"
+    admin_manage: "行政管理"
+    finance_manage: "财务管理"
+    sale_manage: "销售管理"
+    system_manage: "系统管理"
+    personal_setting: "个人设置"
+
+
+  login:
+    login_prompt: "请登录"
+    login: "登录"
+    login_success: "登录成功"
+    login_error: "登录失败-用户名/密码错误"
+    logout_prompt: "成功退出"
+    logout: "退出"
+    signup: "注册"
+
+  error:
+    permit_deny: "您的权限不够, 不能访问该功能"
+
+  # notice view
+  views_notice:
+    title: "公司通告"
+    total_notices_prompt: "通告总数"
+    publish_time: "发布时间"
+    publish_time_details: "发布于 %{when}"
+    publisher_details: "发布者: %{user}"
+
+
+
+  activerecord:
+    models:
+      user: "用户"
+      notice: "通告"
+      position: "职位"
+      role: "角色"
+    attributes:
+      user:
+        name: "登录名"
+        password: "密码"
+        real_name: "真实姓名"
+        email: "邮箱"
+      notice:
+        title: "标题"
+        description: "内容"
+      position:
+        name: "职位名"
+      role:
+        name: "角色名"
+
+  init_data:
+    user:
+      name1: "刘清泊"
+      name2: "系统管理员-甲"
+      name3: "行政人员-甲"
+      name4: "财务人员-甲"
+      name5: "销售人员-甲"
+
+    role:
+      operator: "管理员"
+      admin: "行政"
+      finance: "财务"
+      sale: "销售"
+
+    position:
+      staff: "普通员工"
+      project_manager: "项目经理"
+      department_manager: "部门经理"
+      vice_president: "副总裁"
+      president: "总裁"
