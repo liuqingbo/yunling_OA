@@ -118,6 +118,6 @@ class UsersController < ApplicationController
         return true;
       end
       redirect_to root_url,
-              :notice=>"sorry,您的权限不够, 不能访问该功能"
+              :notice=>I18n.t("error.permit_deny")
     end
 end
