@@ -1,0 +1,2 @@
+class LeaveApplication < Message
+end

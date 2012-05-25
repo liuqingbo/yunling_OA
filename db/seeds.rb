@@ -26,11 +26,13 @@ operator = Role.create!(:name=>I18n.t("init_data.role.operator"))
 admin = Role.create!(:name=>I18n.t("init_data.role.admin"))
 finance = Role.create!(:name=>I18n.t("init_data.role.finance"));
 sale = Role.create!(:name=>I18n.t("init_data.role.sale"))
+normal_user = Role.create!(:name=>I18n.t("init_data.role.normal_user"))
 
 user1.roles << operator
 user1.roles << admin
 user1.roles << finance
 user1.roles << sale
+user1.roles << normal_user
 
 user_operator.roles << operator
 user_admin.roles << admin
@@ -76,6 +78,21 @@ operator.rights << roles_create
 operator.rights << roles_read
 operator.rights << roles_update
 operator.rights << roles_delete
+
+communicate_msgs = []
+communicate_msgs << Right.create!(:resource => "communicate_msgs", :operation => "CREATE")
+communicate_msgs <<  Right.create!(:resource => "communicate_msgs", :operation => "READ")
+communicate_msgs <<  Right.create!(:resource => "communicate_msgs", :operation => "UPDATE")
+communicate_msgs << Right.create!(:resource => "communicate_msgs", :operation => "DELETE")
+communicate_msgs.each do|communicate_msg|
+  Role.all.each do|role|
+    role.rights << communicate_msg
+  end
+end
+
+
+
+
 
 
 

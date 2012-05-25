@@ -1,0 +1,2 @@
+class ItemApplication < Message
+end

@@ -11,20 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521080643) do
+ActiveRecord::Schema.define(:version => 20120522064253) do
 
   create_table "grants", :force => true do |t|
     t.integer  "right_id"
     t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "message_receivers", :force => true do |t|
+    t.integer  "message_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "content"
+    t.integer  "sender"
+    t.string   "type"
+    t.string   "state"
+    t.integer  "sum"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "notices", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
   end
 
@@ -42,14 +59,14 @@ ActiveRecord::Schema.define(:version => 20120521080643) do
   create_table "rights", :force => true do |t|
     t.string   "resource"
     t.string   "operation"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "roles_users", :id => false, :force => true do |t|
@@ -61,8 +78,8 @@ ActiveRecord::Schema.define(:version => 20120521080643) do
     t.string   "name"
     t.string   "hashed_password"
     t.string   "salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "email"
     t.string   "real_name"
   end

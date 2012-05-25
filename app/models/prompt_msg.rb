@@ -1,0 +1,2 @@
+class PromptMsg < Message
+end

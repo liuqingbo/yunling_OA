@@ -1,0 +1,36 @@
+<%= render 'side_bar/daily_office_side_bar' %>
+
+<h1 style="margin-top:0;"><%= I18n.t 'activerecord.models.communicate_msg'%></h1>
+<p class="subtitle">
+  <%=  I18n.t 'views_communicate_msg.total_msg_prompt'%> :<%= @communicate_msgs.size%>
+</p>
+<table border="0" cellspacing="0" cellpadding="0" class="wide notices">
+  <tr>
+    <th class="la" width="70%"><%= I18n.t 'activerecord.attributes.message.content'%></th>
+    <% if not @send%>
+        <th  width="30%"><%= I18n.t 'activerecord.attributes.message.sender'%></th>
+    <%else%>
+        <th  width="30%"><%= I18n.t 'views_communicate_msg.receiver'%></th>
+    <%end%>
+  </tr>
+<% @communicate_msgs.each do |msg|%>
+  <tr>
+    <td><%= link_to msg.content, msg, :class => "admin" %></td>
+    <td class="inv lp">
+      <% if not @send%>
+          <td><%= msg.sender.real_name%></td>
+      <%else%>
+          <td>
+            <%msg.receivers.each do |receiver|%>
+                <% str = receiver.real_name + " "%>
+            <%end%>
+            <%= truncate(strip_tags(str), :length => 30) %>
+          </td>
+      <%end%>
+    </td>
+
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to I18n.t('operate.new') + I18n.t('activerecord.models.communicate_msg'), new_communicate_msg_path, :class => "utility" %></p>

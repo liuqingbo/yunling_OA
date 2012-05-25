@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
+  attr_accessible :name, :real_name, :email, :password, :password_confirmation
   validates :name, :presence => true, :uniqueness => true
 
   validates :password, :confirmation => true
-  attr_accessor :password_confirmation
-  attr_reader   :password
 
   validate  :password_must_be_present
 
@@ -11,6 +10,13 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :positions
 
   has_many :notices
+
+  has_many :send_messages, :class_name=>"Message", :foreign_key=>"sender"
+
+  has_many :message_receivers
+  has_many :receive_messages, :through => :message_receivers
+
+  scope :search_for_real_name, lambda{|q| {:conditions => ['real_name LIKE ?', "%#{q}%"]}}
 
   def User.authenticate(name, password)
     if user = find_by_name(name)
@@ -32,6 +38,18 @@ class User < ActiveRecord::Base
       generate_salt
       self.hashed_password = self.class.encrypt_password(password, salt)
     end
+  end
+
+  def password
+
+  end
+
+  def password_confirmation
+
+  end
+
+  def password_confirmation=(password)
+
   end
 
   def can?(action, resource)

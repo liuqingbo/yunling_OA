@@ -1,0 +1,2 @@
+class ExpenseApplication < Message
+end

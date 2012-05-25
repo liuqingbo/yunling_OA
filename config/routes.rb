@@ -1,5 +1,7 @@
 YunlingOA::Application.routes.draw do
 
+  resources :communicate_msgs
+
   resources :notices
 
   resources :users

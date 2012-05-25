@@ -21,6 +21,13 @@ zh-CN:
     system_manage: "系统管理"
     personal_setting: "个人设置"
 
+  side_bar:
+    daily_office:
+      communicate_msg_manage: "消息管理"
+      inbox: "收件箱"
+      outbox: "发件箱"
+      admin_application: "行政申请"
+      finance_application: "财务申请"
 
   login:
     login_prompt: "请登录"
@@ -42,6 +49,9 @@ zh-CN:
     publish_time_details: "发布于 %{when}"
     publisher_details: "发布者: %{user}"
 
+  views_communicate_msg:
+    total_msg_prompt: "消息总数"
+    receiver: "接收者"
 
 
   activerecord:
@@ -50,6 +60,13 @@ zh-CN:
       notice: "通告"
       position: "职位"
       role: "角色"
+
+      communicate_msg: "通讯消息"
+      prompt_msg: "提示消息"
+      item_application: "物品申请"
+      leave_application: "请假申请"
+      expense_application: "报销申请"
+
     attributes:
       user:
         name: "登录名"
@@ -63,6 +80,12 @@ zh-CN:
         name: "职位名"
       role:
         name: "角色名"
+      message:
+        content: "内容"
+        sender: "发送者"
+        type: "消息类型"
+        state: "状态"
+        sum: "金额"
 
   init_data:
     user:
@@ -77,6 +100,7 @@ zh-CN:
       admin: "行政"
       finance: "财务"
       sale: "销售"
+      normal_user: "普通用户"
 
     position:
       staff: "普通员工"
