@@ -1,2 +1,2 @@
-class ItemApplication < Message
+class ItemApplication < Application
 end

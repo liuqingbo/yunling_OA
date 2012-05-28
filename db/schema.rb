@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522064253) do
+ActiveRecord::Schema.define(:version => 20120528031617) do
+
+  create_table "applications", :force => true do |t|
+    t.string   "content"
+    t.integer  "sender"
+    t.string   "type"
+    t.string   "state"
+    t.integer  "sum"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "grants", :force => true do |t|
     t.integer  "right_id"
@@ -32,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20120522064253) do
     t.integer  "sender"
     t.string   "type"
     t.string   "state"
-    t.integer  "sum"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

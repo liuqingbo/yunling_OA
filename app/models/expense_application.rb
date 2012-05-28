@@ -1,2 +1,2 @@
-class ExpenseApplication < Message
+class ExpenseApplication < Application
 end

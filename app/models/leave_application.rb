@@ -1,2 +1,2 @@
-class LeaveApplication < Message
+class LeaveApplication < Application
 end
