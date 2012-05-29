@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528031617) do
+ActiveRecord::Schema.define(:version => 20120528035159) do
+
+  create_table "application_receivers", :force => true do |t|
+    t.integer  "application_id"
+    t.integer  "user_id"
+    t.string   "state"
+    t.text     "reason"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "applications", :force => true do |t|
     t.string   "content"

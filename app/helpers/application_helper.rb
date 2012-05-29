@@ -9,7 +9,12 @@ module ApplicationHelper
     !!@current_user
   end
 
-  def current_user
-    @current_user
+  def get_has_many_model_list_name(obj, attrs, name)
+    str = ""
+    obj.send(attrs.to_sym).each do |x|
+      str += x.send(name.to_sym) + ";"
+    end
+    str
   end
+
 end

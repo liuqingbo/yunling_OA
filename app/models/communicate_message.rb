@@ -1,0 +1,2 @@
+class CommunicateMessage < Message
+end

@@ -1,9 +1,9 @@
 <% content_for :right do %>
 
-    <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.communicate_msg_manage'%></h5>
+    <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.communicate_message_manage'%></h5>
     <ul class="flat" style="margin-top:1em;">
-      <li><%= link_to  I18n.t('side_bar.daily_office.inbox') , communicate_msgs_path(:params=>{:flag=>"receive"}) %></li>
-      <li><%= link_to  I18n.t('side_bar.daily_office.outbox') , communicate_msgs_path(:params=>{:flag=>"send"}) %></li>
+      <li><%= link_to  I18n.t('side_bar.daily_office.inbox') , communicate_messages_path(:params=>{:flag=>"receive"}) %></li>
+      <li><%= link_to  I18n.t('side_bar.daily_office.outbox') , communicate_messages_path(:params=>{:flag=>"send"}) %></li>
     </ul>
     <hr/>
 
@@ -11,7 +11,7 @@
 
     <ul class="flat" style="margin-top:1em;">
       <li><%= link_to   I18n.t('activerecord.models.item_application') , roles_path %></li>
-      <li><%= link_to   I18n.t('activerecord.models.leave_application') , roles_path %></li>
+      <li><%= link_to   I18n.t('activerecord.models.leave_application') , leave_applications_path %></li>
     </ul>
 
     <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.finance_application'%></h5>

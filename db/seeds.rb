@@ -79,16 +79,44 @@ operator.rights << roles_read
 operator.rights << roles_update
 operator.rights << roles_delete
 
-communicate_msgs = []
-communicate_msgs << Right.create!(:resource => "communicate_msgs", :operation => "CREATE")
-communicate_msgs <<  Right.create!(:resource => "communicate_msgs", :operation => "READ")
-communicate_msgs <<  Right.create!(:resource => "communicate_msgs", :operation => "UPDATE")
-communicate_msgs << Right.create!(:resource => "communicate_msgs", :operation => "DELETE")
-communicate_msgs.each do|communicate_msg|
+Message.delete_all
+communicate_messages = []
+communicate_messages << Right.create!(:resource => "communicate_messages", :operation => "CREATE")
+communicate_messages <<  Right.create!(:resource => "communicate_messages", :operation => "READ")
+communicate_messages <<  Right.create!(:resource => "communicate_messages", :operation => "UPDATE")
+communicate_messages << Right.create!(:resource => "communicate_messages", :operation => "DELETE")
+communicate_messages.each do|communicate_message|
   Role.all.each do|role|
-    role.rights << communicate_msg
+    role.rights << communicate_message
   end
 end
+
+Application.delete_all
+leave_applications = []
+leave_applications << Right.create!(:resource => "leave_applications", :operation => "CREATE")
+leave_applications <<  Right.create!(:resource => "leave_applications", :operation => "READ")
+leave_applications <<  Right.create!(:resource => "leave_applications", :operation => "UPDATE")
+leave_applications << Right.create!(:resource => "leave_applications", :operation => "DELETE")
+leave_applications.each do|leave_application|
+  Role.all.each do|role|
+    role.rights << leave_application
+  end
+end
+
+
+item_applications = []
+item_applications << Right.create!(:resource => "item_applications", :operation => "CREATE")
+item_applications <<  Right.create!(:resource => "item_applications", :operation => "READ")
+item_applications <<  Right.create!(:resource => "item_applications", :operation => "UPDATE")
+item_applications << Right.create!(:resource => "item_applications", :operation => "DELETE")
+item_applications.each do|item_application|
+  Role.all.each do|role|
+    role.rights << item_application
+  end
+end
+
+
+
 
 
 

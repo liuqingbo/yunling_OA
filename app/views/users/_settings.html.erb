@@ -31,9 +31,9 @@
   <%Role.all.each do |role| %>
     <label><%= role.name %></label>
     <%if @user.roles.include?(role)%>
-      <%= check_box_tag "user[role_ids][]", role.id, true%> &nbsp;&nbsp;&nbsp;
+      <%= check_box_tag "user_module[role_ids][]", role.id, true%> &nbsp;&nbsp;&nbsp;
     <%else%>
-      <%= check_box_tag "user[role_ids][]", role.id, false%> &nbsp;&nbsp;&nbsp;
+      <%= check_box_tag "user_module[role_ids][]", role.id, false%> &nbsp;&nbsp;&nbsp;
     <%end%>
   <%end%>
 </p>
@@ -43,9 +43,9 @@
   <%Position.all.each do |position| %>
     <label><%= position.name %></label>
     <%if @user.positions.include?(position)%>
-      <%= check_box_tag "user[position_ids][]", position.id, true%> &nbsp;&nbsp;&nbsp;
+      <%= check_box_tag "user_module[position_ids][]", position.id, true%> &nbsp;&nbsp;&nbsp;
     <%else%>
-      <%= check_box_tag "user[position_ids][]", position.id, false%> &nbsp;&nbsp;&nbsp;
+      <%= check_box_tag "user_module[position_ids][]", position.id, false%> &nbsp;&nbsp;&nbsp;
     <%end%>
   <%end%>
 </p>

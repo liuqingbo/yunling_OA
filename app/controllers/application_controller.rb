@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :current_user
   before_filter :check_authorization
+
+  helper_method :current_user
   protect_from_forgery
 
   protected
@@ -20,6 +22,11 @@ class ApplicationController < ActionController::Base
         redirect_to root_url,
                       :notice=>I18n.t("error.permit_deny")
       end
+    end
+
+    def convert_receiver_ids_by_real_names
+      user_ids = User.find_ids_by_real_names(params[:leave_application][:receiver_ids].split(";"))
+      params[:leave_application][:receiver_ids] = user_ids
     end
   
 end

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :real_name, :email, :password, :password_confirmation
+#  attr_accessible :name, :real_name, :email, :password, :password_confirmation
   validates :name, :presence => true, :uniqueness => true
 
   validates :password, :confirmation => true
@@ -11,10 +11,15 @@ class User < ActiveRecord::Base
 
   has_many :notices
 
-  has_many :send_messages, :class_name=>"Message", :foreign_key=>"sender"
+  has_many :send_messages, :class_name=>"Message", :foreign_key=>"sender", :extend => MessageTypeFinder
 
   has_many :message_receivers
-  has_many :receive_messages, :through => :message_receivers
+  has_many :receive_messages, :through => :message_receivers, :extend => MessageTypeFinder
+
+  has_many :send_applications, :class_name=>"Application", :foreign_key=>"sender", :extend => ApplicationTypeFinder
+
+  has_many :application_receivers
+  has_many :receive_applications, :through => :application_receivers, :extend => ApplicationTypeFinder
 
   scope :search_for_real_name, lambda{|q| {:conditions => ['real_name LIKE ?', "%#{q}%"]}}
 
@@ -28,6 +33,15 @@ class User < ActiveRecord::Base
 
   def User.encrypt_password(password, salt)
     Digest::SHA2.hexdigest(password + "wibble" + salt)
+  end
+
+  def User.find_ids_by_real_names(real_names)
+    ids = []
+    real_names.each do |real_name|
+      u = User.find_by_real_name(real_name)
+      ids << u.id   if (u)
+    end
+    ids
   end
 
   # 'password' is a virtual attribute
@@ -60,7 +74,7 @@ class User < ActiveRecord::Base
 
   def ensure_an_admin_remains
     if User.count.zero?
-      raise "Can't delete last user"
+      raise "Can't delete last user_module"
     end
   end
 

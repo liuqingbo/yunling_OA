@@ -1,0 +1,23 @@
+<%= render 'side_bar/daily_office_side_bar' %>
+<%= form_for @leave_application do |f| %>
+  <% if @leave_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leave_application.errors.count, "error") %>
+        prohibited this user from being saved:</h2>
+      <ul>
+      <% @leave_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <p><label for="content"><%= I18n.t 'activerecord.attributes.application.content'%></label><br/>
+  <%= f.text_area :content %></p>
+
+  <p><label for="receiver"><%= I18n.t 'views_leave_application.receiver' %></label><br/>
+  <%= f.text_field :receiver_ids , :value=>"", :class=>"autocomplete_input_text"%></p>
+  <p><%= submit_tag I18n.t('operate.create') %></p>
+<% end %>
+<%= link_to I18n.t('operate.back'), leave_applications_path %>

@@ -1,0 +1,23 @@
+<%= render 'side_bar/daily_office_side_bar' %>
+
+<h1 style="margin-top:0;"><%= I18n.t 'activerecord.models.leave_application'%></h1>
+<p class="subtitle">
+  <%=  I18n.t 'views_leave_application.total_application_prompt'%> :<%= @leave_applications.size%>
+</p>
+<table border="0" cellspacing="0" cellpadding="0" class="wide notices">
+  <tr>
+    <th class="la" width="70%"><%= I18n.t 'activerecord.attributes.application.content'%></th>
+    <th  width="30%"><%= I18n.t 'views_leave_application.receiver'%></th>
+  </tr>
+<% @leave_applications.each do |leave_application|%>
+  <tr>
+    <td><%= link_to leave_application.content, leave_application, :class => "admin" %></td>
+    <td class="inv lp">
+        <%= truncate(get_has_many_model_list_name(leave_application, "receivers", "real_name"), :length => 30) %>
+    </td>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to I18n.t('operate.new') + I18n.t('activerecord.models.leave_application'), new_leave_application_path, :class => "utility" %></p>

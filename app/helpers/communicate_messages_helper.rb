@@ -1,0 +1,2 @@
+module CommunicateMessagesHelper
+end

@@ -5,8 +5,8 @@
       <h2><%= pluralize(@notice.errors.count, "error") %> prohibited this notice from being saved:</h2>
 
       <ul>
-      <% @notice.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% @notice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
       </ul>
     </div>
