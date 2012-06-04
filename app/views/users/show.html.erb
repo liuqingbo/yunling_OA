@@ -1,21 +1,50 @@
 <%= render 'side_bar/sys_manage_sidebar' %>
 <p id="notice"><%= notice %></p>
 
+<h3>个人信息</h3>
+
 <p>
-  <b>Name:</b>
-  <%= @user.name %>
+	<label for="name">
+		<%= I18n.t 'txt.views_users.login_title', :default => 'Login Name' %>
+	</label><br />
+	<%= @user.name %>
 </p>
 
 <p>
-  <b>Hashed password:</b>
-  <%= @user.hashed_password %>
+  <label for="real_name">
+  	<%= I18n.t 'txt.views_users.display_name', :default => 'Real Name' %>
+  </label><br />
+  <%= @user.real_name %>
 </p>
 
 <p>
-  <b>Salt:</b>
-  <%= @user.salt %>
+  <label for="email">
+  	<%=  I18n.t 'txt.views_users.email_title', :default => 'Email' %>
+  </label><br />
+  <%= @user.email %>
 </p>
 
+<p>
+  <label for="add_roles">
+  	<%= I18n.t 'txt.views_users.display_name', :default => 'Role' %>
+  </label><br />
+  <% Role.all.each do |role| %>
+  	<% if @user.roles.include?(role) %>
+    	<label><%= role.name %></label>
+    <% end %>
+  <%end%>
+</p>
+
+<p>
+  <label for="add_positions">
+  	<%= I18n.t 'txt.views_users.display_name', :default => '职位' %>
+  </label><br />
+  <%Position.all.each do |position| %>
+    <%if @user.positions.include?(position)%>
+      <label><%= position.name %></label>
+   	<%end%>
+  <%end%>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
