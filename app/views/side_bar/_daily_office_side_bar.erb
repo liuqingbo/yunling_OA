@@ -4,6 +4,7 @@
     <ul class="flat" style="margin-top:1em;">
       <li><%= link_to  I18n.t('side_bar.daily_office.inbox') , communicate_messages_path(:params=>{:flag=>"receive"}) %></li>
       <li><%= link_to  I18n.t('side_bar.daily_office.outbox') , communicate_messages_path(:params=>{:flag=>"send"}) %></li>
+      <li><%= link_to  I18n.t('side_bar.daily_office.prompt_msg') , prompt_messages_path %></li>
     </ul>
     <hr/>
 

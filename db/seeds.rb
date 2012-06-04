@@ -90,6 +90,18 @@ communicate_messages.each do|communicate_message|
     role.rights << communicate_message
   end
 end
+prompt_messages = []
+prompt_messages << Right.create!(:resource => "prompt_messages", :operation => "CREATE")
+prompt_messages <<  Right.create!(:resource => "prompt_messages", :operation => "READ")
+prompt_messages <<  Right.create!(:resource => "prompt_messages", :operation => "UPDATE")
+prompt_messages << Right.create!(:resource => "prompt_messages", :operation => "DELETE")
+prompt_messages.each do|prompt_messages|
+  Role.all.each do|role|
+    role.rights << prompt_messages
+  end
+end
+
+
 
 Application.delete_all
 leave_applications = []
@@ -114,6 +126,8 @@ item_applications.each do|item_application|
     role.rights << item_application
   end
 end
+
+
 
 
 

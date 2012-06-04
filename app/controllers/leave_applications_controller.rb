@@ -20,7 +20,7 @@ class LeaveApplicationsController < ApplicationController
 
 
   def create
-    convert_receiver_ids_by_real_names()
+    convert_receiver_ids_by_real_names("leave_applications")
 
     @leave_application = LeaveApplication.new(params[:leave_application])
     @leave_application.sender = current_user

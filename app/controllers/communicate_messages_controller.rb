@@ -26,8 +26,8 @@ class CommunicateMessagesController < ApplicationController
 
 
   def create
-    convert_receiver_ids_by_real_names()
-
+    p params
+    convert_receiver_ids_by_real_names("communicate_message")
     @communicate_message = CommunicateMessage.new(params[:communicate_message])
     @communicate_message.sender = current_user
 

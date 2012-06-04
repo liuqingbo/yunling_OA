@@ -47,6 +47,6 @@ $(document).ready(function(){
 
 $(window).ready(
   function(){
-    $('.notice').delay(6000).slideUp('slow');
+    $('p.notice ').delay(6000).slideUp('slow');
   }
 );

@@ -26,6 +26,7 @@ zh-CN:
       communicate_message_manage: "消息管理"
       inbox: "收件箱"
       outbox: "发件箱"
+      prompt_msg: "提示消息"
       admin_application: "行政申请"
       finance_application: "财务申请"
 

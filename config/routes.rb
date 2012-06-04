@@ -2,6 +2,8 @@ YunlingOA::Application.routes.draw do
 
   resources :communicate_messages
 
+  resources :prompt_messages
+
   resources :leave_applications
 
   resources :notices

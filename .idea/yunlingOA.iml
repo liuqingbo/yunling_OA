@@ -97,13 +97,13 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] builder (v3.0.0, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/builder-3.0.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] polyglot (v0.3.3, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/polyglot-0.3.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.7.3, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/json-1.7.3)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] therubyracer (v0.10.1, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/therubyracer-0.10.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] uglifier (v1.2.4, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/uglifier-1.2.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] coffee-rails (v3.2.2, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/coffee-rails-3.2.2)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] execjs (v1.4.0, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/execjs-1.4.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] jquery-rails (v2.0.2, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/jquery-rails-2.0.2)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] sass-rails (v3.2.5, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/sass-rails-3.2.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] sqlite3 (v1.3.6, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/sqlite3-1.3.6)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] execjs (v1.4.0, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/execjs-1.4.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] therubyracer (v0.10.1, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/therubyracer-0.10.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] jquery-rails (v2.0.2, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/jquery-rails-2.0.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] coffee-rails (v3.2.2, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/coffee-rails-3.2.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] sass-rails (v3.2.5, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/sass-rails-3.2.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] libv8 (v3.3.10.4, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/libv8-3.3.10.4-x86-linux)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] execjs (v1.4.0, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/execjs-1.4.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] coffee-script (v2.2.0, /usr/local/rvm/gems/ruby-1.9.3-p194/gems/coffee-script-2.2.0)" level="application" />
