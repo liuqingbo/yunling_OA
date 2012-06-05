@@ -126,3 +126,5 @@ zh-CN:
       department_manager: "部门经理"
       vice_president: "副总裁"
       president: "总裁"
+  txt:
+    generate_prompt_info: ""

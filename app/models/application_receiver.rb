@@ -9,17 +9,22 @@ class ApplicationReceiver < ActiveRecord::Base
     state :rejected
 
     event :approve do
-      transitions :to=>:approved, :from=>:pending, :on_transition => :generate_prompt_info
+      transitions :to=>:approved, :from=>:pending, :on_transition => :generate_approve_prompt_info
     end
 
     event :reject do
-      transitions :to=>:rejected, :from=>:pending, :on_transition => :generate_prompt_info
+      transitions :to=>:rejected, :from=>:pending, :on_transition => :generate_reject_prompt_info
     end
   end
 
   private
-    def generate_prompt_info
 
+
+    def generate_prompt_info(decision)
+      info = ""
+      info << this.receiver.real_name
+      info << decision
+      info << I18n.t('')
       PromptMessage.create(:content)
     end
 
