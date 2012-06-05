@@ -570,6 +570,10 @@ table tr td
 	border:1px solid #ddd;
 }
 
+table tr td .details_info{
+    float: right;
+}
+
 /* topics */
 
 #notice_description,

@@ -1,7 +1,7 @@
 class RemoveSumFromMessages < ActiveRecord::Migration
   def up
     remove_column :messages, :sum
-      end
+  end
 
   def down
     add_column :messages, :sum, :integer
