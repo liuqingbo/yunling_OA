@@ -6,11 +6,13 @@
 </p>
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
   <tr>
-    <th class="la" width="70%"><%= I18n.t 'activerecord.attributes.application.content'%></th>
+    <th  width="20%" class="la"><%= I18n.t 'activerecord.attributes.application.title'%></th>
+    <th class="la" width="50%"><%= I18n.t 'activerecord.attributes.application.content'%></th>
     <th  width="30%"><%= I18n.t 'views_leave_application.receiver'%></th>
   </tr>
 <% @leave_applications.each do |leave_application|%>
   <tr>
+    <td><%= leave_application.title%></td>
     <td><%= link_to leave_application.content, leave_application, :class => "admin" %></td>
     <td class="inv lp">
         <%= truncate(get_has_many_model_list_name(leave_application, "receivers", "real_name"), :length => 30) %>

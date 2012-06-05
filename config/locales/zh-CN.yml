@@ -30,6 +30,7 @@ zh-CN:
       prompt_msg: "提示消息"
       admin_application: "行政申请"
       finance_application: "财务申请"
+      unprocessed_application: "待处理申请"
 
   login:
     login_prompt: "请登录"
@@ -93,6 +94,7 @@ zh-CN:
         type: "消息类型"
         state: "状态"
       application:
+        title: "标题"
         content: "内容"
         sender: "发送者"
         type: "申请类型"

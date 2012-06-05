@@ -127,6 +127,18 @@ item_applications.each do|item_application|
   end
 end
 
+ApplicationReceiver.delete_all
+application_receivers = []
+application_receivers << Right.create!(:resource => "application_receivers", :operation => "CREATE")
+application_receivers << Right.create!(:resource => "application_receivers", :operation => "READ")
+application_receivers << Right.create!(:resource => "application_receivers", :operation => "UPDATE")
+application_receivers << Right.create!(:resource => "application_receivers", :operation => "DELETE")
+application_receivers.each do|application_receiver|
+  Role.all.each do|role|
+    role.rights << application_receiver
+  end
+end
+
 
 
 

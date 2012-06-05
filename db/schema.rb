@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605035827) do
+ActiveRecord::Schema.define(:version => 20120605084229) do
 
   create_table "application_receivers", :force => true do |t|
     t.integer  "application_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120605035827) do
     t.integer  "sum"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "title"
   end
 
   create_table "grants", :force => true do |t|
