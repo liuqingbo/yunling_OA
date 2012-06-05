@@ -1,0 +1,21 @@
+<%= render 'side_bar/daily_office_side_bar' %>
+
+<h3><%= I18n.t 'views_communicate_message.messages' %></h3>
+
+<p>
+	<label for="content">
+		<%= I18n.t 'activerecord.attributes.message.content', :default => 'Content' %>
+	</label><br />
+	<%= @communicate_message.content %>
+</p>
+
+<p>
+  <label for="receivers">
+    <%= I18n.t 'views_communicate_message.receiver', :default => 'Receivers' %>
+  </label><br />
+  <%= truncate(get_has_many_model_list_name(@communicate_message, "receivers", "real_name"), 
+      :length => 30) %>
+</p>
+
+<%= link_to 'Edit', edit_communicate_message_path(@communicate_message) %> |
+<%= link_to 'Back', communicate_message_path %>
