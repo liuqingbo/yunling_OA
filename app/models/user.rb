@@ -23,7 +23,11 @@ class User < ActiveRecord::Base
   has_many :send_applications, :class_name=>"Application", :foreign_key=>"sender", :extend => ApplicationTypeFinder
 
   has_many :application_receivers
-  has_many :receive_applications, :through => :application_receivers, :extend => ApplicationTypeFinder
+  has_many :receive_applications, :through => :application_receivers do
+    def pending
+      where('application_receivers.state == ?', 'pending')
+    end
+  end
 
   scope :search_for_real_name, lambda{|q| {:conditions => ['real_name LIKE ?', "%#{q}%"]}}
 

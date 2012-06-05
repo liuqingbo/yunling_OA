@@ -11,7 +11,7 @@
     <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.unprocessed_application'%></h5>
 
     <ul class="flat" style="margin-top:1em;">
-      <li><%= link_to   I18n.t('side_bar.daily_office.unprocessed_application') , application_receivers_path%></li>
+      <li><%= link_to   I18n.t('side_bar.daily_office.unprocessed_application') + "(#{current_user.receive_applications.pending.size})" , application_receivers_path%></li>
     </ul>
 
     <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.admin_application'%></h5>
