@@ -27,7 +27,7 @@
     </td>
   </tr>
   <%if @send%>
-    <tr style="display:none;"><td colspan="2"><%= generate_receiver_detail_info(message)%></td></tr>
+    <tr style="display:none;" id="receive_info"><td colspan="2" class="inv lp" ><%= generate_receiver_detail_info(message)%></td></tr>
   <%end%>
 <% end %>
 </table>

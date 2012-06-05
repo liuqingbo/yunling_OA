@@ -48,5 +48,11 @@ $(document).ready(function(){
 $(window).ready(
   function(){
     $('p.notice ').delay(6000).slideUp('slow');
+
+    $('table tr td .details_info').click(function(){
+        $(this).parent().parent().next().toggle();
+    }
+    );
   }
 );
+
