@@ -8,7 +8,11 @@ class MessageReceiver < ActiveRecord::Base
     state :read
 
     event :read_message do
-      transitions :to=>:read, :from=>:unread
+      transitions :to=>:read, :from=>[:unread, :read]
     end
+  end
+
+  def MessageReceiver.find_by_message_and_receiver(message, receiver)
+    where("message_id = ? and user_id = ?", message.id, receiver.id)
   end
 end

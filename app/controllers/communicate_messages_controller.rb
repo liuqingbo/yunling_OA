@@ -47,7 +47,7 @@ class CommunicateMessagesController < ApplicationController
 
   def show
     @communicate_message = CommunicateMessage.find(params[:id])
-
+    MessageReceiver.find_by_message_and_receiver(@communicate_message, current_user).first.read_message!
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @communicate_message }
