@@ -19,13 +19,23 @@ class ApplicationReceiver < ActiveRecord::Base
 
   private
 
+    def generate_approve_prompt_info
+      generate_prompt_info(I18n.t('txt.approved'))
+    end
+
+     def generate_reject_prompt_info
+       generate_prompt_info(I18n.t('txt.rejected'))
+     end
 
     def generate_prompt_info(decision)
       info = ""
       info << this.receiver.real_name
       info << decision
-      info << I18n.t('')
-      PromptMessage.create(:content)
-    end
+      info << I18n.t('txt.generate_prompt_info')
+      info << this.receive_application.title + " "
+      info << I18n.t("activerecord.models.#{receive_application.class.to_s.underscore}")
 
+      p = PromptMessage.create(:content => info)
+      p.receivers << receive_application.sender
+    end
 end

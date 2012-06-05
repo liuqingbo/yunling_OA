@@ -127,4 +127,6 @@ zh-CN:
       vice_president: "副总裁"
       president: "总裁"
   txt:
-    generate_prompt_info: ""
+    generate_prompt_info: "您的关于 "
+    approved: "同意"
+    rejected: "拒绝"
