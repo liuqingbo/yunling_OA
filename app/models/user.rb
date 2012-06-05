@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
     def communicate_messages
       where('messages.type == ?', "CommunicateMessage")
     end
+    def unread
+      where('message_receivers.state == ?', "unread")
+    end
   end
 
   has_many :send_applications, :class_name=>"Application", :foreign_key=>"sender", :extend => ApplicationTypeFinder
