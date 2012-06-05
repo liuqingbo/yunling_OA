@@ -17,5 +17,4 @@
       :length => 30) %>
 </p>
 
-<%= link_to 'Edit', edit_communicate_message_path(@communicate_message) %> |
-<%= link_to 'Back', communicate_message_path %>
+<%= link_to I18n.t('operate.back'), communicate_messages_path(:params=>{:flag=>"receive"}) %>

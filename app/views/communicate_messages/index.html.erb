@@ -20,7 +20,6 @@
       <% if not @send%>
         <%= message.sender.real_name%>
       <%else%>
-
         <%= truncate(get_has_many_model_list_name(message, "receivers", "real_name"), :length => 30) %>
         <a class="details_info"><%= I18n.t 'operate.details'%></a>
       <%end%>
