@@ -20,6 +20,7 @@ class ApplicationReceiver < ActiveRecord::Base
   private
     def generate_prompt_info
 
+      PromptMessage.create(:content)
     end
 
 end

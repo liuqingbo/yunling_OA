@@ -105,7 +105,6 @@ zh-CN:
         state: "状态"
         sum: "金额"
 
-
   init_data:
     user:
       name1: "刘清泊"
