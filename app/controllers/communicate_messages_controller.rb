@@ -44,7 +44,12 @@ class CommunicateMessagesController < ApplicationController
   end
 
   def show
+    @communicate_message = CommunicateMessage.find(params[:id])
 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @communicate_message }
+    end
   end
 
 end
