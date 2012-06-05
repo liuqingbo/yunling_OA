@@ -4,6 +4,8 @@ YunlingOA::Application.routes.draw do
 
   resources :prompt_messages
 
+  resources :message_receivers, :only=>[:index]
+
   resources :leave_applications
 
   resources :notices

@@ -8,6 +8,7 @@ zh-CN:
     new: "新建"
     create: "新建"
     update: "更新"
+    details: "详情"
 
   application:
     title: "云灵OA"
@@ -53,16 +54,24 @@ zh-CN:
   views_communicate_message:
     total_message_prompt: "消息总数"
     receiver: "接收者"
+<<<<<<< HEAD
     messages: "消息"
+=======
+    unread: "未读"
+    read:   "已读"
+>>>>>>> upstream/master
 
   views_leave_application:
     total_application_prompt: "请假个数"
     receiver: "接收者"
 
+<<<<<<< HEAD
   views_users:
     persional_infos: "个人信息"
 
 
+=======
+>>>>>>> upstream/master
   activerecord:
     models:
       user: "用户"

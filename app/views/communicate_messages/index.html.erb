@@ -7,11 +7,11 @@
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
   <tr>
     <th class="la" width="70%"><%= I18n.t 'activerecord.attributes.message.content'%></th>
-    <% if not @send%>
-        <th  width="30%"><%= I18n.t 'activerecord.attributes.message.sender'%></th>
-    <%else%>
-        <th  width="30%"><%= I18n.t 'views_communicate_message.receiver'%></th>
-    <%end%>
+  <% if not @send%>
+    <th width="30%"><%= I18n.t 'activerecord.attributes.message.sender'%></th>
+  <%else%>
+    <th width="30%"><%= I18n.t 'views_communicate_message.receiver'%></th>
+  <%end%>
   </tr>
 <% @communicate_messages.each do |message|%>
   <tr>
@@ -22,10 +22,13 @@
       <%else%>
 
         <%= truncate(get_has_many_model_list_name(message, "receivers", "real_name"), :length => 30) %>
+        <a class="details_info"><%= I18n.t 'operate.details'%></a>
       <%end%>
     </td>
-
   </tr>
+  <%if @send%>
+    <tr style="display:none;" id="receive_info"><td colspan="2" class="inv lp" ><%= generate_receiver_detail_info(message)%></td></tr>
+  <%end%>
 <% end %>
 </table>
 

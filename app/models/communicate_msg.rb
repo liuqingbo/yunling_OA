@@ -1,2 +1,0 @@
-class CommunicateMsg < Message
-end

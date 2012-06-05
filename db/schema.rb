@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528035159) do
+ActiveRecord::Schema.define(:version => 20120605035827) do
 
   create_table "application_receivers", :force => true do |t|
     t.integer  "application_id"
@@ -44,13 +44,13 @@ ActiveRecord::Schema.define(:version => 20120528035159) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "state"
   end
 
   create_table "messages", :force => true do |t|
     t.string   "content"
     t.integer  "sender"
     t.string   "type"
-    t.string   "state"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

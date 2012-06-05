@@ -14,7 +14,11 @@ class User < ActiveRecord::Base
   has_many :send_messages, :class_name=>"Message", :foreign_key=>"sender", :extend => MessageTypeFinder
 
   has_many :message_receivers
-  has_many :receive_messages, :through => :message_receivers, :extend => MessageTypeFinder
+  has_many :receive_messages, :through => :message_receivers do
+    def communicate_messages
+      where('messages.type == ?', "CommunicateMessage")
+    end
+  end
 
   has_many :send_applications, :class_name=>"Application", :foreign_key=>"sender", :extend => ApplicationTypeFinder
 

@@ -8,6 +8,7 @@ class CommunicateMessagesController < ApplicationController
       @communicate_messages = current_user.receive_messages.communicate_messages
       @send = false
     end
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
@@ -26,8 +27,9 @@ class CommunicateMessagesController < ApplicationController
 
 
   def create
-    p params
     convert_receiver_ids_by_real_names("communicate_message")
+
+    p params
     @communicate_message = CommunicateMessage.new(params[:communicate_message])
     @communicate_message.sender = current_user
 
