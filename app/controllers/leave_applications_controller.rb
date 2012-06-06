@@ -37,5 +37,13 @@ class LeaveApplicationsController < ApplicationController
 
   end
 
+  def show
+    @leave_application = LeaveApplication.find(params[:id])
+    # LeaveApplication.find_by_message_and_receiver(@communicate_message, current_user).first.read_message!
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @leave_application }
+    end
+  end
 
 end
