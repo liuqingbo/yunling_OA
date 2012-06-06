@@ -66,6 +66,16 @@ zh-CN:
   views_users:
     persional_infos: "个人信息"
 
+  views_application_receivers:
+    title: "接收到的申请"
+    total_application_receivers_prompt: "接收到的申请总数"
+    state_prompt_info: "请选择您的意见"
+    pending: "未处理"
+    approved: "同意"
+    rejected: "拒绝"
+
+
+
   activerecord:
     models:
       user: "用户"
@@ -102,8 +112,11 @@ zh-CN:
         content: "内容"
         sender: "发送者"
         type: "申请类型"
-        state: "状态"
         sum: "金额"
+      application_receiver:
+        state: "状态"
+        reason: "理由"
+
 
   init_data:
     user:

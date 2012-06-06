@@ -1,35 +1,29 @@
 <%= render 'side_bar/daily_office_side_bar' %>
 
-<h1 style="margin-top:0;"><%= I18n.t 'activerecord.models.communicate_message'%></h1>
+<h1 style="margin-top:0;"><%= I18n.t 'views_application_receivers.title'%></h1>
 <p class="subtitle">
-  <%=  I18n.t 'views_communicate_message.total_message_prompt'%> :<%= @communicate_messages.size%>
+  <%=  I18n.t 'views_application_receivers.total_application_receivers_prompt'%> :<%= @application_receivers.size%>
 </p>
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
   <tr>
-    <th class="la" width="70%"><%= I18n.t 'activerecord.attributes.message.content'%></th>
-  <% if not @send%>
-    <th width="30%"><%= I18n.t 'activerecord.attributes.message.sender'%></th>
-  <%else%>
-    <th width="30%"><%= I18n.t 'views_communicate_message.receiver'%></th>
-  <%end%>
+    <th class="la" width="39%"><%= I18n.t 'activerecord.attributes.application.title'%></th>
+    <th width="20%"><%= I18n.t 'activerecord.attributes.application.sender'%></th>
+    <th width="20%"><%= I18n.t 'activerecord.attributes.application_receiver.state'%></th>
+    <th width="21%"><%= I18n.t 'activerecord.attributes.application.type'%></th>
   </tr>
-<% @communicate_messages.each do |message|%>
+<% @application_receivers.each do |application_receiver|%>
   <tr>
-    <td><%= link_to message.content, message, :class => "admin" %></td>
+    <td><%= link_to application_receiver.receive_application.title, edit_application_receiver_path(application_receiver), :class => "admin" %></td>
     <td class="inv lp">
-      <% if not @send%>
-        <%= message.sender.real_name%>
-      <%else%>
-
-        <%= truncate(get_has_many_model_list_name(message, "receivers", "real_name"), :length => 30) %>
-        <a class="details_info"><%= I18n.t 'operate.details'%></a>
-      <%end%>
+        <%= application_receiver.receive_application.sender.real_name%>
     </td>
+    <td>
+        <%= I18n.t("views_application_receivers.#{application_receiver.state}")%>
+    </td>
+    <td class="inv lp">
+        <%= I18n.t("activerecord.models.#{application_receiver.receive_application.class.to_s.underscore}")%>
+    </td>
+
   </tr>
-  <%if @send%>
-    <tr style="display:none;" id="receive_info"><td colspan="2" class="inv lp" ><%= generate_receiver_detail_info(message)%></td></tr>
-  <%end%>
 <% end %>
 </table>
-
-<p><%= link_to I18n.t('operate.new') + I18n.t('activerecord.models.communicate_message'), new_communicate_message_path, :class => "utility" %></p>

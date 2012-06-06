@@ -1,0 +1,48 @@
+  <p>
+    <label for="name"><%= I18n.t 'txt.views_users.login_title', :default => '登录名' %></label></p>
+  <p>
+    <%= settings.text_field :name %>
+  </p>
+
+<p>
+  <label for="email"><%=  I18n.t 'txt.views_users.email_title', :default => 'Email' %></label><br />
+  <%= settings.text_field :email %>
+</p>
+
+<div>
+  <label for="password"><%=  I18n.t 'txt.views_users.password_title', :default => 'Password' %></label><br />
+  <p class="entryhelp"><%=  I18n.t 'txt.views_users.password_field', :default => 'Enter a new password twice to change your password. (must be longer than 5 characters)' %></p>
+  <%= settings.password_field :password, :size => 16 %>
+  <span class="entryhelp">(<%=  I18n.t 'txt.views_users.once', :default => 'once' %>)</span><br />
+  <%= settings.password_field :password_confirmation, :size => 16 %>
+  <span class="entryhelp">(<%=  I18n.t 'txt.views_users.and_again', :default => 'and again' %>)</span>
+</div>
+
+<p>
+  <label for="real_name"><%= I18n.t 'txt.views_users.display_name', :default => 'Real name' %></label><br />
+  <%= settings.text_field :real_name %>
+</p>
+
+<p>
+  <label for="add_roles"><%= I18n.t 'txt.views_users.display_name', :default => '添加角色' %></label><br />
+  <%Role.all.each do |role| %>
+    <label><%= role.name %></label>
+    <%if @user.roles.include?(role)%>
+      <%= check_box_tag "user_module[role_ids][]", role.id, true%> &nbsp;&nbsp;&nbsp;
+    <%else%>
+      <%= check_box_tag "user_module[role_ids][]", role.id, false%> &nbsp;&nbsp;&nbsp;
+    <%end%>
+  <%end%>
+</p>
+
+<p>
+  <label for="add_positions"><%= I18n.t 'txt.views_users.display_name', :default => '添加职位' %></label><br />
+  <%Position.all.each do |position| %>
+    <label><%= position.name %></label>
+    <%if @user.positions.include?(position)%>
+      <%= check_box_tag "user_module[position_ids][]", position.id, true%> &nbsp;&nbsp;&nbsp;
+    <%else%>
+      <%= check_box_tag "user_module[position_ids][]", position.id, false%> &nbsp;&nbsp;&nbsp;
+    <%end%>
+  <%end%>
+</p>

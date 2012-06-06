@@ -17,6 +17,11 @@ class ApplicationReceiver < ActiveRecord::Base
     end
   end
 
+  def state= value
+    approve! if pending? && value == "approved"
+    reject! if pending? && value == "rejected"
+  end
+
   private
 
     def generate_approve_prompt_info
@@ -29,10 +34,10 @@ class ApplicationReceiver < ActiveRecord::Base
 
     def generate_prompt_info(decision)
       info = ""
-      info << this.receiver.real_name
+      info << receiver.real_name
       info << decision
       info << I18n.t('txt.generate_prompt_info')
-      info << this.receive_application.title + " "
+      info << receive_application.title + " "
       info << I18n.t("activerecord.models.#{receive_application.class.to_s.underscore}")
 
       p = PromptMessage.create(:content => info)
