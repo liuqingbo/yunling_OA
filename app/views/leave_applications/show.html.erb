@@ -1,0 +1,27 @@
+<%= render 'side_bar/daily_office_side_bar' %>
+
+<h3><%= I18n.t 'views_communicate_message.messages' %></h3>
+
+<p>
+	<label for="title">
+		<%= I18n.t 'activerecord.attributes.application.title', :default => 'Title' %>
+	</label><br />
+	<%= @leave_application.title %>
+</p>
+
+<p>
+	<label for="content">
+		<%= I18n.t 'activerecord.attributes.application.content', :default => 'Content' %>
+	</label><br />
+	<%= @leave_application.content %>
+</p>
+
+<p>
+  <label for="receivers">
+    <%= I18n.t 'views_leave_application.receiver', :default => 'Receivers' %>
+  </label><br />
+  <%= truncate(get_has_many_model_list_name(@leave_application, "receivers", "real_name"), 
+      :length => 30) %>
+</p>
+
+<%= link_to I18n.t('operate.back'), leave_applications_path %>

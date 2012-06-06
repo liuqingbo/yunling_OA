@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
     def communicate_messages
       where('messages.type == ?', "CommunicateMessage")
     end
+    def prompt_messages
+      where('messages.type == ?', "PromptMessage")
+    end
     def unread
       where('message_receivers.state == ?', "unread")
     end
