@@ -17,9 +17,10 @@ class ApplicationReceiver < ActiveRecord::Base
     end
   end
 
-  def state= value
-    approve! if pending? && value == "approved"
-    reject! if pending? && value == "rejected"
+  def update_attribute_wrap params
+    approve! if pending? && params[:state] == "approved"
+    reject! if pending? && params[:state] == "rejected"
+    update_attributes params
   end
 
   private

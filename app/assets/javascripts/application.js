@@ -51,8 +51,25 @@ $(window).ready(
 
     $('table tr td .details_info').click(function(){
         $(this).parent().parent().next().toggle();
+    });
+
+    if($('#application_receiver_state option:selected').val() == "rejected"){
+        $('#application_receiver_state').attr("disabled", "disabled");
+        $('#application_receiver_reason_field textarea').attr("disabled", "disabled");
+    }else if($('#application_receiver_state option:selected').val() == "approved"){
+        $('#application_receiver_state').attr("disabled", "disabled");
+        $('#application_receiver_reason_field').hide();
     }
-    );
+    $('#application_receiver_state').change(function(){
+        $("select option:selected").each(function(){
+            if($(this).val() == "approved"){
+                $('#application_receiver_reason_field textarea').val("");
+                $('#application_receiver_reason_field textarea').hide();
+            }else if($(this).val() == "rejected"){
+                $('#application_receiver_reason_field textarea').show();
+            }
+        })
+    });
   }
 );
 

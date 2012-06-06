@@ -77,6 +77,9 @@ zh-CN:
 
 
   activerecord:
+    errors:
+      messages:
+        record_invalid: "字段非法"
     models:
       user: "用户"
       notice: "通告"

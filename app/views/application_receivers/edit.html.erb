@@ -31,17 +31,21 @@
 
   <div class="field">
     <label for="state"><%=  I18n.t 'views_application_receivers.state_prompt_info', :default => 'your option' %></label><br />
-    <%= f.select(:state, state_for_select, {:id => :application_receiver_state_select})%>
+    <%= f.select(:state, state_for_select)%>
   </div>
 
-  <div id="application_receiver_reason field">
+  <div id="application_receiver_reason_field">
       <p>
         <label for="reason"><%=  I18n.t 'activerecord.attributes.application_receiver.reason', :default => 'reason' %></label><br />
         <%= f.text_area :reason, :rows=>5%>
       </p>
   </div>
   <div class="actions">
-    <p><%= f.submit  I18n.t 'operate.update' %></p>
+    <%if @application_receiver.pending?%>
+        <p><%= f.submit  I18n.t 'operate.update' %></p>
+    <%else%>
+        <p><%= link_to I18n.t 'operate.back' , application_receivers_path%></p>
+    <%end%>
   </div>
 <% end %>
 <br />
