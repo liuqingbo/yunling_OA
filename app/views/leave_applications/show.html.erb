@@ -24,4 +24,11 @@
       :length => 30) %>
 </p>
 
+<p>
+  <label for="state">
+    <%= I18n.t 'activerecord.attributes.application_receiver.state', :default => 'Status' %>
+  </label><br />
+  <%= get_state_of_message(@leave_application) %>
+</p>
+
 <%= link_to I18n.t('operate.back'), leave_applications_path %>
