@@ -17,4 +17,19 @@ module ApplicationHelper
     str
   end
 
+  def get_state_of_message(message)
+    state = ''
+    if message.application_receivers.reject.size > 0
+      state = I18n.t('views_application_receivers.rejected')
+      message.application_receivers.reject.each do |msg|
+        state += ' ' + I18n.t('views_application_receivers.reason') + ': ' + msg.reason + ' '
+      end
+    elsif message.application_receivers.pending.size > 0
+      state = I18n.t('views_application_receivers.pending')
+    else
+      state = I18n.t('views_application_receivers.approved')
+    end
+    state
+  end
+
 end
