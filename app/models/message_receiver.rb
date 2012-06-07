@@ -15,4 +15,5 @@ class MessageReceiver < ActiveRecord::Base
   def MessageReceiver.find_by_message_and_receiver(message, receiver)
     where("message_id = ? and user_id = ?", message.id, receiver.id)
   end
+
 end
