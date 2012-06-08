@@ -26,14 +26,14 @@
     <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.admin_application'%></h5>
 
     <ul class="flat" style="margin-top:1em;">
-      <li><%= link_to   I18n.t('activerecord.models.item_application') , roles_path %></li>
+      <li><%= link_to   I18n.t('activerecord.models.item_application') , item_applications_path %></li>
       <li><%= link_to   I18n.t('activerecord.models.leave_application') , leave_applications_path %></li>
     </ul>
 
     <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.finance_application'%></h5>
 
     <ul class="flat" style="margin-top:1em;">
-      <li><%= link_to   I18n.t('activerecord.models.expense_application') , roles_path %></li>
+      <li><%= link_to   I18n.t('activerecord.models.expense_application') , expense_applications_path %></li>
     </ul>
     
 <% end %>

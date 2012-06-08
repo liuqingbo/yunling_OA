@@ -8,6 +8,10 @@ YunlingOA::Application.routes.draw do
 
   resources :leave_applications
 
+  resources :item_applications
+
+  resources :expense_applications
+
   resources :notices
 
   resources :users

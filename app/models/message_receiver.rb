@@ -8,12 +8,18 @@ class MessageReceiver < ActiveRecord::Base
     state :read
 
     event :read_message do
-      transitions :to=>:read, :from=>[:unread, :read]
+      transitions :to=>:read, :from=>:unread
     end
   end
 
-  def MessageReceiver.find_by_message_and_receiver(message, receiver)
-    where("message_id = ? and user_id = ?", message.id, receiver.id)
+  def MessageReceiver.read_message_if_necessary(message, receiver)
+    return unless m = find_by_message_and_receiver(message, receiver).first
+    read_message! if m.unread?
   end
+
+  private
+    def MessageReceiver.find_by_message_and_receiver(message, receiver)
+      where("message_id = ? and user_id = ?", message.id, receiver.id)
+    end
 
 end

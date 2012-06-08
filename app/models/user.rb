@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :message_receivers
   has_many :receive_messages, :through => :message_receivers do
     def communicate_messages
-      where('messages.type == ?', "CommunicateMessage")
+      where('type == ?', "CommunicateMessage")
     end
     def prompt_messages
       where('messages.type == ?', "PromptMessage")

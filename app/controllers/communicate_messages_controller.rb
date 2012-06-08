@@ -29,7 +29,6 @@ class CommunicateMessagesController < ApplicationController
   def create
     convert_receiver_ids_by_real_names("communicate_message")
 
-    p params
     @communicate_message = CommunicateMessage.new(params[:communicate_message])
     @communicate_message.sender = current_user
 
@@ -47,7 +46,8 @@ class CommunicateMessagesController < ApplicationController
 
   def show
     @communicate_message = CommunicateMessage.find(params[:id])
-    MessageReceiver.find_by_message_and_receiver(@communicate_message, current_user).first.read_message!
+    MessageReceiver.read_message_if_necessary(@communicate_message, current_user)
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @communicate_message }

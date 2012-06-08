@@ -67,6 +67,17 @@ zh-CN:
     receiver: "接收者"
     title: "标题"
     content: "内容"
+  views_item_application:
+    total_application_prompt: "物品申请个数"
+    receiver: "接收者"
+    title: "标题"
+    content: "内容"
+
+  views_expense_application:
+    total_application_prompt: " 报销申请个数"
+    receiver: "接收者"
+    title: "标题"
+    content: "内容"
 
   views_users:
     persional_infos: "个人信息"

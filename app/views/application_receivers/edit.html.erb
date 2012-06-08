@@ -44,7 +44,7 @@
     <%if @application_receiver.pending?%>
         <p><%= f.submit  I18n.t 'operate.update' %></p>
     <%else%>
-        <p><%= link_to I18n.t 'operate.back' , application_receivers_path%></p>
+        <p><%= link_to I18n.t('operate.back') , application_receivers_path%></p>
     <%end%>
   </div>
 <% end %>
