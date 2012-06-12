@@ -14,7 +14,7 @@ class MessageReceiver < ActiveRecord::Base
 
   def MessageReceiver.read_message_if_necessary(message, receiver)
     return unless m = find_by_message_and_receiver(message, receiver).first
-    read_message! if m.unread?
+    m.read_message! if m.unread?
   end
 
   private

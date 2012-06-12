@@ -19,6 +19,10 @@ user_finance = User.create!(:name=>"finance", :real_name=>I18n.t("init_data.user
         :password=>"123456", :password_confirmation=>"123456")
 user_sale = User.create!(:name=>"sale", :real_name=>I18n.t("init_data.user.name5"), :email=>"qingbo_matthew@163.com",
         :password=>"123456", :password_confirmation=>"123456")
+admin_manager = User.create!(:name=>"admin_manager", :real_name=>I18n.t("init_data.user.admin_manager"), :email=>"qingbo_matthew@163.com",
+        :password=>"123456", :password_confirmation=>"123456")
+admin_department_manager = User.create!(:name=>"admin_department_manager", :real_name=>I18n.t("init_data.user.admin_department_manager"),
+        :email=>"qingbo_matthew@163.com", :password=>"123456", :password_confirmation=>"123456")
 
 
 Role.delete_all
@@ -26,26 +30,30 @@ operator = Role.create!(:name=>I18n.t("init_data.role.operator"))
 admin = Role.create!(:name=>I18n.t("init_data.role.admin"))
 finance = Role.create!(:name=>I18n.t("init_data.role.finance"));
 sale = Role.create!(:name=>I18n.t("init_data.role.sale"))
-normal_user = Role.create!(:name=>I18n.t("init_data.role.normal_user"))
+developer = Role.create!(:name=>I18n.t("init_data.role.developer"))
 
 user1.roles << operator
-user1.roles << admin
-user1.roles << finance
-user1.roles << sale
-user1.roles << normal_user
-
 user_operator.roles << operator
 user_admin.roles << admin
 user_finance.roles << finance
 user_sale.roles << sale
+admin_manager.roles << admin
+admin_department_manager.roles << admin
 
 Position.delete_all
 staff = Position.create!(:name=>I18n.t("init_data.position.staff"))
-project_manager = Position.create!(:name=>I18n.t("init_data.position.project_manager"))
+manager = Position.create!(:name=>I18n.t("init_data.position.manager"))
 department_manager = Position.create!(:name=>I18n.t("init_data.position.department_manager"))
 vice_president = Position.create!(:name=>I18n.t("init_data.position.vice_president"))
 president = Position.create!(:name=>I18n.t("init_data.position.president"))
 
+user1.positions << staff
+user_operator.positions << staff
+user_admin.positions << staff
+user_finance.positions << staff
+user_sale.positions << staff
+admin_manager.positions << manager
+admin_department_manager.positions << department_manager
 
 Right.delete_all
 notices_create = Right.create!(:resource => "notices", :operation => "CREATE")

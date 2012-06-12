@@ -143,17 +143,19 @@ zh-CN:
       name3: "行政人员-甲"
       name4: "财务人员-甲"
       name5: "销售人员-甲"
+      admin_manager: "人事经理"
+      admin_department_manager: "人事部门经理"
 
     role:
       operator: "管理员"
       admin: "行政"
       finance: "财务"
       sale: "销售"
-      normal_user: "普通用户"
+      developer: "研发"
 
     position:
       staff: "普通员工"
-      project_manager: "项目经理"
+      manager: "经理"
       department_manager: "部门经理"
       vice_president: "副总裁"
       president: "总裁"

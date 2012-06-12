@@ -1,11 +1,5 @@
 class User < ActiveRecord::Base
 #  attr_accessible :name, :real_name, :email, :password, :password_confirmation
-  validates :name, :presence => true, :uniqueness => true
-
-  validates :password, :confirmation => true
-
-  validate  :password_must_be_present
-
   has_and_belongs_to_many :roles
   has_and_belongs_to_many :positions
 
@@ -37,26 +31,38 @@ class User < ActiveRecord::Base
 
   scope :search_for_real_name, lambda{|q| {:conditions => ['real_name LIKE ?', "%#{q}%"]}}
 
-  def User.authenticate(name, password)
-    if user = find_by_name(name)
-      if user.hashed_password == encrypt_password(password, user.salt)
-        user
+  class << self
+    def authenticate(name, password)
+      if user = find_by_name(name)
+        if user.hashed_password == encrypt_password(password, user.salt)
+          user
+        end
       end
     end
-  end
 
-  def User.encrypt_password(password, salt)
-    Digest::SHA2.hexdigest(password + "wibble" + salt)
-  end
-
-  def User.find_ids_by_real_names(real_names)
-    ids = []
-    real_names.each do |real_name|
-      u = User.find_by_real_name(real_name)
-      ids << u.id   if (u)
+    def encrypt_password(password, salt)
+      Digest::SHA2.hexdigest(password + "wibble" + salt)
     end
-    ids
+
+    def find_ids_by_real_names(real_names)
+      ids = []
+      real_names.each do |real_name|
+        u = User.find_by_real_name(real_name)
+        ids << u.id   if (u)
+      end
+      ids
+    end
   end
+
+  attr_accessor :password_confirmation
+  attr_reader :password
+
+  validates :name, :presence => true, :uniqueness => true
+
+  validates :password, :confirmation => true
+
+  validate  :password_must_be_present
+
 
   # 'password' is a virtual attribute
   def password=(password)
@@ -66,18 +72,6 @@ class User < ActiveRecord::Base
       generate_salt
       self.hashed_password = self.class.encrypt_password(password, salt)
     end
-  end
-
-  def password
-
-  end
-
-  def password_confirmation
-
-  end
-
-  def password_confirmation=(password)
-
   end
 
   def can?(action, resource)
