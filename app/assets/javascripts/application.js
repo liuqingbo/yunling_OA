@@ -20,9 +20,20 @@ function split(val) {
 function extractLast(term) {
     return split(term).pop();
 }
+
+function askUserName(request, response){
+    $.ajax({
+        url: "/users.js",
+        dataType: "json",
+        data: {term: extractLast(request.term)},
+        success: function(data){
+            response(data);
+        }
+    })
+}
 $(document).ready(function(){
-    $('.autocomplete_input_text').autocomplete({
-        source: function(request, response){
+    $('.autocomplete_input_multip_text').autocomplete({
+        source: function (request, response){
             $.ajax({
                 url: "/users.js",
                 dataType: "json",
@@ -42,8 +53,26 @@ $(document).ready(function(){
             terms.push("");
             this.value = terms.join(";");
             return false;
-        }});
+        }
+    });
+    $('.autocomplete_input_single_text').autocomplete({
+        source: function (request, response){
+            $.ajax({
+                url: "/users.js",
+                dataType: "json",
+                data: {term: extractLast(request.term)},
+                success: function(data){
+                    response(data);
+                }
+            })
+        },
+        focus: function(){
+            return false;
+        }
+    });
+
 });
+
 
 $(window).ready(
   function(){
