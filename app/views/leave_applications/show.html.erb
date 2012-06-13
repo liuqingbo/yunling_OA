@@ -1,2 +1,24 @@
 <%= render 'side_bar/daily_office_side_bar' %>
-<%= render :partial=>'application/show',  :locals => { :application => @leave_application , :type=>@type}%>
+<h3><%= I18n.t 'activerecord.attributes.application.title' %></h3>
+
+<p>
+  <label><%= I18n.t 'views_leave_application.leave_time' %>:&nbsp;</label>
+  <%= @leave_application.start_date %>&nbsp;--&nbsp;
+  <%= @leave_application.end_date %>
+</p>
+
+<p>
+  <label for="content">
+    <%= I18n.t 'activerecord.attributes.application.content', :default => 'Content' %>:
+  </label><br />
+  <%= @leave_application.content %>
+</p>
+
+<p>
+  <label for="state">
+    <%= I18n.t 'activerecord.attributes.application_receiver.state', :default => 'Status' %>:
+  </label><br />
+  <%= get_state_of_message(@leave_application) %>
+</p>
+
+<%= link_to I18n.t('operate.back'), send("leave_applications_path") %>

@@ -7,6 +7,7 @@ zh-CN:
     show: "详情"
     new: "新建"
     create: "新建"
+    commit: "提交"
     update: "更新"
     details: "详情"
 
@@ -67,6 +68,7 @@ zh-CN:
     receiver: "接收者"
     title: "标题"
     content: "内容"
+    leave_time: "请假时间"
   views_item_application:
     total_application_prompt: "物品申请个数"
     receiver: "接收者"
@@ -138,9 +140,12 @@ zh-CN:
         sender: "发送者"
         type: "消息类型"
         state: "状态"
+        create_at: "创建时间"
       application:
-        title: "标题"
-        content: "内容"
+        title: "请假单"
+        start_time: "开始时间" 
+        end_time: "结束时间"
+        content: "事由"
         sender: "发送者"
         type: "申请类型"
         sum: "金额"

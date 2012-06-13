@@ -53,6 +53,7 @@ $(document).ready(function(){
             terms.push("");
             this.value = terms.join(";");
             return false;
+
         }
     });
     $('.autocomplete_input_single_text').autocomplete({
@@ -70,7 +71,12 @@ $(document).ready(function(){
             return false;
         }
     });
-
+    $(function() {
+        $( ".timepicker" ).datetimepicker({
+            timeFormat: 'hh:mm',
+            dateFormat: 'yy-MM-dd'
+        });
+    });
 });
 
 

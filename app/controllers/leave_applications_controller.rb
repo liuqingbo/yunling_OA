@@ -1,6 +1,6 @@
 class LeaveApplicationsController < ApplicationController
 
-  before_filter :get_type_value
+  # before_filter :get_type_value
 
   def index
     @leave_applications = current_user.send_applications.leave_applications
@@ -19,7 +19,6 @@ class LeaveApplicationsController < ApplicationController
       format.xml  { render :xml => @leave_application }
     end
   end
-
 
   def create
     @leave_application = LeaveApplication.new(params[:leave_application])
@@ -46,8 +45,9 @@ class LeaveApplicationsController < ApplicationController
   end
 
   private
-    def get_type_value
-      @type = "leave_application"
-    end
+
+  def get_type_value
+    @type = "leave_application"
+  end
 
 end
