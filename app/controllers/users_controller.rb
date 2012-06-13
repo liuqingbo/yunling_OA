@@ -58,11 +58,10 @@ class UsersController < ApplicationController
     render :action => "edit"
   end
 
-
   # POST /users
   # POST /users.xml
   def create
-    @user = User.new(params[:user])
+    convert_to_parent_id_from_real_name()
 
     respond_to do |format|
       if @user.save
@@ -81,6 +80,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
+    convert_to_parent_id_from_real_name()
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -120,4 +120,14 @@ class UsersController < ApplicationController
       redirect_to root_url,
               :notice=>I18n.t("error.permit_deny")
     end
+
+    def convert_to_parent_id_from_real_name
+      if u = User.find_by_real_name(params[:user][:parent_id])
+        params[:user][:parent_id] = u.id
+      else
+        params[:user][:parent_id] = nil
+      end
+    end
+
+
 end

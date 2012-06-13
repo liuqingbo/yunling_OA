@@ -24,11 +24,6 @@
     <%= f.text_area :content %>
   </p>
 
-  <p>
-    <label for="receiver"><%= I18n.t "views_#{type}.receiver" %>
-    </label><br/>
-    <%= f.text_field :receiver_ids , :value=>"", :class=>"autocomplete_input_text"%>
-  </p>
   <p><%= submit_tag I18n.t('operate.create') %></p>
 <% end %>
 <%= link_to I18n.t('operate.back'), send("#{type}s_path") %>

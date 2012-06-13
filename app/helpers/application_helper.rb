@@ -17,19 +17,17 @@ module ApplicationHelper
     str
   end
 
-  def get_state_of_message(message)
-    state = ''
-    if message.application_receivers.reject.size > 0
-      state = I18n.t('views_application_receivers.rejected')
-      message.application_receivers.reject.each do |msg|
-        state += ' ' + I18n.t('views_application_receivers.reason') + ': ' + msg.reason + ' '
+  def get_application_detail_info application
+    str = ""
+    application.application_receivers.each do |a_receiver|
+      str << a_receiver.receiver.real_name + " : " +I18n.t("activerecord.state.application.#{a_receiver.state}" + "<br/>")
+      if a_receiver.rejected?
+        str << "<div class='application_receiver_reason'>" + I18n.t("activerecord.attributes.application_receiver.reason") + " : "
+        str << a_receiver.reason
+        str << "</div>"
       end
-    elsif message.application_receivers.pending.size > 0
-      state = I18n.t('views_application_receivers.pending')
-    else
-      state = I18n.t('views_application_receivers.approved')
     end
-    state
+    str
   end
 
 end

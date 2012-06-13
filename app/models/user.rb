@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base
 #  attr_accessible :name, :real_name, :email, :password, :password_confirmation
+
+  Positions = {:staff => I18n.t("init_data.position.staff"),
+        :manager => I18n.t("init_data.position.manager"),
+        :department_manager => I18n.t("init_data.position.department_manager"),
+        :vice_president => I18n.t("init_data.position.vice_president"),
+        :president => I18n.t("init_data.position.president")}
+
   has_and_belongs_to_many :roles
-  has_and_belongs_to_many :positions
 
   has_many :notices
 
@@ -31,6 +37,11 @@ class User < ActiveRecord::Base
 
   scope :search_for_real_name, lambda{|q| {:conditions => ['real_name LIKE ?', "%#{q}%"]}}
 
+  acts_as_tree :order=>:name
+
+  attr_accessor :password_confirmation
+  attr_reader :password
+
   class << self
     def authenticate(name, password)
       if user = find_by_name(name)
@@ -54,15 +65,13 @@ class User < ActiveRecord::Base
     end
   end
 
-  attr_accessor :password_confirmation
-  attr_reader :password
-
   validates :name, :presence => true, :uniqueness => true
 
   validates :password, :confirmation => true
 
   validate  :password_must_be_present
 
+  after_destroy :ensure_an_admin_remains
 
   # 'password' is a virtual attribute
   def password=(password)
@@ -78,12 +87,24 @@ class User < ActiveRecord::Base
     roles.includes(:rights).for(action, resource).any?
   end
 
-  after_destroy :ensure_an_admin_remains
-
   def ensure_an_admin_remains
     if User.count.zero?
       raise "Can't delete last user_module"
     end
+  end
+
+  def level_differ(another_user)
+    level = 0
+    user = self
+    while(user.parent && user != another_user)
+      user = user.parent
+      level += 1
+    end
+
+    if user == another_user
+      return level
+    end
+    raise "wrong agrument | current user is not child of the agrument"
   end
 
   private

@@ -8,7 +8,6 @@ class ApplicationReceiversController < ApplicationController
     @application_receiver = ApplicationReceiver.find(params[:id])
   end
 
-
   def update
     @application_receiver = ApplicationReceiver.find(params[:id])
 
@@ -19,7 +18,6 @@ class ApplicationReceiversController < ApplicationController
         format.html { render :action => "edit" }
       end
     end
-
-
   end
+
 end

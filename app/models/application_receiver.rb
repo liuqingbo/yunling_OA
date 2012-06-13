@@ -9,11 +9,17 @@ class ApplicationReceiver < ActiveRecord::Base
     state :rejected
 
     event :approve do
-      transitions :to=>:approved, :from=>:pending, :on_transition => :generate_approve_prompt_info
+      transitions :to=>:approved, :from=>:pending, :on_transition => [:generate_prompt_info, :generate_another_receiver_if_necessary]
     end
 
     event :reject do
-      transitions :to=>:rejected, :from=>:pending, :on_transition => :generate_reject_prompt_info
+      transitions :to=>:rejected, :from=>:pending, :on_transition => :generate_prompt_info
+    end
+  end
+
+  class << self
+    def find_by_receiver_and_application(receiver, application)
+      where("user_id = ? and application_id=?", receiver.id, application.id).first
     end
   end
 
@@ -25,23 +31,26 @@ class ApplicationReceiver < ActiveRecord::Base
 
   private
 
-    def generate_approve_prompt_info
-      generate_prompt_info(I18n.t('txt.approved'))
-    end
-
-     def generate_reject_prompt_info
-       generate_prompt_info(I18n.t('txt.rejected'))
-     end
-
-    def generate_prompt_info(decision)
+    def generate_prompt_info
       info = ""
       info << receiver.real_name
-      info << decision
       info << I18n.t('txt.generate_prompt_info')
       info << receive_application.title + " "
       info << I18n.t("activerecord.models.#{receive_application.class.to_s.underscore}")
 
       p = PromptMessage.create(:content => info)
       p.receivers << receive_application.sender
+    end
+
+    def generate_another_receiver_if_necessary
+      sender = self.receive_application.sender
+      receiver = self.receiver
+      return if sender.level_differ(receiver) >= 2
+      return if not receiver.parent
+
+      application_receiver = ApplicationReceiver.new
+      application_receiver.receiver = receiver.parent
+      application_receiver.receive_application = self.receive_application
+      application_receiver.save!
     end
 end

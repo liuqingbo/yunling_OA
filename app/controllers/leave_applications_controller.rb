@@ -22,11 +22,8 @@ class LeaveApplicationsController < ApplicationController
 
 
   def create
-    convert_receiver_ids_by_real_names("leave_application")
-
     @leave_application = LeaveApplication.new(params[:leave_application])
     @leave_application.sender = current_user
-
     respond_to do |format|
       if @leave_application.save
         format.html { redirect_to(@leave_application, :notice => 'leave_application was successfully created.') }

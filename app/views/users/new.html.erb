@@ -1,38 +1,6 @@
 <%= render 'side_bar/sys_manage_sidebar' %>
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %>
-        prohibited this user from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<h3><%= I18n.t 'views_users.persional_infos' %></h3>
 
-
-  <p><label for="name"><%= I18n.t 'txt.login_name', :default => '登录名' %></label><br/>
-  <%= f.text_field :name %></p>
-
-  <p><label for="real_name"><%= I18n.t 'txt.login_name', :default => '真实姓名' %></label><br/>
-  <%= f.text_field :real_name %></p>
-
-  <p><label for="email"><%= I18n.t 'txt.email', :default => 'Email' %></label><br/>
-  <%= f.text_field :email %></p>
-
-  <p><label for="password"><%= I18n.t 'txt.password', :default => 'Password' %></label><br/>
-  <%= f.password_field :password %></p>
-
-  <p><label for="password_confirmation"><%= I18n.t 'txt.password_confirm', :default => 'Confirm Password' %></label><br/>
-  <%= f.password_field :password_confirmation %></p>
-
-
-  <%#= render :partial => 'captcha' # enable for brainbuster %>
-
-  <p><%= submit_tag I18n.t('txt.sign_up', :default => '新建') %></p>
-
-<% end %>
+<%= render 'form'%>
 
 <%= link_to '返回', users_path %>

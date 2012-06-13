@@ -22,8 +22,6 @@ class ExpenseApplicationsController < ApplicationController
 
 
   def create
-    convert_receiver_ids_by_real_names("expense_application")
-
     @expense_application = ExpenseApplication.new(params[:expense_application])
     @expense_application.sender = current_user
 

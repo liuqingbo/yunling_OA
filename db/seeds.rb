@@ -10,20 +10,24 @@
 User.delete_all
 Notice.delete_all
 user1 = User.create!(:name=>"matthew_liu", :real_name=>I18n.t("init_data.user.name1"), :email=>"qingbo_matthew@163.com",
-        :password=>"198612", :password_confirmation=>"198612")
+        :password=>"198612", :password_confirmation=>"198612", :position=>User::Positions[:staff])
 user_operator = User.create!(:name=>"operator", :real_name=>I18n.t("init_data.user.name2"), :email=>"qingbo_matthew@163.com",
-        :password=>"123456", :password_confirmation=>"123456")
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
 user_admin = User.create!(:name=>"admin", :real_name=>I18n.t("init_data.user.name3"), :email=>"qingbo_matthew@163.com",
-        :password=>"123456", :password_confirmation=>"123456")
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
 user_finance = User.create!(:name=>"finance", :real_name=>I18n.t("init_data.user.name4"), :email=>"qingbo_matthew@163.com",
-        :password=>"123456", :password_confirmation=>"123456")
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
 user_sale = User.create!(:name=>"sale", :real_name=>I18n.t("init_data.user.name5"), :email=>"qingbo_matthew@163.com",
-        :password=>"123456", :password_confirmation=>"123456")
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
 admin_manager = User.create!(:name=>"admin_manager", :real_name=>I18n.t("init_data.user.admin_manager"), :email=>"qingbo_matthew@163.com",
-        :password=>"123456", :password_confirmation=>"123456")
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:manager])
 admin_department_manager = User.create!(:name=>"admin_department_manager", :real_name=>I18n.t("init_data.user.admin_department_manager"),
-        :email=>"qingbo_matthew@163.com", :password=>"123456", :password_confirmation=>"123456")
+        :email=>"qingbo_matthew@163.com", :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:department_manager])
 
+user_admin.parent = admin_manager
+admin_manager.parent = admin_department_manager
+user_admin.save!
+admin_manager.save!
 
 Role.delete_all
 operator = Role.create!(:name=>I18n.t("init_data.role.operator"))
@@ -39,21 +43,6 @@ user_finance.roles << finance
 user_sale.roles << sale
 admin_manager.roles << admin
 admin_department_manager.roles << admin
-
-Position.delete_all
-staff = Position.create!(:name=>I18n.t("init_data.position.staff"))
-manager = Position.create!(:name=>I18n.t("init_data.position.manager"))
-department_manager = Position.create!(:name=>I18n.t("init_data.position.department_manager"))
-vice_president = Position.create!(:name=>I18n.t("init_data.position.vice_president"))
-president = Position.create!(:name=>I18n.t("init_data.position.president"))
-
-user1.positions << staff
-user_operator.positions << staff
-user_admin.positions << staff
-user_finance.positions << staff
-user_sale.positions << staff
-admin_manager.positions << manager
-admin_department_manager.positions << department_manager
 
 Right.delete_all
 notices_create = Right.create!(:resource => "notices", :operation => "CREATE")

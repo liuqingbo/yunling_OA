@@ -35,14 +35,17 @@
 </p>
 
 <p>
-  <label for="add_positions">
-  	<%= I18n.t 'activerecord.models.position', :default => '职位' %>
+  <label for="position">
+  	<%= I18n.t 'activerecord.attributes.user.position', :default => 'position' %>
   </label><br />
-  <%Position.all.each do |position| %>
-    <%if @user.positions.include?(position)%>
-      <label><%= position.name %></label>
-   	<%end%>
-  <%end%>
+  <%= @user.position%>
+</p>
+
+<p>
+  <label for="parent_id">
+  	<%= I18n.t 'activerecord.attributes.user.parent_id', :default => 'parent' %>
+  </label><br />
+  <%= get_parent_name(@user)%>
 </p>
 
 <%= link_to I18n.t('operate.edit'), edit_user_path(@user) %> |

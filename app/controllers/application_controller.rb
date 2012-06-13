@@ -24,9 +24,8 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def convert_receiver_ids_by_real_names(arg_name)
-      user_ids = User.find_ids_by_real_names(params[arg_name][:receiver_ids].split(";"))
-      params[arg_name][:receiver_ids] = user_ids
+    def get_user_ids_by_real_names(names)
+      user_ids = User.find_ids_by_real_names(names.split(";"))
     end
   
 end

@@ -31,7 +31,7 @@
         "receivers", "real_name"), :length => 30) %>
       </td>
       <td>
-        <%= truncate(get_state_of_message(application), :length => 6) %>
+        <%= application.get_receivers_opinion%>
       </td>
     </tr>
   <% end %>

@@ -81,6 +81,10 @@ zh-CN:
 
   views_users:
     persional_infos: "个人信息"
+    password_prompt: "请输入密码两次"
+    once: "再输入一次"
+    add_roles: "添加角色"
+    add_positions: "添加职位"
 
   views_application_receivers:
     title: "接收到的申请"
@@ -95,10 +99,11 @@ zh-CN:
     errors:
       messages:
         record_invalid: "字段非法"
+      application:
+        create_receiver_error: "无法创建接收者"
     models:
       user: "用户"
       notice: "通告"
-      position: "职位"
       role: "角色"
 
       communicate_message: "通讯消息"
@@ -106,13 +111,21 @@ zh-CN:
       item_application: "物品申请"
       leave_application: "请假申请"
       expense_application: "报销申请"
+    state:
+      application:
+        rejected: "拒绝"
+        approved: "同意"
+        pending: "处理中"
 
     attributes:
       user:
         name: "登录名"
         password: "密码"
+        password_confirmation: "重复密码"
         real_name: "真实姓名"
         email: "邮箱"
+        parent_id: "上级"
+        position: "职位"
       notice:
         title: "标题"
         description: "内容"
@@ -160,6 +173,6 @@ zh-CN:
       vice_president: "副总裁"
       president: "总裁"
   txt:
-    generate_prompt_info: "您的关于 "
+    generate_prompt_info: "处理了您的关于 "
     approved: "同意"
     rejected: "拒绝"

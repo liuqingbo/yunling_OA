@@ -21,8 +21,6 @@ class ItemApplicationsController < ApplicationController
 
 
   def create
-    convert_receiver_ids_by_real_names("item_application")
-
     @item_application = ItemApplication.new(params[:item_application])
     @item_application.sender = current_user
 

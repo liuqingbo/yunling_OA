@@ -31,7 +31,7 @@ gem 'therubyracer'
 
 gem "transitions", :require => ["transitions", "active_model/transitions"]
 
-
+gem "acts_as_tree_rails3"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
