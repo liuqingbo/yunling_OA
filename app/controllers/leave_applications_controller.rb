@@ -1,6 +1,6 @@
 class LeaveApplicationsController < ApplicationController
 
-  before_filter :get_type_value
+  # before_filter :get_type_value
 
   def index
     @leave_applications = current_user.send_applications.leave_applications
@@ -20,10 +20,10 @@ class LeaveApplicationsController < ApplicationController
     end
   end
 
-
   def create
-    convert_receiver_ids_by_real_names("leave_application")
-
+    # convert_receiver_ids_by_real_names("leave_application")
+    p "++++++++" 
+    p params
     @leave_application = LeaveApplication.new(params[:leave_application])
     @leave_application.sender = current_user
 
@@ -49,8 +49,9 @@ class LeaveApplicationsController < ApplicationController
   end
 
   private
-    def get_type_value
-      @type = "leave_application"
-    end
+
+  def get_type_value
+    @type = "leave_application"
+  end
 
 end

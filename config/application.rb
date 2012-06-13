@@ -62,5 +62,9 @@ module YunlingOA
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Asia/Shanghai
+    config.time_zone = "Beijing"
+    config.active_record.default_timezone = :Beijing
   end
 end
