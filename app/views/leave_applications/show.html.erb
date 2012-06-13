@@ -16,9 +16,17 @@
 
 <p>
   <label for="state">
-    <%= I18n.t 'activerecord.attributes.application_receiver.state', :default => 'Status' %>:
+    <%= I18n.t 'activerecord.attributes.application_receiver.state', :default => 'Status' %>
   </label><br />
-  <%= get_state_of_message(@leave_application) %>
+  <%@leave_application.application_receivers.each do |a_receiver|%>
+    <%= a_receiver.receiver.real_name + " : " +I18n.t("activerecord.state.application.#{a_receiver.state}")%> <br/>
+    <%if a_receiver.rejected?%>
+      <%= I18n.t("activerecord.attributes.application_receiver.reason") + " : "%><br/>
+      <div class='application_receiver_reason'>
+        <%= a_receiver.reason%>
+      </div>
+    <%end%>
+  <%end%>
 </p>
 
-<%= link_to I18n.t('operate.back'), send("leave_applications_path") %>
+<%= link_to I18n.t('operate.back'), leave_applications_path %>
