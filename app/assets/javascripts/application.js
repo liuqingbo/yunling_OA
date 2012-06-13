@@ -43,6 +43,13 @@ $(document).ready(function(){
             this.value = terms.join(";");
             return false;
         }});
+
+    $(function() {
+        $( ".timepicker" ).datetimepicker({
+            timeFormat: 'hh:mm',
+            dateFormat: 'yy-MM-dd'
+        });
+    });
 });
 
 $(window).ready(

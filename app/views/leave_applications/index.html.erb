@@ -1,2 +1,37 @@
 <%= render 'side_bar/daily_office_side_bar' %>
-<%= render :partial=>'application/index',  :locals => { :applications => @leave_applications , :type => @type}%>
+<h1 style="margin-top:0;">
+  <%= I18n.t "activerecord.models.leave_application" %>
+</h1>
+<p class="subtitle">
+  <%= I18n.t "views_leave_application.total_application_prompt" %>:&nbsp;
+  <%= @leave_applications.size %>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="0" class="wide notices">
+  <tr>
+    <th width="55%" class="la">
+      <%= I18n.t 'activerecord.attributes.application.content' %>
+    </th>
+    <th width="15%" class="la">
+      <%= I18n.t 'activerecord.attributes.message.state' %>
+    </th>
+    <th width="30%" class ="la">
+      <%= I18n.t 'activerecord.attributes.message.create_at' %>
+    </th>
+  </tr>
+  <% @leave_applications.each do |application| %>
+    <tr>
+      <td>
+        <%= link_to application.content, application, :class => "admin" %>
+      </td>
+      <td>
+        <%= truncate(get_state_of_message(application), :length => 6) %>
+      </td>
+      <td><%= application.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to I18n.t('operate.new') + I18n.t("activerecord.models.leave_application"), send("new_leave_application_path"), :class => "utility" %>
+</p>
