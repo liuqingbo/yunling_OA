@@ -28,7 +28,7 @@ class LeaveApplicationsController < ApplicationController
         format.html { redirect_to(@leave_application, :notice => 'leave_application was successfully created.') }
         format.xml  { render :xml => @leave_application, :status => :created, :location => @leave_application }
       else
-        format.html { render :action => "new" }
+        format.html { render "new" }
         format.xml  { render :xml => @leave_application.errors, :status => :unprocessable_entity }
       end
     end
@@ -44,10 +44,5 @@ class LeaveApplicationsController < ApplicationController
     end
   end
 
-  private
-
-  def get_type_value
-    @type = "leave_application"
-  end
 
 end

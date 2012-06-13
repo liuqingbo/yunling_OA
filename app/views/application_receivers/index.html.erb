@@ -13,9 +13,9 @@
   </tr>
 <% @application_receivers.each do |application_receiver|%>
   <tr>
-    <td><%= link_to application_receiver.receive_application.title, edit_application_receiver_path(application_receiver), :class => "admin" %></td>
+    <td><%= link_to application_receiver.receive_application_title, edit_application_receiver_path(application_receiver), :class => "admin" %></td>
     <td class="inv lp">
-        <%= application_receiver.receive_application.sender.real_name%>
+        <%= application_receiver.receive_application_sender_real_name%>
     </td>
     <td>
         <%= I18n.t("views_application_receivers.#{application_receiver.state}")%>

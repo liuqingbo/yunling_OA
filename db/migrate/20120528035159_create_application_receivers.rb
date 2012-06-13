@@ -7,6 +7,9 @@ class CreateApplicationReceivers < ActiveRecord::Migration
       t.text    :reason
       t.timestamps
     end
+
+    add_index :application_receivers, :application_id
+    add_index :application_receivers, :user_id
   end
 
   def self.down

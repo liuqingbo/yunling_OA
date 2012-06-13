@@ -6,6 +6,8 @@ class CreateGrants < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :grants, :right_id
+    add_index :grants, :role_id
   end
 
   def self.down

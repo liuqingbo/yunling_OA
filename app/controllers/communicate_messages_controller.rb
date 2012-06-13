@@ -37,7 +37,7 @@ class CommunicateMessagesController < ApplicationController
         format.html { redirect_to(@communicate_message, :notice => 'communicate_message was successfully created.') }
         format.xml  { render :xml => @communicate_message, :status => :created, :location => @communicate_message }
       else
-        format.html { render :action => "new" }
+        format.html { render "new" }
         format.xml  { render :xml => @communicate_message.errors, :status => :unprocessable_entity }
       end
     end

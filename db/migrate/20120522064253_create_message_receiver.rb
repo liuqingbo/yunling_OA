@@ -6,6 +6,9 @@ class CreateMessageReceiver < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :message_receivers, :message_id
+    add_index :message_receivers, :user_id
   end
 
   def self.down

@@ -16,7 +16,6 @@ YunlingOA::Application.routes.draw do
 
   resources :users
 
-  resources :roles
   resource  :session
 
   match '/signup' => 'users#new', :as => 'signup'

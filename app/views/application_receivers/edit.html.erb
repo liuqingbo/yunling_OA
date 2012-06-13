@@ -16,7 +16,7 @@
 
   <div class="field">
     <label for="sender"><%= I18n.t 'activerecord.attributes.application.sender' %></label><br />
-    <%= @application_receiver.receive_application.sender.real_name%>
+    <%= @application_receiver.receive_application_sender_real_name%>
   </div>
 
   <div class="field">
@@ -26,7 +26,7 @@
 
   <div class="field">
     <label for="content"><%=  I18n.t 'activerecord.attributes.application.content', :default => 'Type' %></label><br />
-    <%= @application_receiver.receive_application.content%>
+    <%= @application_receiver.receive_application_content%>
   </div>
 
   <div class="field">

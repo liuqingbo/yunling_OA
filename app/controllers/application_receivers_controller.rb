@@ -15,7 +15,7 @@ class ApplicationReceiversController < ApplicationController
       if @application_receiver.update_attribute_wrap(params[:application_receiver])
         format.html { redirect_to(application_receivers_path, :notice => 'application_receiver was successfully update.') }
       else
-        format.html { render :action => "edit" }
+        format.html { render "edit" }
       end
     end
   end

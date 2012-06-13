@@ -7,6 +7,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 class UsersController < ApplicationController
+  before_filter :find_user, :only=>[:show, :edit, :destroy, :update]
   # GET /users
   # GET /users.xml
   skip_before_filter :authorize  
@@ -29,8 +30,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
@@ -50,7 +49,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
   end
 
   def settings
@@ -81,7 +79,6 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     convert_to_parent_id_from_real_name()
-    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(user_path(@user),
@@ -98,7 +95,6 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
-    @user = User.find(params[:id])
     begin
       @user.destroy
       flash[:notice] = "User #{@user.name} deleted"
@@ -127,6 +123,10 @@ class UsersController < ApplicationController
       else
         params[:user][:parent_id] = nil
       end
+    end
+
+    def find_user
+      @user = User.find(params[:id])
     end
 
 

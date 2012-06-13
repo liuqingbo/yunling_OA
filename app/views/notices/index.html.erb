@@ -22,7 +22,7 @@
 
     <td class="inv lp">
       <%= I18n.t 'views_notice.publish_time_details', :when => notice.created_at%><br />
-      <strong><%= I18n.t 'views_notice.publisher_details', :user => notice.user.real_name %></strong>
+      <strong><%= I18n.t 'views_notice.publisher_details', :user => notice.user_real_name %></strong>
     </td>
   </tr>
 <% end %>

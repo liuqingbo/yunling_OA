@@ -29,7 +29,7 @@ class ItemApplicationsController < ApplicationController
         format.html { redirect_to(@item_application, :notice => 'item_application was successfully created.') }
         format.xml  { render :xml => @item_application, :status => :created, :location => @item_application }
       else
-        format.html { render :action => "new" }
+        format.html { render "new" }
         format.xml  { render :xml => @item_application.errors, :status => :unprocessable_entity }
       end
     end

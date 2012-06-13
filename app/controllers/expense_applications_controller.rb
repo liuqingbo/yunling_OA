@@ -30,7 +30,7 @@ class ExpenseApplicationsController < ApplicationController
         format.html { redirect_to(@expense_application, :notice => 'expense_application was successfully created.') }
         format.xml  { render :xml => @expense_application, :status => :created, :location => @expense_application }
       else
-        format.html { render :action => "new" }
+        format.html { render "new" }
         format.xml  { render :xml => @expense_application.errors, :status => :unprocessable_entity }
       end
     end

@@ -1,6 +1,9 @@
 class PromptMessagesController < ApplicationController
   def index
     @prompt_messages = current_user.receive_messages.prompt_messages
+    @prompt_messages.each do |prompt_messages|
+      MessageReceiver.read_message_if_necessary(prompt_messages, current_user)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @prompt_messages}
@@ -8,13 +11,12 @@ class PromptMessagesController < ApplicationController
   end
 
   def show
-  	@prompt_message = PromptMessage.find(params[:id])
- 	MessageReceiver.find_by_message_and_receiver(@prompt_message, current_user)
- 	.first.read_message!
+    @prompt_message = PromptMessage.find(params[:id])
+    MessageReceiver.read_message_if_necessary(@prompt_message, current_user)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @prompt_message }
     end
-  end
+    end
 
 end
