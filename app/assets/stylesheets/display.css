@@ -950,3 +950,13 @@ div.editbox ul.help {
 {
   color: #666;
 }
+
+label {
+	/*color: #B4886B;*/
+	font-size: 1.0em;
+	font-weight: bold;
+	/*display: block;*/
+	/*width: 150px;*/
+	/*float: left;*/
+}
+label:after { content: ": " }
