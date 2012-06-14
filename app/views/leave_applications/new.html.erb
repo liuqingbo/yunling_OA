@@ -12,24 +12,22 @@
   <% end %>
 
   <p>
-    <label for="title" >
-      <h2><%= I18n.t 'activerecord.attributes.application.title' %></h2>
-    </label>
+    <h2><%= I18n.t 'activerecord.attributes.application.title' %></h2>
   </p>
 
   <p>
-    <label for="start_date" >
-      <%= I18n.t 'activerecord.attributes.application.start_time' %>:&nbsp;
+    <label for="start_at" >
+      <%= I18n.t 'activerecord.attributes.application.start_at' %>
     </label>
-    <%= f.text_field :start_date, :class => "timepicker", :size => '15' %>&nbsp;&nbsp;
-    <label for="end_date" >
-      <%= I18n.t 'activerecord.attributes.application.end_time' %>:&nbsp;
+    <%= f.text_field :start_at, :class => "timepicker", :size => '15' %>&nbsp;&nbsp;
+    <label for="end_at" >
+      <%= I18n.t 'activerecord.attributes.application.end_at' %>
     </label>
-    <%= f.text_field :end_date, :class => "timepicker", :size => '15' %>
+    <%= f.text_field :end_at, :class => "timepicker", :size => '15' %>
   </p>
 
   <p>
-    <label for="content"><%= I18n.t 'activerecord.attributes.application.content'%>:
+    <label for="content"><%= I18n.t 'views_leave_application.leave_for'%>
     </label><br/>
     <%= f.text_area :content, :size => "60x10" %>
   </p>
