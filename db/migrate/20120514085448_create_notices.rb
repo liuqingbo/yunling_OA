@@ -7,7 +7,6 @@ class CreateNotices < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :notices, :user_id
   end
 
   def self.down

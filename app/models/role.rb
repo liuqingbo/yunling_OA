@@ -1,5 +1,13 @@
 class Role < ActiveRecord::Base
   attr_accessible :name
+
+  ROLES = {
+    :operator => I18n.t("init_data.role.operator"),
+    :admin    => I18n.t("init_data.role.admin"),
+    :finace   => I18n.t("init_data.role.finance"),
+    :sale     => I18n.t("init_data.role.sale"),
+    :developer=> I18n.t("init_data.role.developer")
+  }
   has_and_belongs_to_many :users
   has_many :grants
   has_many :rights, :through=>:grants 
