@@ -67,7 +67,6 @@ zh-CN:
     total_application_prompt: "请假次数"
     receiver: "接收者"
     title: "标题"
-    content: "内容"
     leave_time: "请假时间"
     leave_for: "请假事由"
   views_item_application:
@@ -79,8 +78,14 @@ zh-CN:
   views_expense_application:
     total_application_prompt: " 花销申请个数"
     receiver: "接收者"
-    title: "标题"
-    content: "内容"
+    title: "费用申请单"
+    reason: "补充说明"
+    use: "用途"
+    item_name: "购买物品名称"
+    sum: "共花费金额(￥)"
+    project: "项目"
+    office: "办公"
+    other: "其他"
 
   views_users:
     persional_infos: "个人信息"
@@ -113,7 +118,7 @@ zh-CN:
       prompt_message: "提示消息"
       item_application: "物品申请"
       leave_application: "请假申请"
-      expense_application: "报销申请"
+      expense_application: "费用申请"
     state:
       application:
         rejected: "拒绝"
@@ -146,7 +151,7 @@ zh-CN:
         title: "请假单"
         start_at: "开始时间" 
         end_at: "结束时间"
-        content: "事由"
+        reason: "事由"
         sender: "申请人"
         type: "申请类型"
         sum: "金额"

@@ -1,2 +1,37 @@
 <%= render 'side_bar/daily_office_side_bar' %>
-<%= render :partial=>'application/index',  :locals => { :applications => @expense_applications, :type=>@type}%>
+<h1 style="margin-top:0;">
+  <%= I18n.t "activerecord.models.expense_application" %>
+</h1>
+<p class="subtitle">
+  <%= I18n.t "views_expense_application.total_application_prompt" %>:&nbsp;
+  <%= @expense_applications.size %>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="0" class="wide notices">
+  <tr>
+    <th width="55%" class="la">
+      <%= I18n.t 'views_expense_application.use' %>
+    </th>
+    <th width="15%" class="la">
+      <%= I18n.t 'activerecord.attributes.message.state' %>
+    </th>
+    <th width="30%" class ="la">
+      <%= I18n.t 'activerecord.attributes.message.create_at' %>
+    </th>
+  </tr>
+  <% @expense_applications.each do |application| %>
+    <tr>
+      <td>
+        <%= link_to application.use, application, :class => "admin" %>
+      </td>
+      <td>
+        <%= application.get_receivers_opinion %>
+      </td>
+      <td><%= application.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to I18n.t('operate.new') + I18n.t("activerecord.models.expense_application"), new_expense_application_path, :class => "utility" %>
+</p>
