@@ -16,13 +16,13 @@ class User < ActiveRecord::Base
   has_many :message_receivers
   has_many :receive_messages, :through => :message_receivers do
     def communicate_messages
-      where('messages.type == ?', "CommunicateMessage")
+      where('messages.type = ?', "CommunicateMessage")
     end
     def prompt_messages
-      where('messages.type == ?', "PromptMessage")
+      where('messages.type = ?', "PromptMessage")
     end
     def unread
-      where('message_receivers.state == ?', "unread")
+      where('message_receivers.state = ?', "unread")
     end
   end
 
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   has_many :application_receivers
   has_many :receive_applications, :through => :application_receivers do
     def pending
-      where('application_receivers.state == ?', 'pending')
+      where('application_receivers.state = ?', 'pending')
     end
   end
 
