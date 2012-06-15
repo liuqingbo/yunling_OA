@@ -27,16 +27,15 @@
   </tr>
   <% @leave_applications.each do |application| %>
     <tr>
-      <td><%= application.sender_real_name%></td>
-      <td><%= application.start_at%></td>
-      <td><%= application.end_at%></td>
+      <td><%= application.sender_real_name %></td>
+      <td><%= application.start_at %></td>
+      <td><%= application.end_at %></td>
       <td>
-        <%= link_to application.reason, application, :class => "admin" %>
+        <%= link_to application.reason, admin_leave_application_path(application), :class => "admin" %>
       </td>
       <td>
-        <%= application.get_receivers_opinion%>
+        <%= application.get_receivers_opinion %>
       </td>
     </tr>
   <% end %>
 </table>
-
