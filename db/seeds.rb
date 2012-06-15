@@ -30,11 +30,11 @@ user_admin.save!
 admin_manager.save!
 
 Role.delete_all
-operator = Role.create!(:name=>I18n.t("init_data.role.operator"))
-admin = Role.create!(:name=>I18n.t("init_data.role.admin"))
-finance = Role.create!(:name=>I18n.t("init_data.role.finance"));
-sale = Role.create!(:name=>I18n.t("init_data.role.sale"))
-developer = Role.create!(:name=>I18n.t("init_data.role.developer"))
+operator = Role.create!(:name=>Role::ROLES[:operator])
+admin = Role.create!(:name=>Role::ROLES[:admin])
+finance = Role.create!(:name=>Role::ROLES[:finance])
+sale = Role.create!(:name=>Role::ROLES[:sale])
+developer = Role.create!(:name=>Role::ROLES[:developer])
 
 user1.roles << operator
 user_operator.roles << operator
