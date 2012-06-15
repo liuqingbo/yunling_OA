@@ -27,6 +27,10 @@ YunlingOA::Application.routes.draw do
     resources :leave_applications
   end
 
+  namespace :finance do
+    resources :expense_applications
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
