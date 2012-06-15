@@ -8,12 +8,12 @@
 </p>
 
 <p>
-  <label for="content">
+  <label for="reason">
     <%= I18n.t 'views_leave_application.leave_for' %>
   </label><br />
   <%= @leave_application.reason %>
 </p>
 
-<%= render("application/detail_state_info", :application=>@expense_application)%>
+<%= render("application/detail_state_info", :application => @leave_application) %>
 
 <%= link_to I18n.t('operate.back'), leave_applications_path %>

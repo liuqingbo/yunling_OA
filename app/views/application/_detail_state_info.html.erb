@@ -2,7 +2,7 @@
   <label for="state">
     <%= I18n.t 'activerecord.attributes.application_receiver.state', :default => 'Status' %>
   </label><br/>
-  <%= application.get_receivers_opinion%>
+  <%= application.get_receivers_opinion %>
   <div class="application_receiver_detail_state">
   <% application.application_receivers.each do |a_receiver| %>
     <%= a_receiver.receiver.real_name + " : " +I18n.t("activerecord.state.application.#{a_receiver.state}") %> <br/>
