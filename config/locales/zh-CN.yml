@@ -64,12 +64,12 @@ zh-CN:
     messages: "消息"
 
   views_leave_application:
-    total_application_prompt: "请假个数"
+    total_application_prompt: "请假次数"
     receiver: "接收者"
     title: "标题"
     content: "内容"
     leave_time: "请假时间"
-
+    leave_for: "请假事由"
   views_item_application:
     total_application_prompt: "物品申请个数"
     receiver: "接收者"
@@ -144,8 +144,8 @@ zh-CN:
         create_at: "创建时间"
       application:
         title: "请假单"
-        start_time: "开始时间" 
-        end_time: "结束时间"
+        start_at: "开始时间" 
+        end_at: "结束时间"
         content: "事由"
         sender: "申请人"
         type: "申请类型"

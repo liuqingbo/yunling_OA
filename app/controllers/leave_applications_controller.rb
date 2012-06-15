@@ -44,5 +44,4 @@ class LeaveApplicationsController < ApplicationController
     end
   end
 
-
 end
