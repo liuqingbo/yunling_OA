@@ -76,7 +76,7 @@ zh-CN:
     content: "内容"
 
   views_expense_application:
-    total_application_prompt: " 花销申请个数"
+    total_application_prompt: "费用申请次数"
     receiver: "接收者"
     title: "费用申请单"
     reason: "补充说明"
