@@ -1,0 +1,46 @@
+<%= render 'side_bar/daily_office_side_bar' %>
+<h3><%= I18n.t 'activerecord.attributes.application.title' %></h3>
+
+<p>
+  <label><%= I18n.t 'activerecord.attributes.application.sender' %></label><br />
+  <%= @expense_application.sender_real_name %>
+</p>
+
+<p>
+  <label for="item_name">
+    <%= I18n.t 'views_expense_application.item_name' %>
+  </label><br />
+  <%= @expense_application.item_name %>
+</p>
+
+<p>
+  <label for="use">
+    <%= I18n.t 'views_expense_application.use' %>
+  </label><br />
+  <%= @expense_application.use %>
+</p>
+
+<p>
+  <label for="reason">
+    <%= I18n.t 'views_expense_application.reason' %>
+  </label><br />
+  <%= @expense_application.reason %>
+</p>
+
+<p>
+  <label for="sum">
+    <%= I18n.t 'views_expense_application.sum' %>
+  </label><br />
+  <%= @expense_application.sum %>
+</p>
+
+<p>
+  <label for="created_at">
+    <%= I18n.t 'activerecord.attributes.application.created_at' %>
+  </label><br />
+  <%= @expense_application.created_at %>
+</p>
+
+<%= render("application/detail_state_info", :application=>@expense_application)%>
+
+<%= link_to I18n.t('operate.back'), finance_expense_applications_path %>

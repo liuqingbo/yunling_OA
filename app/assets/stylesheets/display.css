@@ -952,14 +952,12 @@ div.editbox ul.help {
 }
 
 label {
-	/*color: #B4886B;*/
+	color: #B4886B;
 	font-size: 1.0em;
 	font-weight: bold;
-	/*display: block;*/
-	/*width: 150px;*/
-	/*float: left;*/
 }
 label:after { content: ": " }
+
 div.application_receiver_detail_state{
     padding-top:1px;
     padding-left:10px;
