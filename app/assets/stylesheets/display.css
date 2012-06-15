@@ -960,3 +960,11 @@ label {
 	/*float: left;*/
 }
 label:after { content: ": " }
+div.application_receiver_detail_state{
+    padding-top:1px;
+    padding-left:10px;
+}
+.application_receiver_detail_state .application_receiver_reason {
+    padding-top:1px;
+    padding-left:20px;
+}

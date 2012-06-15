@@ -159,7 +159,7 @@ zh-CN:
         use: "花销用途"
 
       application_receiver:
-        state: "状态"
+        state: "处理状态"
         reason: "理由"
 
 

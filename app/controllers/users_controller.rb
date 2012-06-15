@@ -15,11 +15,14 @@ class UsersController < ApplicationController
   skip_before_filter :check_authorization, :only=>[:settings, :update, :show]
 
   def index
+    p "1111111111111111111"
     if params[:term]
       @users = User.search_for_real_name(params[:term]).order(:real_name)
     else
       @users = User.order(:real_name)
     end
+
+    p @users
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }

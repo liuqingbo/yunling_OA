@@ -27,19 +27,6 @@
   <%= @expense_application.reason %>
 </p>
 
-<p>
-  <label for="state">
-    <%= I18n.t 'activerecord.attributes.application_receiver.state', :default => 'Status' %>
-  </label><br />
-  <% @expense_application.application_receivers.each do |a_receiver| %>
-    <%= a_receiver.receiver.real_name + " : " +I18n.t("activerecord.state.application.#{a_receiver.state}") %> <br/>
-    <% if a_receiver.rejected? %>
-      <%= I18n.t("activerecord.attributes.application_receiver.reason") + " : " %><br/>
-      <div class='application_receiver_reason'>
-        <%= a_receiver.reason %>
-      </div>
-    <% end %>
-  <% end %>
-</p>
+<%= render("application/detail_state_info", :application=>@expense_application)%>
 
 <%= link_to I18n.t('operate.back'), expense_applications_path %>
