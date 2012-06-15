@@ -1,6 +1,6 @@
 class ExpenseApplicationsController < ApplicationController
 
-  before_filter :get_type_value
+  # before_filter :get_type_value
 
   def index
     @expense_applications = current_user.send_applications.expense_applications
