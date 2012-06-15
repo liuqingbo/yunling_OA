@@ -10,19 +10,17 @@ class UsersController < ApplicationController
   before_filter :find_user, :only=>[:show, :edit, :destroy, :update]
   # GET /users
   # GET /users.xml
-  skip_before_filter :authorize  
-  before_filter :check_if_modify_own_info, :only=>[:show]
-  skip_before_filter :check_authorization, :only=>[:settings, :update, :show]
+  before_filter :check_authorization_unless_modify_own_info, :only=>[:show]
+  before_filter :check_authorization_unless_js_respond, :only=>[:index]
+  skip_before_filter :check_authorization, :only=>[:settings, :update, :show, :index]
 
   def index
-    p "1111111111111111111"
     if params[:term]
       @users = User.search_for_real_name(params[:term]).order(:real_name)
     else
       @users = User.order(:real_name)
     end
 
-    p @users
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
@@ -112,10 +110,14 @@ class UsersController < ApplicationController
   end
 
   private
-    def check_if_modify_own_info
-      if current_user.can?(action_name, controller_name) || User.find(params[:id]) == current_user
-        return true;
-      end
+    def check_authorization_unless_modify_own_info
+      return true if current_user.can?(action_name, controller_name) || User.find(params[:id]) == current_user
+      redirect_to root_url,
+              :notice=>I18n.t("error.permit_deny")
+    end
+
+    def check_authorization_unless_js_respond
+      return true if current_user.can?(action_name, controller_name) || request.xhr?
       redirect_to root_url,
               :notice=>I18n.t("error.permit_deny")
     end
