@@ -13,13 +13,13 @@
       <%= I18n.t 'activerecord.attributes.application.sender' %>
     </th>
     <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.application.start_time' %>
+      <%= I18n.t 'activerecord.attributes.application.start_at' %>
     </th>
     <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.application.end_time' %>
+      <%= I18n.t 'activerecord.attributes.application.end_at' %>
     </th>
     <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.application.content' %>
+      <%= I18n.t 'activerecord.attributes.application.reason' %>
     </th>
     <th width="20%" class="la">
       <%= I18n.t 'activerecord.attributes.message.state' %>
@@ -28,10 +28,10 @@
   <% @leave_applications.each do |application| %>
     <tr>
       <td><%= application.sender_real_name%></td>
-      <td><%= application.start_date%></td>
-      <td><%= application.end_date%></td>
+      <td><%= application.start_at%></td>
+      <td><%= application.end_at%></td>
       <td>
-        <%= link_to application.content, application, :class => "admin" %>
+        <%= link_to application.reason, application, :class => "admin" %>
       </td>
       <td>
         <%= application.get_receivers_opinion%>

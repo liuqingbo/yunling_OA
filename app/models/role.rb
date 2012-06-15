@@ -4,7 +4,7 @@ class Role < ActiveRecord::Base
   ROLES = {
     :operator => I18n.t("init_data.role.operator"),
     :admin    => I18n.t("init_data.role.admin"),
-    :finace   => I18n.t("init_data.role.finance"),
+    :finance   => I18n.t("init_data.role.finance"),
     :sale     => I18n.t("init_data.role.sale"),
     :developer=> I18n.t("init_data.role.developer")
   }
