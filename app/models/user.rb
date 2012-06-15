@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   has_many :application_receivers
   has_many :receive_applications, :through => :application_receivers do
     def pending
-      where('application_receivers.state == ?', 'pending')
+      where('application_receivers.state = ?', 'pending')
     end
   end
 

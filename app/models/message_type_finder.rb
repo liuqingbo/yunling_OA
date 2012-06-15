@@ -1,8 +1,8 @@
 module MessageTypeFinder
   def communicate_messages
-    where('type == ?', 'CommunicateMessage')
+    where('type = ?', 'CommunicateMessage')
   end
   def prompt_messages
-    where('type == ?', 'PromptMessage')
+    where('type = ?', 'PromptMessage')
   end
 end
