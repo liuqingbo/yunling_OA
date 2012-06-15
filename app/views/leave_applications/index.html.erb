@@ -22,7 +22,7 @@
   <% @leave_applications.each do |application| %>
     <tr>
       <td>
-        <%= link_to application.content, application, :class => "admin" %>
+        <%= link_to application.reason, application, :class => "admin" %>
       </td>
       <td>
         <%= application.get_receivers_opinion%>

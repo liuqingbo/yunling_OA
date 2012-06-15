@@ -1,3 +1,54 @@
 <%= render 'side_bar/daily_office_side_bar' %>
-<%= render :partial=>'application/new',  :locals => { :application => @expense_application , :type=>@type}%>
+<%= form_for @expense_application do |f| %>
+  <% if @expense_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expense_application.errors.count, "error") %>prohibited this user from being saved:</h2>
+      <ul>
+        <% @expense_application.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
+  <p>
+    <h2><%= I18n.t 'views_expense_application.title' %></h2>
+  </p>
+
+  <p>
+    <label for="item_name"><%= I18n.t 'views_expense_application.item_name'%>
+    </label><br/>
+    <%= f.text_field :item_name, :size => "60" %>
+  </p>
+
+  <p>
+    <label for="use">
+    	<%= I18n.t 'views_expense_application.use'%>
+    </label>
+    <% [ I18n.t('views_expense_application.project'), I18n.t('views_expense_application.office'), I18n.t('views_expense_application.other') ].each do |use| %>
+	    <br><%= f.radio_button 'use', use %>
+	    <% if use != I18n.t('views_expense_application.other') %>
+	    	<%= content_tag "use_#{use}", use %>
+	    <% else %>
+	    	<%= f.text_field :use, :size => "12", :value => I18n.t('views_expense_application.other') %>
+	    <% end %>
+  	<% end %>
+  </p>
+
+  <p>
+    <label for="sum">
+    	<%= I18n.t 'views_expense_application.sum'%>
+    </label><br/>
+    <%= f.text_field :sum, :size => "5" %>
+  </p>
+
+  <p>
+    <label for="reason"><%= I18n.t 'views_expense_application.reason'%>
+    </label><br/>
+    <%= f.text_area :reason, :size => "60x3" %>
+  </p>
+
+  <p><%= submit_tag I18n.t('operate.commit') %></p>
+<% end %>
+
+<%= link_to I18n.t('operate.back'), expense_applications_path %>
