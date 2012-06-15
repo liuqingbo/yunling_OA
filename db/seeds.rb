@@ -65,6 +65,10 @@ operator.rights << users_create
 operator.rights << users_read
 operator.rights << users_update
 operator.rights << users_delete
+admin.rights << users_read
+finance.rights << users_read
+sale.rights << users_read
+developer.rights << users_read
 
 
 roles_create = Right.create!(:resource => "roles", :operation => "CREATE")
