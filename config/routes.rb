@@ -1,5 +1,7 @@
 YunlingOA::Application.routes.draw do
 
+  resources :work_logs
+
   resources :communicate_messages
 
   resources :prompt_messages

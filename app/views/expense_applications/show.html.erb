@@ -1,32 +1,6 @@
 <%= render 'side_bar/daily_office_side_bar' %>
 <h3><%= I18n.t 'views_expense_application.title' %></h3>
 
-<p>
-  <label><%= I18n.t 'views_expense_application.item_name' %></label><br />
-  <%= @expense_application.item_name %>
-</p>
-
-<p>
-  <label>
-    <%= I18n.t 'views_expense_application.use' %>
-  </label><br />
-  <%= @expense_application.use %>
-</p>
-
-<p>
-  <label>
-    <%= I18n.t 'views_expense_application.sum' %>
-  </label><br />
-  <%= @expense_application.sum %>
-</p>
-
-<p>
-  <label>
-    <%= I18n.t 'views_expense_application.reason' %>
-  </label><br />
-  <%= @expense_application.reason %>
-</p>
-
-<%= render("application/detail_state_info", :application=>@expense_application)%>
+<%= render 'detail_info', :expense_application=>@expense_application%>
 
 <%= link_to I18n.t('operate.back'), expense_applications_path %>

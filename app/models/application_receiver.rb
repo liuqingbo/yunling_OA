@@ -9,11 +9,11 @@ class ApplicationReceiver < ActiveRecord::Base
     state :rejected
 
     event :approve do
-      transitions :to=>:approved, :from=>:pending, :on_transition => [:generate_prompt_info, :generate_another_receiver_if_necessary]
+      transitions :to=>:approved, :from=>:pending, :on_transition => [:generate_prompt_info, :generate_another_receiver_or_approve_application]
     end
 
     event :reject do
-      transitions :to=>:rejected, :from=>:pending, :on_transition => :generate_prompt_info
+      transitions :to=>:rejected, :from=>:pending, :on_transition => [:generate_prompt_info, :reject_application]
     end
   end
 
@@ -42,12 +42,17 @@ class ApplicationReceiver < ActiveRecord::Base
       p.receivers << receive_application.sender
     end
 
-    def generate_another_receiver_if_necessary
+    def reject_application
+      receive_application.state = "rejected"
+    end
+
+    def generate_another_receiver_or_approve_application
       sender = self.receive_application.sender
       receiver = self.receiver
-      return if sender.level_differ(receiver) >= 2
-      return if not receiver.parent
-
+      if sender.level_differ(receiver) >= 2  || !receiver.parent
+        receive_application.state = "approved"
+        return
+      end
       application_receiver = ApplicationReceiver.new
       application_receiver.receiver = receiver.parent
       application_receiver.receive_application = self.receive_application

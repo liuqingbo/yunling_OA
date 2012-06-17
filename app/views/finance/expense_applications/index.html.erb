@@ -1,6 +1,6 @@
 <%= render 'side_bar/finance_affaire_side_bar' %>
 <h1 style="margin-top:0;">
-  <%= I18n.t "views_expense_application.expense_application" %>
+  <%= I18n.t "activerecord.models.expense_application" %>
 </h1>
 <p class="subtitle">
   <%= I18n.t "views_expense_application.total_application_prompt" %>:&nbsp;
@@ -13,16 +13,13 @@
       <%= I18n.t 'activerecord.attributes.application.sender' %>
     </th>
     <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.application.item_name' %>
+      <%= I18n.t 'activerecord.attributes.expense_application.item_name' %>
     </th>
     <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.application.sum' %>
+      <%= I18n.t 'activerecord.attributes.expense_application.sum' %>
     </th>
     <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.application.use' %>
-    </th>
-    <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.message.state' %>
+      <%= I18n.t 'activerecord.attributes.expense_application.use' %>
     </th>
   </tr>
   <% @expense_applications.each do |application| %>
@@ -31,9 +28,6 @@
       <td><%= link_to application.item_name, finance_expense_application_path(application), :class => "admin"%></td>
       <td><%= application.sum%></td>
       <td><%= application.use%></td>
-      <td>
-        <%= application.get_receivers_opinion%>
-      </td>
     </tr>
   <% end %>
 </table>

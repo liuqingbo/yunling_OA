@@ -6,7 +6,7 @@
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
   <tr>
     <th class="la" width="70%" colspan="2"><%= I18n.t 'activerecord.models.notice', :default => 'notice' %></th>
-    <th class="la" width="30%" colspan="1"><%= I18n.t 'views_notice.publish_time', :default => 'publish time' %></th>
+    <th class="la" width="30%" colspan="1"><%= I18n.t('activerecord.attributes.notice.created_at', :default => 'publish time') %></th>
   </tr>
   <% for notice in @notices do %>
   <tr class="notice" id="notice_<%= notice.id %>_row">

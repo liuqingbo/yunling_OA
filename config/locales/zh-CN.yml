@@ -1,15 +1,19 @@
 #encoding: utf-8
 zh-CN:
   operate:
-    edit: "编辑"
+    edit: "修改"
     delete: "删除"
     back: "返回"
     show: "详情"
     new: "新建"
-    create: "新建"
+    create: "创建"
     commit: "提交"
-    update: "更新"
+    update: "确认更新"
     details: "详情"
+  submit:
+    location:
+      new: "创建"
+      edit: "确认更新"
 
   application:
     title: "云灵OA"
@@ -25,13 +29,13 @@ zh-CN:
 
   side_bar:
     daily_office:
+      work_log: "工作日志"
       communicate_message_manage: "消息管理"
       inbox: "收件箱"
       outbox: "发件箱"
       prompt_msg: "提示消息"
-      admin_application: "行政申请"
-      finance_application: "财务申请"
-      unprocessed_application: "待处理申请"
+      daily_office_routine: "工作流"
+      unprocessed_application: "待处理事项"
 
   login:
     login_prompt: "请登录"
@@ -49,14 +53,18 @@ zh-CN:
   views_notice:
     title: "公司通告"
     total_notices_prompt: "通告总数"
-    publish_time: "发布时间"
     publish_time_details: "发布于 %{when}"
     publisher_details: "发布者: %{user}"
+
+  views_work_log:
+    title: "工作日志"
+    total_notices_prompt: "日志总数"
+    owner: "创建人"
+    operate: "操作"
 
   views_communicate_message:
     total_message_prompt: "消息总数"
     receiver: "接收者"
-    messages: "消息"
     unread: "未读"
     read:   "已读"
 
@@ -64,29 +72,14 @@ zh-CN:
     messages: "消息"
 
   views_leave_application:
-    total_application_prompt: "请假次数"
+    total_application_prompt: "请假条数"
     receiver: "接收者"
-    title: "标题"
-    leave_time: "请假时间"
-    leave_for: "请假事由"
-  views_item_application:
-    total_application_prompt: "物品申请个数"
-    receiver: "接收者"
-    title: "标题"
-    content: "内容"
+    title: "请假单"
 
   views_expense_application:
-    total_application_prompt: "费用申请次数"
+    total_application_prompt: "费用申请条数"
     receiver: "接收者"
     title: "费用申请单"
-    reason: "补充说明"
-    use: "用途"
-    item_name: "购买物品名称"
-    sum: "共花费金额(￥)"
-    project: "项目"
-    office: "办公"
-    other: "其他"
-    expense_application: "费用申请"
 
   views_users:
     persional_infos: "个人信息"
@@ -99,10 +92,10 @@ zh-CN:
     title: "接收到的申请"
     total_application_receivers_prompt: "接收到的申请总数"
     state_prompt_info: "请选择您的意见"
-    pending: "处理中"
-    approved: "同意"
-    rejected: "拒绝"
-    reason: "原因"
+#    pending: "处理中"
+#    approved: "同意"
+#    rejected: "拒绝"
+#    reason: "原因"
 
   activerecord:
     errors:
@@ -114,12 +107,14 @@ zh-CN:
       user: "用户"
       notice: "通告"
       role: "角色"
+      work_log: "工作日志"
 
       communicate_message: "通讯消息"
       prompt_message: "提示消息"
       item_application: "物品申请"
       leave_application: "请假申请"
       expense_application: "费用申请"
+
     state:
       application:
         rejected: "拒绝"
@@ -127,6 +122,9 @@ zh-CN:
         pending: "处理中"
 
     attributes:
+      common:
+        create_at: "创建时间"
+        state: "状态"
       user:
         name: "登录名"
         password: "密码"
@@ -135,9 +133,12 @@ zh-CN:
         email: "邮箱"
         parent_id: "上级"
         position: "职位"
+      work_log:
+        cotent: "内容"
       notice:
         title: "标题"
         description: "内容"
+        created_at: "发布时间"
       position:
         name: "职位名"
       role:
@@ -146,19 +147,22 @@ zh-CN:
         content: "内容"
         sender: "发送者"
         type: "消息类型"
-        state: "状态"
         create_at: "创建时间"
       application:
-        title: "请假单"
-        start_at: "开始时间" 
-        end_at: "结束时间"
-        reason: "事由"
         sender: "申请人"
         type: "申请类型"
-        sum: "金额"
-        item_name: "物品名称"
-        use: "花销用途"
         created_at: "申请时间"
+      leave_application:
+        use: "请假类型"
+        reason: "请假事由"
+        start_at: "开始时间"
+        end_at: "结束时间"
+      expense_application:
+        use: "花销用途"
+        reason: "明细"
+        item_name: "费用名称"
+        sum: "预计花费(￥)"
+
 
       application_receiver:
         state: "处理状态"
@@ -184,10 +188,23 @@ zh-CN:
 
     position:
       staff: "普通员工"
-      manager: "经理"
+      manager: "主管"
       department_manager: "部门经理"
       vice_president: "副总裁"
       president: "总裁"
+
+    application:
+      use:
+        other: "其他"
+    expense_application:
+      use:
+        project: "项目"
+        office: "办公"
+    leave_application:
+      use:
+        casual_leave: "事假"
+        sick_leave: "病假"
+        office_leave: "公假"
   txt:
     generate_prompt_info: "处理了您的关于 "
     approved: "同意"

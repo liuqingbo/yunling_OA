@@ -1,0 +1,22 @@
+<p>
+  <label><%= I18n.t 'activerecord.attributes.leave_application.start_at' %></label> <br/>
+  <%= leave_application.start_at %>
+</p>
+<p>
+  <label><%= I18n.t 'activerecord.attributes.leave_application.end_at' %></label> <br/>
+  <%= leave_application.end_at %>
+</p>
+
+<p>
+ <label for="use">
+     <%= I18n.t 'activerecord.attributes.leave_application.use'%>    <br/>
+ </label>
+ <%= leave_application.use%>
+<p>
+  <label for="reason">
+    <%= I18n.t 'activerecord.attributes.leave_application.reason' %>
+  </label><br />
+  <%= leave_application.reason %>
+</p>
+
+<%= render("application/detail_state_info", :application => leave_application) %>

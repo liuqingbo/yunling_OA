@@ -1,0 +1,27 @@
+<p>
+  <label><%= I18n.t 'activerecord.attributes.expense_application.item_name' %></label><br />
+  <%= expense_application.item_name %>
+</p>
+
+<p>
+  <label>
+    <%= I18n.t 'activerecord.attributes.expense_application.use' %>
+  </label><br />
+  <%= expense_application.use %>
+</p>
+
+<p>
+  <label>
+    <%= I18n.t 'activerecord.attributes.expense_application.sum' %>
+  </label><br />
+  <%= expense_application.sum %>
+</p>
+
+<p>
+  <label>
+    <%= I18n.t 'activerecord.attributes.expense_application.reason' %>
+  </label><br />
+  <%= expense_application.reason %>
+</p>
+
+<%= render("application/detail_state_info", :application=>expense_application)%>

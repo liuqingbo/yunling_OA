@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  has_many :work_logs
+
   scope :search_for_real_name, lambda{|q| {:conditions => ['real_name LIKE ?', "%#{q}%"]}}
 
   acts_as_tree :order=>:name
@@ -105,6 +107,16 @@ class User < ActiveRecord::Base
       return level
     end
     raise "wrong agrument | current user is not child of the agrument"
+  end
+
+  def get_self_and_children_work_logs(num = 50)
+    ids = children.collect {|child| child.id}
+    ids << self.id
+    WorkLog.find(
+      :all,
+      :conditions => ["user_id in (?)", ids],
+      :order=>:created_at,
+      :limit=>num)
   end
 
   private

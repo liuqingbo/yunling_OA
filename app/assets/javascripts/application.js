@@ -66,6 +66,7 @@ $(document).ready(function(){
             dateFormat: 'yy-MM-dd'
         });
     });
+
 });
 
 
@@ -93,6 +94,9 @@ $(window).ready(
                 $('#application_receiver_reason_field textarea').show();
             }
         })
+    });
+    $('.disable').each(function(){
+        $(this).attr("disabled", "disabled")
     });
   }
 );

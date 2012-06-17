@@ -16,34 +16,28 @@
   </p>
 
   <p>
-    <label for="item_name"><%= I18n.t 'views_expense_application.item_name'%>
+    <label for="item_name"><%= I18n.t 'activerecord.attributes.expense_application.item_name'%>
     </label><br/>
     <%= f.text_field :item_name, :size => "60" %>
   </p>
 
   <p>
     <label for="use">
-    	<%= I18n.t 'views_expense_application.use'%>
+    	<%= I18n.t 'activerecord.attributes.expense_application.use'%>
     </label>
-    <% [ I18n.t('views_expense_application.project'), I18n.t('views_expense_application.office'), I18n.t('views_expense_application.other') ].each do |use| %>
-	    <br><%= f.radio_button 'use', use %>
-	    <% if use != I18n.t('views_expense_application.other') %>
-	    	<%= content_tag "use_#{use}", use %>
-	    <% else %>
-	    	<%= f.text_field :use, :size => "12", :value => I18n.t('views_expense_application.other') %>
-	    <% end %>
-  	<% end %>
+    <br />
+    <%= render 'application/use_radio', :f=>f, :use_names=>ExpenseApplication::USE%>
   </p>
 
   <p>
     <label for="sum">
-    	<%= I18n.t 'views_expense_application.sum'%>
+    	<%= I18n.t 'activerecord.attributes.expense_application.sum'%>
     </label><br/>
     <%= f.text_field :sum, :size => "5" %>
   </p>
 
   <p>
-    <label for="reason"><%= I18n.t 'views_expense_application.reason'%>
+    <label for="reason"><%= I18n.t 'activerecord.attributes.expense_application.reason'%>
     </label><br/>
     <%= f.text_area :reason, :size => "60x3" %>
   </p>

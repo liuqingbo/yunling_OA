@@ -10,13 +10,13 @@
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
   <tr>
     <th width="55%" class="la">
-      <%= I18n.t 'views_leave_application.leave_for' %>
+      <%= I18n.t 'activerecord.attributes.leave_application.reason' %>
     </th>
     <th width="15%" class="la">
-      <%= I18n.t 'activerecord.attributes.message.state' %>
+      <%= I18n.t 'activerecord.attributes.common.state' %>
     </th>
     <th width="30%" class ="la">
-      <%= I18n.t 'activerecord.attributes.message.create_at' %>
+      <%= I18n.t 'activerecord.attributes.application.created_at' %>
     </th>
   </tr>
   <% @leave_applications.each do |application| %>
@@ -25,7 +25,7 @@
         <%= link_to application.reason, application, :class => "admin" %>
       </td>
       <td>
-        <%= application.get_receivers_opinion%>
+        <%= application.state_I18n%>
       </td>
       <td><%= application.created_at %></td>
     </tr>

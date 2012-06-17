@@ -149,6 +149,19 @@ application_receivers.each do|application_receiver|
   end
 end
 
+WorkLog.delete_all
+work_logs = []
+work_logs << Right.create!(:resource => "work_logs", :operation => "CREATE")
+work_logs << Right.create!(:resource => "work_logs", :operation => "READ")
+work_logs << Right.create!(:resource => "work_logs", :operation => "UPDATE")
+work_logs << Right.create!(:resource => "work_logs", :operation => "DELETE")
+work_logs.each do|work_log|
+  Role.all.each do|role|
+    role.rights << work_log
+  end
+end
+
+
 
 
 

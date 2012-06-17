@@ -1,19 +1,6 @@
 <%= render 'side_bar/daily_office_side_bar' %>
-<h3><%= I18n.t 'activerecord.attributes.application.title' %></h3>
+<h3><%= I18n.t 'operate.details' %></h3>
 
-<p>
-  <label><%= I18n.t 'views_leave_application.leave_time' %></label><br />
-  <%= @leave_application.start_at %> ---
-  <%= @leave_application.end_at %>
-</p>
-
-<p>
-  <label for="reason">
-    <%= I18n.t 'views_leave_application.leave_for' %>
-  </label><br />
-  <%= @leave_application.reason %>
-</p>
-
-<%= render("application/detail_state_info", :application => @leave_application) %>
+<%= render("detail_info", :leave_application => @leave_application) %>
 
 <%= link_to I18n.t('operate.back'), leave_applications_path %>

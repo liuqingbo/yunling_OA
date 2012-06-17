@@ -1,6 +1,6 @@
 class Finance::ExpenseApplicationsController < Finance::BaseController
   def index
-    @expense_applications = ExpenseApplication.all
+    @expense_applications = ExpenseApplication.where("state='approved'")
   end
 
   def show
