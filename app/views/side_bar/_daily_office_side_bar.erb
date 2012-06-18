@@ -1,13 +1,16 @@
 <% content_for :right do %>
+  <h5 style="margin-bottom:1.0em;">
+    <%= I18n.t 'side_bar.daily_office.work_log' %>
+  </h5>
+  <ul class="flat" style="margin-top:1em;">
+    <li>
+      <%= link_to I18n.t('side_bar.daily_office.work_log'), work_logs_path %>
+    </li>
+  </ul>
 
-    <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.work_log'%></h5>
-    <ul class="flat" style="margin-top:1em;">
-      <li>
-        <%= link_to  I18n.t('side_bar.daily_office.work_log') , work_logs_path %>
-      </li>
-    </ul>
-
-  <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.communicate_message_manage'%></h5>
+  <h5 style="margin-bottom:1.0em;">
+    <%= I18n.t 'side_bar.daily_office.communicate_message_manage'%>
+  </h5>
   <ul class="flat" style="margin-top:1em;">
     <li>
       <%= link_to  I18n.t('side_bar.daily_office.inbox') + "(#{current_user.receive_messages.communicate_messages.unread.size})", 
@@ -24,13 +27,17 @@
   </ul>
   <hr/>
 
-  <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.unprocessed_application'%></h5>
+  <h5 style="margin-bottom:1.0em;">
+    <%= I18n.t 'side_bar.daily_office.unprocessed_application'%>
+  </h5>
 
   <ul class="flat" style="margin-top:1em;">
-    <li><%= link_to   I18n.t('side_bar.daily_office.unprocessed_application') + "(#{current_user.receive_applications.pending.size})" , application_receivers_path%></li>
+    <li><%= link_to I18n.t('side_bar.daily_office.unprocessed_application') + "(#{current_user.receive_applications.pending.size})" , application_receivers_path%></li>
   </ul>
 
-  <h5 style="margin-bottom:1.0em;"><%= I18n.t 'side_bar.daily_office.daily_office_routine'%></h5>
+  <h5 style="margin-bottom:1.0em;">
+    <%= I18n.t 'side_bar.daily_office.daily_office_routine'%>
+  </h5>
 
   <ul class="flat" style="margin-top:1em;">
     <li><%= link_to   I18n.t('activerecord.models.leave_application') , leave_applications_path %></li>
