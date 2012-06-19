@@ -162,11 +162,9 @@ zh-CN:
         reason: "明细"
         item_name: "费用名称"
         sum: "预计花费(￥)"
-
-
       application_receiver:
         state: "处理状态"
-        reason: "理由"
+        reason: "申请内容"
 
 
   init_data:
