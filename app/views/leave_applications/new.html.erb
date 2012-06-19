@@ -12,7 +12,7 @@
   <% end %>
 
   <p>
-    <h2><%= I18n.t 'views_leave_application.title' %></h2>
+    <h3><%= I18n.t 'views_leave_application.title' %></h3>
   </p>
 
   <p>
@@ -31,7 +31,7 @@
     	<%= I18n.t 'activerecord.attributes.leave_application.use'%>
     </label>
     <br />
-    <%= render 'application/use_radio', :f=>f, :use_names=>LeaveApplication::USE%>
+    <%= render 'application/use_radio', :f => f, :use_names => LeaveApplication::USE %>
   </p>
 
   <p>
