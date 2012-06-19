@@ -9,7 +9,7 @@ zh-CN:
     create: "创建"
     commit: "提交"
     update: "确认更新"
-    details: "详情"
+    details: "详细信息"
   submit:
     location:
       new: "创建"
@@ -162,11 +162,9 @@ zh-CN:
         reason: "明细"
         item_name: "费用名称"
         sum: "预计花费(￥)"
-
-
       application_receiver:
         state: "处理状态"
-        reason: "理由"
+        reason: "申请内容"
 
 
   init_data:

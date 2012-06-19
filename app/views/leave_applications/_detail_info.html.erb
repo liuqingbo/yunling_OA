@@ -1,22 +1,38 @@
-<p>
-  <label><%= I18n.t 'activerecord.attributes.leave_application.start_at' %></label> <br/>
-  <%= leave_application.start_at %>
-</p>
-<p>
-  <label><%= I18n.t 'activerecord.attributes.leave_application.end_at' %></label> <br/>
-  <%= leave_application.end_at %>
-</p>
+<div>
+<table border="1" width="100%">
+  <tr>
+    <td width="20%" class="la">
+      <label>
+        <%= I18n.t 'activerecord.attributes.leave_application.start_at' %>
+      </label>
+    </td>
+    <td width="30%" class="la"><%= leave_application.start_at %></td>
+    <td width="20%" class="la">
+      <label>
+        <%= I18n.t 'activerecord.attributes.leave_application.end_at' %>
+      </label>
+    </td>
+    <td width="30%" class="la"><%= leave_application.end_at %></td>
+  </tr>
 
-<p>
- <label for="use">
-     <%= I18n.t 'activerecord.attributes.leave_application.use'%>    <br/>
- </label>
- <%= leave_application.use%>
-<p>
-  <label for="reason">
-    <%= I18n.t 'activerecord.attributes.leave_application.reason' %>
-  </label><br />
-  <%= leave_application.reason %>
-</p>
+  <tr>
+    <td>
+      <label for="use">
+       <%= I18n.t 'activerecord.attributes.leave_application.use'%>
+      </label>
+    </td>
+    <td colspan="3"><%= leave_application.use%></td>
+  </tr>
 
-<%= render("application/detail_state_info", :application => leave_application) %>
+  <tr>
+    <td>
+      <label for="reason">
+        <%= I18n.t 'activerecord.attributes.leave_application.reason' %>
+      </label>
+    </td>
+    <td colspan="3"><%= leave_application.reason %></td>
+  </tr>
+
+  <%= render("application/detail_state_info", :application => leave_application) %>
+</table>
+</div>
