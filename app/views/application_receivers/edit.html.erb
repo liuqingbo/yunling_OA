@@ -25,7 +25,7 @@
   </div>
 
   <div class="field">
-    <label for="content"><%=  I18n.t 'activerecord.attributes.application.reason', :default => 'reason' %></label><br />
+    <label for="content"><%=  I18n.t "activerecord.attributes.#{@application_receiver.receive_application.class.to_s.underscore}.reason", :default => 'reason' %></label><br />
     <%= @application_receiver.receive_application_reason%>
   </div>
 

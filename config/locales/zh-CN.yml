@@ -152,6 +152,7 @@ zh-CN:
         sender: "申请人"
         type: "申请类型"
         created_at: "申请时间"
+        reason: "事由"
       leave_application:
         use: "请假类型"
         reason: "请假事由"
@@ -164,7 +165,7 @@ zh-CN:
         sum: "预计花费(￥)"
       application_receiver:
         state: "处理状态"
-        reason: "申请内容"
+        reason: "具体原因"
 
 
   init_data:
