@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     convert_to_parent_id_from_real_name()
-
+    @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
         format.html { redirect_to(users_url,
