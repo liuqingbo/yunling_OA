@@ -30,12 +30,17 @@ zh-CN:
   side_bar:
     daily_office:
       work_log: "工作日志"
+      subordinate_work_log: "下属工作日志"
       communicate_message_manage: "消息管理"
       inbox: "收件箱"
       outbox: "发件箱"
       prompt_msg: "提示消息"
       daily_office_routine: "工作流"
       unprocessed_application: "待处理事项"
+    admin_affaire:
+      statistics: "统计"
+      leave_application: "请假申请统计"
+      work_log: "工作日志统计"
 
   login:
     login_prompt: "请登录"
@@ -85,7 +90,7 @@ zh-CN:
     persional_infos: "个人信息"
     password_prompt: "请输入密码两次"
     once: "再输入一次"
-    add_roles: "添加角色"
+    add_roles: "添加职能"
     add_positions: "添加职位"
 
   views_application_receivers:
@@ -171,19 +176,20 @@ zh-CN:
   init_data:
     user:
       name1: "刘清泊"
-      name2: "系统管理员-甲"
-      name3: "行政人员-甲"
-      name4: "财务人员-甲"
-      name5: "销售人员-甲"
-      admin_manager: "人事经理"
-      admin_department_manager: "人事部门经理"
+      name2: "章灵军"
+      name3: "吴卫平"
+      name4: "夏从俊"
+      name5: "刘沛"
+      name6: "人事"
+      name7: "财务"
+      name8: "系统管理员"
 
     role:
       operator: "管理员"
       admin: "行政"
       finance: "财务"
       sale: "销售"
-      developer: "研发"
+      developer: "普通"
 
     position:
       staff: "普通员工"

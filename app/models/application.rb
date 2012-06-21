@@ -8,6 +8,9 @@ class Application < ActiveRecord::Base
     def pending
       where('state = ?', 'pending')
     end
+    def approve
+      where('state = ?', 'approved')
+    end
   end
   has_many :receivers,  :through => :application_receivers
 
@@ -16,6 +19,14 @@ class Application < ActiveRecord::Base
     state :pending
     state :approved
     state :rejected
+    event :approve do
+      transitions :to=>:approved, :from=>:pending
+    end
+
+    event :reject do
+      transitions :to=>:rejected, :from=>:pending
+    end
+
   end
 
 

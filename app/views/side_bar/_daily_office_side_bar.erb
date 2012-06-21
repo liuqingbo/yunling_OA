@@ -6,6 +6,9 @@
     <li>
       <%= link_to I18n.t('side_bar.daily_office.work_log'), work_logs_path %>
     </li>
+    <li>
+      <%= link_to I18n.t('side_bar.daily_office.subordinate_work_log'), work_logs_path(:params=>{:flag=>"subordinate"})%>
+    </li>
   </ul>
 
   <h5 style="margin-bottom:1.0em;">

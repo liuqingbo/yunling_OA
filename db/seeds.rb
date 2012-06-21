@@ -9,25 +9,32 @@
 #encoding: utf-8
 User.delete_all
 Notice.delete_all
-user1 = User.create!(:name=>"matthew_liu", :real_name=>I18n.t("init_data.user.name1"), :email=>"qingbo_matthew@163.com",
-        :password=>"198612", :password_confirmation=>"198612", :position=>User::Positions[:staff])
-user_operator = User.create!(:name=>"operator", :real_name=>I18n.t("init_data.user.name2"), :email=>"qingbo_matthew@163.com",
-        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
-user_admin = User.create!(:name=>"admin", :real_name=>I18n.t("init_data.user.name3"), :email=>"qingbo_matthew@163.com",
-        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
-user_finance = User.create!(:name=>"finance", :real_name=>I18n.t("init_data.user.name4"), :email=>"qingbo_matthew@163.com",
-        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
-user_sale = User.create!(:name=>"sale", :real_name=>I18n.t("init_data.user.name5"), :email=>"qingbo_matthew@163.com",
-        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
-admin_manager = User.create!(:name=>"admin_manager", :real_name=>I18n.t("init_data.user.admin_manager"), :email=>"qingbo_matthew@163.com",
+liu = User.create!(:name=>"liuqingbo", :real_name=>I18n.t("init_data.user.name1"), :email=>"qingbo_matthew@163.com",
         :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:manager])
-admin_department_manager = User.create!(:name=>"admin_department_manager", :real_name=>I18n.t("init_data.user.admin_department_manager"),
-        :email=>"qingbo_matthew@163.com", :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:department_manager])
+zhang = User.create!(:name=>"zhanglingjun", :real_name=>I18n.t("init_data.user.name2"), :email=>"qingbo_matthew@163.com",
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:manager])
+wu = User.create!(:name=>"wuweiping", :real_name=>I18n.t("init_data.user.name3"), :email=>"qingbo_matthew@163.com",
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:vice_president])
+xia = User.create!(:name=>"xiacongjun", :real_name=>I18n.t("init_data.user.name4"), :email=>"qingbo_matthew@163.com",
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:president])
+liu_2 = User.create!(:name=>"liupei", :real_name=>I18n.t("init_data.user.name5"), :email=>"qingbo_matthew@163.com",
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:vice_president])
+renshi = User.create!(:name=>"admin", :real_name=>I18n.t("init_data.user.name6"), :email=>"qingbo_matthew@163.com",
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
+caiwu = User.create!(:name=>"finance", :real_name=>I18n.t("init_data.user.name7"), :email=>"qingbo_matthew@163.com",
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
+op = User.create!(:name=>"operator", :real_name=>I18n.t("init_data.user.name8"), :email=>"qingbo_matthew@163.com",
+        :password=>"123456", :password_confirmation=>"123456", :position=>User::Positions[:staff])
 
-user_admin.parent = admin_manager
-admin_manager.parent = admin_department_manager
-user_admin.save!
-admin_manager.save!
+
+liu.parent = wu
+zhang.parent = wu
+wu.parent = xia
+liu_2.parent = xia
+liu.save!
+zhang.save!
+wu.save!
+liu_2.save!
 
 Role.delete_all
 operator = Role.create!(:name=>Role::ROLES[:operator])
@@ -36,13 +43,14 @@ finance = Role.create!(:name=>Role::ROLES[:finance])
 sale = Role.create!(:name=>Role::ROLES[:sale])
 developer = Role.create!(:name=>Role::ROLES[:developer])
 
-user1.roles << operator
-user_operator.roles << operator
-user_admin.roles << admin
-user_finance.roles << finance
-user_sale.roles << sale
-admin_manager.roles << admin
-admin_department_manager.roles << admin
+liu.roles << developer
+zhang.roles << developer
+wu.roles << developer
+liu_2.roles << developer
+op.roles << operator
+xia.roles << developer
+renshi.roles << admin
+caiwu.roles << finance
 
 Right.delete_all
 notices_create = Right.create!(:resource => "notices", :operation => "CREATE")

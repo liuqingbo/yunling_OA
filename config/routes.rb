@@ -27,6 +27,7 @@ YunlingOA::Application.routes.draw do
 
   namespace :admin do
     resources :leave_applications
+    resources :work_logs
   end
 
   namespace :finance do

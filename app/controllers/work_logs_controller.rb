@@ -2,7 +2,11 @@ class WorkLogsController < ApplicationController
   # GET /work_logs
   # GET /work_logs.json
   def index
-    @work_logs = current_user.get_self_and_children_work_logs
+    if params[:flag] == "subordinate"
+      @work_logs = current_user.get_children_work_logs
+    else
+      @work_logs = current_user.work_logs
+    end
 
     respond_to do |format|
       format.html # index.html.erb
