@@ -968,3 +968,11 @@ div.application_receiver_detail_state{
     padding-top:1px;
     padding-left:20px;
 }
+
+.pagination {
+	background: #F1F1F1;
+	border: 1px solid #E5E5E5;
+	text-align: center;
+	/*padding: 1em;*/
+	cursor: default;
+}
