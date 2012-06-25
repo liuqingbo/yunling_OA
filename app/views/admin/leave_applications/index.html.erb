@@ -30,12 +30,8 @@
       <td><%= application.sender_real_name %></td>
       <td><%= application.start_at %></td>
       <td><%= application.end_at %></td>
-      <td>
-        <%= link_to application.use, admin_leave_application_path(application), :class => "admin" %>
-      </td>
-      <td>
-        <%= application.created_at %>
-      </td>
+      <td><%= application.use %></td>
+      <td><%= application.created_at %></td>
     </tr>
   <% end %>
 </table>
