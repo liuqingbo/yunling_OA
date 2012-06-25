@@ -112,7 +112,6 @@ class User < ActiveRecord::Base
   def get_children_work_logs(num = 50)
     ids = children.collect {|child| child.id}
     WorkLog.where(
-      :all,
       :conditions => ["user_id in (?)", ids],
       :order => :created_at,
       :limit => num)
