@@ -17,7 +17,7 @@ zh-CN:
 
   application:
     title: "云灵OA"
-    company_name: "上海云灵信息技术有限公司"
+    company_name: "办公系统"
 
   menu:
     daily_office: "日常办公"
@@ -89,7 +89,7 @@ zh-CN:
   views_users:
     persional_infos: "个人信息"
     password_prompt: "请输入密码两次"
-    once: "再输入一次"
+    once: "输入密码"
     add_roles: "添加职能"
     add_positions: "添加职位"
 

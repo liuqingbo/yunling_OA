@@ -16,7 +16,7 @@
 
 <% @work_logs.each do |work_log| %>
   <tr>
-    <td><%= link_to  truncate(strip_tags(work_log.content), :length => 40), work_log_path(work_log), :class=>"title"%></td>
+    <td><%= link_to  truncate(strip_tags(work_log.content), :length => 40), work_log_path(work_log), :class=>"title" %></td>
     <td><%= work_log.user_real_name %></td>
     <td><%= work_log.created_at %></td>
     <td>
