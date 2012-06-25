@@ -4,8 +4,10 @@ class WorkLogsController < ApplicationController
   def index
     if params[:flag] == "subordinate"
       @work_logs = current_user.get_children_work_logs
+      .paginate(:page => params[:page]).order('id DESC')
     else
       @work_logs = current_user.work_logs
+      .paginate(:page => params[:page]).order('id DESC')
     end
 
     respond_to do |format|

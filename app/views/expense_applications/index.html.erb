@@ -1,10 +1,11 @@
 <%= render 'side_bar/daily_office_side_bar' %>
+
 <h1 style="margin-top:0;">
   <%= I18n.t "activerecord.models.expense_application" %>
 </h1>
 <p class="subtitle">
   <%= I18n.t "views_expense_application.total_application_prompt" %>:&nbsp;
-  <%= @expense_applications.size %>
+  <%= @size %>
 </p>
 
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
@@ -31,6 +32,8 @@
     </tr>
   <% end %>
 </table>
+
+<%= render 'application/pagination', :posts =>  @expense_applications %>
 
 <p>
   <%= link_to I18n.t('operate.new') + I18n.t("activerecord.models.expense_application"), new_expense_application_path, :class => "utility" %>

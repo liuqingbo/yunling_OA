@@ -1,14 +1,15 @@
 <%= render 'side_bar/daily_office_side_bar' %>
 
-<h1 style="margin-top:0;"><%= I18n.t 'activerecord.models.prompt_message'%></h1>
+<h1 style="margin-top:0;"><%= I18n.t 'activerecord.models.prompt_message' %></h1>
 <p class="subtitle">
   <%= I18n.t 'views_communicate_message.total_message_prompt' %>:&nbsp;
-  <%= @prompt_messages.size%>
+  <%= @size %>
 </p>
+
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
   <tr>
     <th class="la" width="70%">
-      <%= I18n.t 'activerecord.attributes.message.content'%>
+      <%= I18n.t 'activerecord.attributes.message.content' %>
     </th>
     <!-- <th width="30%"><%= I18n.t 'activerecord.attributes.message.sender' %></th> -->
   </tr>
@@ -21,3 +22,5 @@
     </tr>
   <% end %>
 </table>
+
+<%= render 'application/pagination', :posts =>  @prompt_messages %>

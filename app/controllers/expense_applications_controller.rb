@@ -3,7 +3,9 @@ class ExpenseApplicationsController < ApplicationController
   # before_filter :get_type_value
 
   def index
+    @size = current_user.send_applications.expense_applications.size
     @expense_applications = current_user.send_applications.expense_applications
+      .paginate(:page => params[:page]).order('id DESC')
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @expense_applications }

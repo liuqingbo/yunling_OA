@@ -49,3 +49,6 @@ gem "rails_best_practices"
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem 'will_paginate', '~> 3.0'
+

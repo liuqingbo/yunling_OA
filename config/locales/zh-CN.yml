@@ -214,3 +214,8 @@ zh-CN:
     generate_prompt_info: "处理了您的关于 "
     approved: "同意"
     rejected: "拒绝"
+
+  will_paginate:
+    previous_label: "上一页"
+    next_label: "下一页"
+    

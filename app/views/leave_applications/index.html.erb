@@ -1,10 +1,11 @@
 <%= render 'side_bar/daily_office_side_bar' %>
+
 <h1 style="margin-top:0;">
   <%= I18n.t "activerecord.models.leave_application" %>
 </h1>
 <p class="subtitle">
   <%= I18n.t "views_leave_application.total_application_prompt" %>:&nbsp;
-  <%= @leave_applications.size %>
+  <%= @size %>
 </p>
 
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
@@ -24,13 +25,13 @@
       <td>
         <%= link_to application.reason, application, :class => "admin" %>
       </td>
-      <td>
-        <%= application.state_I18n%>
-      </td>
+      <td><%= application.state_I18n %></td>
       <td><%= application.created_at %></td>
     </tr>
   <% end %>
 </table>
+
+<%= render 'application/pagination', :posts =>  @leave_applications %>
 
 <p>
   <%= link_to I18n.t('operate.new') + I18n.t("activerecord.models.leave_application"), new_leave_application_path, :class => "utility" %>

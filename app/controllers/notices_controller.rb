@@ -3,7 +3,7 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.xml
   def index
-    @notices = Notice.all
+    @notices = Notice.paginate(:page => params[:page]).order('id DESC')
 
     respond_to do |format|
       format.html # index.html.erb
