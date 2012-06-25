@@ -1,8 +1,6 @@
 <%= render 'side_bar/daily_office_side_bar' %>
 <h1 style="margin-top:0;"><%= I18n.t("views_notice.title")%></h1>
-<p class="subtitle">
-  <%= I18n.t("views_notice.total_notices_prompt") + ":" + @notices.size.to_s%>
-</p>
+
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
   <tr>
     <th class="la" width="70%" colspan="2"><%= I18n.t 'activerecord.models.notice', :default => 'notice' %></th>
@@ -26,9 +24,9 @@
     </td>
   </tr>
 <% end %>
-
 </table>
-<br />
+
+<%= render 'application/pagination', :posts =>  @notices %>
 
 <p><%= link_to I18n.t('operate.new') + I18n.t('activerecord.models.notice'), new_notice_path, :class => "utility" %></p>
 

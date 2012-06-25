@@ -109,13 +109,9 @@ class User < ActiveRecord::Base
     raise "wrong agrument | current user is not child of the agrument"
   end
 
-  def get_children_work_logs(num = 50)
+  def get_children_work_logs()
     ids = children.collect {|child| child.id}
-    WorkLog.find(
-      :all,
-      :conditions => ["user_id in (?)", ids],
-      :order=>:created_at,
-      :limit=>num)
+    WorkLog.where("user_id in (?)", ids)
   end
 
   private

@@ -1,3 +1,5 @@
+WillPaginate.per_page = 5
+
 class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :current_user
@@ -5,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   protect_from_forgery
-
+  
   protected
     def current_user
       @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]

@@ -2,6 +2,7 @@ class ApplicationReceiversController < ApplicationController
 
   def index
     @application_receivers = current_user.application_receivers
+    .paginate(:page => params[:page]).order('id DESC')
   end
 
   def edit
