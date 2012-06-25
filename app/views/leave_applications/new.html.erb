@@ -2,7 +2,10 @@
 <%= form_for @leave_application do |f| %>
   <% if @leave_application.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@leave_application.errors.count, "error") %>prohibited this user from being saved:</h2>
+      <h2>
+        <%= pluralize(@leave_application.errors.count, "error") %>
+        &nbsp;prohibited this user from being saved:
+      </h2>
       <ul>
         <% @leave_application.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -11,36 +14,36 @@
     </div>
   <% end %>
 
-  <p>
-    <h3><%= I18n.t 'views_leave_application.title' %></h3>
-  </p>
+  <div><h3><%= I18n.t 'views_leave_application.title' %></h3></div>
 
-  <p>
+  <div><p>
     <label for="start_at" >
       <%= I18n.t 'activerecord.attributes.leave_application.start_at' %>
     </label>
-    <%= f.text_field :start_at, :class => "timepicker", :size => '15' %>&nbsp;&nbsp;
+    <%= f.text_field :start_at, :class => "timepicker", :size => '15' %>
+  </p></div>
+
+  <div><p>
     <label for="end_at" >
       <%= I18n.t 'activerecord.attributes.leave_application.end_at' %>
     </label>
     <%= f.text_field :end_at, :class => "timepicker", :size => '15' %>
-  </p>
+  </p></div>
 
-   <p>
+  <div><p>
     <label for="use">
     	<%= I18n.t 'activerecord.attributes.leave_application.use' %>
-    </label>
-    <br />
+    </label><br/>
     <%= render 'application/use_radio', :f => f, :use_names => LeaveApplication::USE %>
-  </p>
+  </p></div>
 
-  <p>
+  <div><p>
     <label for="reason"><%= I18n.t 'activerecord.attributes.leave_application.reason'%>
     </label><br/>
     <%= f.text_area :reason, :size => "60x3" %>
-  </p>
+  </p></div>
 
-  <p><%= submit_tag I18n.t('operate.commit') %></p>
+  <div><p><%= submit_tag I18n.t('operate.commit') %></p></div>
 <% end %>
 
 <%= link_to I18n.t('operate.back'), leave_applications_path %>
