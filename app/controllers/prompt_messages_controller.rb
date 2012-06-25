@@ -2,7 +2,7 @@ class PromptMessagesController < ApplicationController
   def index
     @size = current_user.receive_messages.prompt_messages.size
     @prompt_messages = current_user.receive_messages.prompt_messages
-    .paginate(:page => params[:page], :per_page => 5).order('id DESC')
+    .paginate(:page => params[:page]).order('id DESC')
     @prompt_messages.each do |prompt_messages|
       MessageReceiver.read_message_if_necessary(prompt_messages, current_user)
     end

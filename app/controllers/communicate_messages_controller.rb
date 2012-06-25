@@ -4,12 +4,12 @@ class CommunicateMessagesController < ApplicationController
     if params[:flag] == "send"
       @size = current_user.send_messages.communicate_messages.size
       @communicate_messages = current_user.send_messages.communicate_messages
-      .paginate(:page => params[:page], :per_page => 5).order('id DESC')
+      .paginate(:page => params[:page]).order('id DESC')
       @send = true
     elsif  params[:flag] == "receive"
       @size = current_user.receive_messages.communicate_messages.size
       @communicate_messages = current_user.receive_messages.communicate_messages
-      .paginate(:page => params[:page], :per_page => 5).order('id DESC')
+      .paginate(:page => params[:page]).order('id DESC')
       @send = false
     end
 

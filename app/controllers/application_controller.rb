@@ -1,3 +1,5 @@
+WillPaginate.per_page = 5
+
 class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :current_user
