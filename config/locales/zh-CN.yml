@@ -244,6 +244,8 @@ zh-CN:
         casual_leave: "事假"
         sick_leave: "病假"
         office_leave: "公假"
+        out_leave: "外出"
+        travel_leave: "出差"
   txt:
     generate_prompt_info: "处理了您的关于 "
     approved: "同意"
