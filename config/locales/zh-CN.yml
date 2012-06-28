@@ -13,11 +13,12 @@ zh-CN:
   submit:
     location:
       new: "创建"
+      create: "创建"
       edit: "确认更新"
 
   application:
     title: "云灵OA"
-    company_name: "上海云灵信息技术有限公司"
+    company_name: "办公系统"
 
   menu:
     daily_office: "日常办公"
@@ -41,6 +42,9 @@ zh-CN:
       statistics: "统计"
       leave_application: "请假申请统计"
       work_log: "工作日志统计"
+    finance:
+      statis: "统计"
+      expense_statis: "费用申请统计"
 
   login:
     login_prompt: "请登录"
@@ -66,6 +70,7 @@ zh-CN:
     total_notices_prompt: "日志总数"
     owner: "创建人"
     operate: "操作"
+    logdate: "日期"
 
   views_communicate_message:
     total_message_prompt: "消息总数"
@@ -89,7 +94,7 @@ zh-CN:
   views_users:
     persional_infos: "个人信息"
     password_prompt: "请输入密码两次"
-    once: "再输入一次"
+    once: "输入密码"
     add_roles: "添加职能"
     add_positions: "添加职位"
 
@@ -108,6 +113,38 @@ zh-CN:
         record_invalid: "字段非法"
       application:
         create_receiver_error: "无法创建接收者"
+      models:
+        leave_application:
+          attributes:
+            reason:
+              blank: "为空"
+            start_at:
+              blank: "为空"
+            end_at:
+              blank: "为空"
+            use:
+              blank: "为空"
+        expense_application:
+          attributes:
+            reason:
+              blank: "为空"
+            sum:
+              blank: "为空"
+            use:
+              blank: "为空"
+            item_name:
+              blank: "为空"
+        communicate_message:
+          attributes:
+            content:
+              blank: "为空"
+            receiver_ids:
+              blank: "为空"
+        work_log:
+          attributes:
+            content:
+              blank: "为空"
+
     models:
       user: "用户"
       notice: "通告"
@@ -139,7 +176,7 @@ zh-CN:
         parent_id: "上级"
         position: "职位"
       work_log:
-        cotent: "内容"
+        content: "内容"
       notice:
         title: "标题"
         description: "内容"
@@ -153,6 +190,7 @@ zh-CN:
         sender: "发送者"
         type: "消息类型"
         create_at: "创建时间"
+        receiver_ids: "接收者"
       application:
         sender: "申请人"
         type: "申请类型"
@@ -210,6 +248,8 @@ zh-CN:
         casual_leave: "事假"
         sick_leave: "病假"
         office_leave: "公假"
+        out_leave: "外出"
+        travel_leave: "出差"
   txt:
     generate_prompt_info: "处理了您的关于 "
     approved: "同意"
