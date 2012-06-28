@@ -70,6 +70,7 @@ zh-CN:
     total_notices_prompt: "日志总数"
     owner: "创建人"
     operate: "操作"
+    logdate: "日期"
 
   views_communicate_message:
     total_message_prompt: "消息总数"
