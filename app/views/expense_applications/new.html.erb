@@ -2,7 +2,8 @@
 <%= form_for @expense_application do |f| %>
   <% if @expense_application.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@expense_application.errors.count, "error") %>prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@expense_application.errors.count, "error") %>
+        &nbsp;prohibited this user from being saved:</h2>
       <ul>
         <% @expense_application.errors.full_messages.each do |message| %>
           <li><%= message %></li>
