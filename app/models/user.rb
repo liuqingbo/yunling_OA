@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :roles
 
-  has_many :notices
+  has_many :notices, :dependent => :destroy
 
-  has_many :send_messages, :class_name=>"Message", :foreign_key=>"sender", :extend => MessageTypeFinder
+  has_many :send_messages, :class_name=>"Message", :foreign_key=>"sender", :dependent => :destroy, :extend => MessageTypeFinder
 
   has_many :message_receivers
   has_many :receive_messages, :through => :message_receivers do
