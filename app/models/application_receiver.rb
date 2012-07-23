@@ -35,7 +35,8 @@ class ApplicationReceiver < ActiveRecord::Base
       info = ""
       info << receiver.real_name
       info << I18n.t('txt.generate_prompt_info')
-      info << receive_application.reason + " "
+#      info << receive_application.reason + " "
+      info << " "
       info << I18n.t("activerecord.models.#{receive_application.class.to_s.underscore}")
 
       p = PromptMessage.create(:content => info)
