@@ -45,6 +45,11 @@ zh-CN:
     finance:
       statis: "统计"
       expense_statis: "费用申请统计"
+      payment_statis: "付款申请统计"
+    sale:
+      statis: "统计"
+      contract_statis: "合同申请统计"
+      billing_statis: "开票申请统计"
 
   login:
     login_prompt: "请登录"
@@ -90,6 +95,19 @@ zh-CN:
     total_application_prompt: "费用申请条数"
     receiver: "接收者"
     title: "费用申请单"
+  views_payment_application:
+    total_application_prompt: "付款申请条数"
+    receiver: "接收者"
+    title: "付款申请单"
+  views_contract_application:
+    total_application_prompt: "合同申请条数"
+    receiver: "接收者"
+    title: "付款申请单"
+  views_billing_application:
+    total_application_prompt: "开票申请条数"
+    receiver: "接收者"
+    title: "付款申请单"
+
 
   views_users:
     persional_infos: "个人信息"
@@ -156,6 +174,9 @@ zh-CN:
       item_application: "物品申请"
       leave_application: "请假申请"
       expense_application: "费用申请"
+      payment_application: "付款申请(对公)"
+      contract_application: "合同申请"
+      billing_application: "开票申请"
 
     state:
       application:
@@ -206,6 +227,22 @@ zh-CN:
         reason: "明细"
         item_name: "费用名称"
         sum: "预计花费(￥)"
+      payment_application:
+        use: "付款方式"
+        reason: "明细"
+        receive_payment_company: "收款单位"
+        sum: "付款金额"
+      contract_application:
+        contract_name: "合同名称"
+        use: "合同性质"
+        sum: "合同总额"
+        reason: "明细"
+      billing_application:
+        purchase_company: "购货单位名称"
+        use: "发票性质"
+        sum: "发票总金额"
+        reason: "开票内容"
+
       application_receiver:
         state: "处理状态"
         reason: "具体原因"
@@ -243,6 +280,7 @@ zh-CN:
       use:
         project: "项目"
         office: "办公"
+        business_affair: "业务招待"
     leave_application:
       use:
         casual_leave: "事假"
@@ -250,6 +288,20 @@ zh-CN:
         office_leave: "公假"
         out_leave: "外出"
         travel_leave: "出差"
+    payment_application:
+      use:
+        cash: "现金"
+        online_banking: "网银"
+        check: "支票"
+    contract_application:
+      use:
+        sale: "销售"
+        purchase: "采购"
+    billing_application:
+      use:
+        invoice_17percent: "17%增票"
+        invoice_6percent: "6%增票"
+
   txt:
     generate_prompt_info: "处理了您的关于 "
     approved: "同意"

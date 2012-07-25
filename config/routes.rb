@@ -14,6 +14,12 @@ YunlingOA::Application.routes.draw do
 
   resources :expense_applications
 
+  resources :payment_applications
+
+  resources :contract_applications
+
+  resources :billing_applications
+
   resources :notices
 
   resources :users
@@ -32,6 +38,12 @@ YunlingOA::Application.routes.draw do
 
   namespace :finance do
     resources :expense_applications
+    resources :payment_applications
+  end
+
+  namespace :sale do
+    resources :contract_applications
+    resources :billing_applications
   end
 
   # The priority is based upon order of creation:

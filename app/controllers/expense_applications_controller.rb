@@ -1,7 +1,5 @@
 class ExpenseApplicationsController < ApplicationController
 
-  # before_filter :get_type_value
-
   def index
     @size = current_user.send_applications.expense_applications.size
     @expense_applications = current_user.send_applications.expense_applications
@@ -48,8 +46,4 @@ class ExpenseApplicationsController < ApplicationController
     end
   end
 
-  private
-    def get_type_value
-      @type = "expense_application"
-    end
 end
