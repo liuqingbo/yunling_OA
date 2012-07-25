@@ -24,10 +24,9 @@
     <%= I18n.t "activerecord.models.#{@application_receiver.receive_application.class.to_s.underscore}"%>
   </div>
 
-  <div class="field">
-    <label for="content"><%=  I18n.t "activerecord.attributes.#{@application_receiver.receive_application.class.to_s.underscore}.reason", :default => 'reason' %></label><br />
-    <%= @application_receiver.receive_application_reason%>
-  </div>
+
+
+  <%= render "#{@application_receiver.receive_application.class.to_s.underscore}s/detail_info", :application=>@application_receiver.receive_application %>
 
   <div class="field">
     <label for="state"><%=  I18n.t 'views_application_receivers.state_prompt_info', :default => 'your option' %></label><br />
@@ -40,7 +39,7 @@
         <%= f.text_area :reason, :rows=>5%>
       </p>
   </div>
-  <div class="actions">
+  <div id="application_receiver_submit" class="actions">
     <%if @application_receiver.pending?%>
         <p><%= f.submit  I18n.t 'operate.update' %></p>
     <%else%>

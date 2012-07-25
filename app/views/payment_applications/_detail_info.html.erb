@@ -6,7 +6,7 @@
         <%= I18n.t 'activerecord.attributes.payment_application.receive_payment_company' %>
       </label>
     </td>
-    <td width="80%" class="la"><%= payment_application.receive_payment_company %></td>
+    <td width="80%" class="la"><%= application.receive_payment_company %></td>
   </tr>
 
   <tr>
@@ -15,7 +15,7 @@
         <%= I18n.t 'activerecord.attributes.payment_application.use' %>
       </label>
     </td>
-    <td><%= payment_application.use %></td>
+    <td><%= application.use %></td>
   </tr>
 
   <tr>
@@ -24,7 +24,7 @@
         <%= I18n.t 'activerecord.attributes.payment_application.sum' %>
       </label>
     </td>
-    <td><%= payment_application.sum %></td>
+    <td><%= application.sum %></td>
   </tr>
 
   <tr>
@@ -33,9 +33,9 @@
         <%= I18n.t 'activerecord.attributes.payment_application.reason' %>
       </label>
     </td>
-    <td><%= payment_application.reason %></td>
+    <td><%= application.reason %></td>
   </tr>
 
-  <%= render("application/detail_state_info", :application => payment_application) %>
+  <%= render("application/detail_state_info", :application => application) %>
 </table>
 </div>

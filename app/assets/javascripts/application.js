@@ -81,6 +81,8 @@ $(window).ready(
     if($('#application_receiver_state option:selected').val() == "rejected"){
         $('#application_receiver_state').attr("disabled", "disabled");
         $('#application_receiver_reason_field textarea').attr("disabled", "disabled");
+    }else if($('#application_receiver_state option:selected').val() == "pending"){
+        $('#application_receiver_submit').hide();
     }else if($('#application_receiver_state option:selected').val() == "approved"){
         $('#application_receiver_state').attr("disabled", "disabled");
         $('#application_receiver_reason_field').hide();
@@ -90,8 +92,12 @@ $(window).ready(
             if($(this).val() == "approved"){
                 $('#application_receiver_reason_field textarea').val("");
                 $('#application_receiver_reason_field textarea').hide();
+                $('#application_receiver_submit').show();
             }else if($(this).val() == "rejected"){
                 $('#application_receiver_reason_field textarea').show();
+                $('#application_receiver_submit').show();
+            }else if($(this).val() == "pending"){
+                $('#application_receiver_submit').hide();
             }
         })
     });

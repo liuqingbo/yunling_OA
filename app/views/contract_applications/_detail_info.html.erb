@@ -6,7 +6,7 @@
         <%= I18n.t 'activerecord.attributes.contract_application.contract_name' %>
       </label>
     </td>
-    <td width="80%" class="la"><%= contract_application.contract_name %></td>
+    <td width="80%" class="la"><%= application.contract_name %></td>
   </tr>
 
   <tr>
@@ -15,7 +15,7 @@
         <%= I18n.t 'activerecord.attributes.contract_application.use' %>
       </label>
     </td>
-    <td><%= contract_application.use %></td>
+    <td><%= application.use %></td>
   </tr>
 
   <tr>
@@ -24,7 +24,7 @@
         <%= I18n.t 'activerecord.attributes.contract_application.sum' %>
       </label>
     </td>
-    <td><%= contract_application.sum %></td>
+    <td><%= application.sum %></td>
   </tr>
 
   <tr>
@@ -33,9 +33,9 @@
         <%= I18n.t 'activerecord.attributes.contract_application.reason' %>
       </label>
     </td>
-    <td><%= contract_application.reason %></td>
+    <td><%= application.reason %></td>
   </tr>
 
-  <%= render("application/detail_state_info", :application => contract_application) %>
+  <%= render("application/detail_state_info", :application => application) %>
 </table>
 </div>
