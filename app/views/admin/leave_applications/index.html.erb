@@ -29,7 +29,13 @@
     <tr>
       <td><%= application.sender_real_name %></td>
       <td><%= application.start_at %></td>
-      <td><%= application.end_at %></td>
+      <td>
+        <%if application.real_end_at?%>
+            <%= application.real_end_at %>
+        <%else%>
+            <%= application.end_at %>
+        <%end%>
+      </td>
       <td><%= application.use %></td>
       <td><%= application.created_at %></td>
     </tr>

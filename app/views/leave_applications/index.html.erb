@@ -24,6 +24,11 @@
     <tr>
       <td>
         <%= link_to application.reason, application, :class => "admin" %>
+        <%if application.state == 'approved'%>
+            <%= link_to  I18n.t('views_leave_application.edit_real_end_at'), edit_leave_application_path(application), :class => "tiny", :rel => "directory", :style => "float:right" %><br/>
+        <%end%>
+      </td>
+
       </td>
       <td><%= application.state_I18n %></td>
       <td><%= application.created_at %></td>

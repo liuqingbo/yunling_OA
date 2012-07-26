@@ -30,9 +30,9 @@ class Application < ActiveRecord::Base
   end
 
 
-  after_save :create_application_receiver_if_necessary
+  after_create :create_application_receiver_if_necessary
 
-  before_save :approve_if_necessary
+  before_create :approve_if_necessary
 
 
   def state_I18n

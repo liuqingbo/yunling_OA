@@ -40,7 +40,7 @@ zh-CN:
       unprocessed_application: "待处理事项"
     admin_affaire:
       statistics: "统计"
-      leave_application: "请假申请统计"
+      leave_application: "请假/出差申请统计"
       work_log: "工作日志统计"
     finance:
       statis: "统计"
@@ -87,9 +87,10 @@ zh-CN:
     messages: "消息"
 
   views_leave_application:
-    total_application_prompt: "请假条数"
+    total_application_prompt: "请假/出差条数"
     receiver: "接收者"
-    title: "请假单"
+    title: "请假/出差单"
+    edit_real_end_at: "修改销假时间"
 
   views_expense_application:
     total_application_prompt: "费用申请条数"
@@ -172,7 +173,7 @@ zh-CN:
       communicate_message: "通讯消息"
       prompt_message: "提示消息"
       item_application: "物品申请"
-      leave_application: "请假申请"
+      leave_application: "请假/出差申请"
       expense_application: "费用申请"
       payment_application: "付款申请(对公)"
       contract_application: "合同申请"
@@ -218,10 +219,12 @@ zh-CN:
         created_at: "申请时间"
         reason: "事由"
       leave_application:
-        use: "请假类型"
-        reason: "请假事由"
+        use: "请假/出差类型"
+        reason: "请假/出差事由"
         start_at: "开始时间"
         end_at: "结束时间"
+        real_end_at: "销假时间"
+        business_travel_destination: "出差目的地"
       expense_application:
         use: "花销用途"
         reason: "明细"

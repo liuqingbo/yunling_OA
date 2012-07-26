@@ -104,6 +104,18 @@ $(window).ready(
     $('.disable').each(function(){
         $(this).attr("disabled", "disabled")
     });
+
+    $('#business_travel_destination').hide();
+    $("input:[name=leave_application[use]]:radio").change(
+        function(){
+            var $select_var =  $("input:[name=leave_application[use]]:radio:checked").val();
+            if($select_var == "出差"){
+                $('#business_travel_destination').show();
+            }else{
+                $('#business_travel_destination').hide();
+            }
+        }
+    );
   }
 );
 

@@ -46,4 +46,21 @@ class LeaveApplicationsController < ApplicationController
     end
   end
 
+  def edit
+    @leave_application = LeaveApplication.find(params[:id])
+  end
+
+  def update
+    @leave_application = LeaveApplication.find(params[:id])
+
+    respond_to do |format|
+      if @leave_application.update_attributes(params[:leave_application])
+        format.html { redirect_to(leave_applications_path, :notice => 'leave_application was successfully update.') }
+      else
+        format.html { render "edit" }
+      end
+    end
+  end
+
+
 end
