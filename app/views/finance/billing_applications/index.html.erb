@@ -1,10 +1,10 @@
 <%= render 'side_bar/finance_affaire_side_bar' %>
 <h1 style="margin-top:0;">
-  <%= I18n.t "activerecord.models.expense_application" %>
+  <%= I18n.t "activerecord.models.billing_application" %>
 </h1>
 <p class="subtitle">
-  <%= I18n.t "views_expense_application.total_application_prompt" %>:&nbsp;
-  <%= @expense_applications.size %>
+  <%= I18n.t "views_billing_application.total_application_prompt" %>:&nbsp;
+  <%= @billing_applications.size %>
 </p>
 
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
@@ -13,23 +13,23 @@
       <%= I18n.t 'activerecord.attributes.application.sender' %>
     </th>
     <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.expense_application.item_name' %>
+      <%= I18n.t 'activerecord.attributes.billing_application.purchase_company' %>
     </th>
     <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.expense_application.sum' %>
+      <%= I18n.t 'activerecord.attributes.billing_application.sum' %>
     </th>
     <th width="20%" class="la">
-      <%= I18n.t 'activerecord.attributes.expense_application.use' %>
+      <%= I18n.t 'activerecord.attributes.billing_application.use' %>
     </th>
     <th width="20%" class="la">
       <%= I18n.t 'activerecord.attributes.application.created_at' %>
     </th>
   </tr>
-  <% @expense_applications.each do |application| %>
+  <% @billing_applications.each do |application| %>
     <tr>
       <td><%= application.sender_real_name%></td>
-      <!-- <td><%= link_to application.item_name, finance_expense_application_path(application), :class => "admin"%></td> -->
-      <td><%= application.item_name %></td>
+      <!-- <td><%= link_to application.contract_name, finance_expense_application_path(application), :class => "admin"%></td> -->
+      <td><%= application.purchase_company %></td>
       <td><%= application.sum%></td>
       <td><%= application.use%></td>
       <td><%= application.created_at%></td>

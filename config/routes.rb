@@ -39,6 +39,8 @@ YunlingOA::Application.routes.draw do
   namespace :finance do
     resources :expense_applications
     resources :payment_applications
+    resources :contract_applications
+    resources :billing_applications
   end
 
   namespace :sale do

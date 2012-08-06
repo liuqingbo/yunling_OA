@@ -21,6 +21,9 @@
     <th width="20%" class="la">
       <%= I18n.t 'activerecord.attributes.payment_application.use' %>
     </th>
+    <th width="20%" class="la">
+      <%= I18n.t 'activerecord.attributes.application.created_at' %>
+    </th>
   </tr>
   <% @payment_applications.each do |application| %>
     <tr>
@@ -29,6 +32,7 @@
       <td><%= application.receive_payment_company %></td>
       <td><%= application.sum%></td>
       <td><%= application.use%></td>
+      <td><%= application.created_at%></td>
     </tr>
   <% end %>
 </table>
