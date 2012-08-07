@@ -110,7 +110,11 @@ class User < ActiveRecord::Base
   end
 
   def get_children_work_logs()
-    ids = children.collect {|child| child.id}
+    ids = []
+    ids += children.collect {|child| child.id}
+    children.each do |child|
+      ids += child.children.collect {|child_child| child_child.id}
+    end
     WorkLog.where("user_id in (?)", ids)
   end
 
