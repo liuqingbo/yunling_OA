@@ -24,8 +24,9 @@
     <tr>
       <td>
         <%= link_to application.reason, application, :class => "admin" %>
+        <%= link_to  I18n.t('operate.delete'), application, :class => "tiny", :rel => "directory", :style => "float:right", :confirm => 'Are you sure?', :method => :delete %><br/>
         <%if application.state == 'approved'%>
-            <%= link_to  I18n.t('views_leave_application.edit_real_end_at'), edit_leave_application_path(application), :class => "tiny", :rel => "directory", :style => "float:right" %><br/>
+            <%= link_to  I18n.t('views_leave_application.edit_real_end_at'), edit_leave_application_path(application), :class => "tiny", :rel => "directory", :style => "float:right" %>
         <%end%>
       </td>
 

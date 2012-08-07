@@ -62,5 +62,15 @@ class LeaveApplicationsController < ApplicationController
     end
   end
 
+  def destroy
+    @leave_application = LeaveApplication.find(params[:id])
+    @leave_application.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(leave_applications_url, :notice=>"leave_application was successfully deleted.") }
+      format.xml  { head :ok }
+    end
+  end
+
 
 end

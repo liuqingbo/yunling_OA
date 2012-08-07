@@ -1,7 +1,7 @@
 class Application < ActiveRecord::Base
   belongs_to :sender, :class_name=>"User", :foreign_key=>"sender"
 
-  has_many :application_receivers , :order=>:created_at do
+  has_many :application_receivers , :order=>:created_at, :dependent => :destroy do
     def reject
       where('state = ?', 'rejected')
     end

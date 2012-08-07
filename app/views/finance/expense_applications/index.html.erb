@@ -29,7 +29,7 @@
     <tr>
       <td><%= application.sender_real_name%></td>
       <!-- <td><%= link_to application.item_name, finance_expense_application_path(application), :class => "admin"%></td> -->
-      <td><%= application.item_name %></td>
+      <td><%= link_to application.item_name, finance_expense_application_path(application), :class => "admin" %></td>
       <td><%= application.sum%></td>
       <td><%= application.use%></td>
       <td><%= application.created_at%></td>
