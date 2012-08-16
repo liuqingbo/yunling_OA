@@ -47,7 +47,7 @@ class ApplicationReceiver < ActiveRecord::Base
       receive_application.reject!
       # when i save application object, rails will generate a new application_receiver record,
       # and i don't know why, so i have to delete this
-      ApplicationReceiver.last.delete
+#      ApplicationReceiver.last.delete
     end
 
     def generate_another_receiver_or_approve_application
