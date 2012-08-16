@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   has_many :send_messages, :class_name=>"Message", :foreign_key=>"sender", :dependent => :destroy, :extend => MessageTypeFinder
 
-  has_many :message_receivers
+  has_many :message_receivers, :dependent => :destroy
   has_many :receive_messages, :through => :message_receivers do
     def communicate_messages
       where('messages.type = ?', "CommunicateMessage")
@@ -26,9 +26,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  has_many :send_applications, :class_name=>"Application", :foreign_key=>"sender", :extend => ApplicationTypeFinder
+  has_many :send_applications, :class_name=>"Application", :foreign_key=>"sender", :dependent => :destroy, :extend => ApplicationTypeFinder
 
-  has_many :application_receivers
+  has_many :application_receivers, :dependent => :destroy
   has_many :receive_applications, :through => :application_receivers do
     def pending
       where('application_receivers.state = ?', 'pending')
@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 
   scope :search_for_real_name, lambda{|q| {:conditions => ['real_name LIKE ?', "%#{q}%"]}}
 
-  acts_as_tree :order=>:name
+  acts_as_tree :order=>:name, :dependent => :nullify
 
   attr_accessor :password_confirmation
   attr_reader :password

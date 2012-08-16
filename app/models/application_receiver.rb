@@ -55,7 +55,7 @@ class ApplicationReceiver < ActiveRecord::Base
       receiver = self.receiver
       if sender.level_differ(receiver) >= 2  || !receiver.parent
         receive_application.approve!
-        ApplicationReceiver.last.delete
+#        ApplicationReceiver.last.delete
         return
       end
       application_receiver = ApplicationReceiver.new
