@@ -28,8 +28,7 @@
   <% @payment_applications.each do |application| %>
     <tr>
       <td><%= application.sender_real_name%></td>
-      <!-- <td><%= link_to application.item_name, finance_expense_application_path(application), :class => "admin"%></td> -->
-      <td><%= application.receive_payment_company %></td>
+       <td><%= link_to application.receive_payment_company, finance_payment_application_path(application), :class => "admin"%></td>
       <td><%= application.sum%></td>
       <td><%= application.use%></td>
       <td><%= application.created_at%></td>

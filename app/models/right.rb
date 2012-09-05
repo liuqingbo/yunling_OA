@@ -10,6 +10,7 @@ class Right < ActiveRecord::Base
     "update" => "UPDATE",
     "destroy" => "DELETE",
     "show" => "READ",
-    "index" => "READ"
+    "index" => "READ",
+    "download" => "download"
   }
 end

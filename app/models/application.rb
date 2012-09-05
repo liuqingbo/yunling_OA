@@ -1,4 +1,6 @@
 class Application < ActiveRecord::Base
+  has_attached_file :attachment_file
+
   belongs_to :sender, :class_name=>"User", :foreign_key=>"sender"
 
   has_many :application_receivers , :order=>:created_at, :dependent => :destroy do

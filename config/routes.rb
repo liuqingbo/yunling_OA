@@ -31,6 +31,8 @@ YunlingOA::Application.routes.draw do
   match '/login' => 'sessions#new', :as => 'login'
   match '/logout' => 'sessions#destroy', :as => 'logout'
 
+  match 'application/:id/download/'  => 'application#download', :as => 'download_application'
+
   namespace :admin do
     resources :leave_applications
     resources :work_logs

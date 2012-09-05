@@ -170,41 +170,44 @@ if false
     end
   end
 
-end
-
-payment_applications = []
-payment_applications << Right.create!(:resource => "payment_applications", :operation => "CREATE")
-payment_applications <<  Right.create!(:resource => "payment_applications", :operation => "READ")
-payment_applications <<  Right.create!(:resource => "payment_applications", :operation => "UPDATE")
-payment_applications << Right.create!(:resource => "payment_applications", :operation => "DELETE")
-payment_applications.each do|payment_application|
-  Role.all.each do|role|
-    role.rights << payment_application
+  payment_applications = []
+  payment_applications << Right.create!(:resource => "payment_applications", :operation => "CREATE")
+  payment_applications <<  Right.create!(:resource => "payment_applications", :operation => "READ")
+  payment_applications <<  Right.create!(:resource => "payment_applications", :operation => "UPDATE")
+  payment_applications << Right.create!(:resource => "payment_applications", :operation => "DELETE")
+  payment_applications.each do|payment_application|
+    Role.all.each do|role|
+      role.rights << payment_application
+    end
   end
-end
-contract_applications = []
-contract_applications << Right.create!(:resource => "contract_applications", :operation => "CREATE")
-contract_applications <<  Right.create!(:resource => "contract_applications", :operation => "READ")
-contract_applications <<  Right.create!(:resource => "contract_applications", :operation => "UPDATE")
-contract_applications << Right.create!(:resource => "contract_applications", :operation => "DELETE")
-contract_applications.each do|contract_application|
-  Role.all.each do|role|
-    role.rights << contract_application
+  contract_applications = []
+  contract_applications << Right.create!(:resource => "contract_applications", :operation => "CREATE")
+  contract_applications <<  Right.create!(:resource => "contract_applications", :operation => "READ")
+  contract_applications <<  Right.create!(:resource => "contract_applications", :operation => "UPDATE")
+  contract_applications << Right.create!(:resource => "contract_applications", :operation => "DELETE")
+  contract_applications.each do|contract_application|
+    Role.all.each do|role|
+      role.rights << contract_application
+    end
   end
-end
 
-billing_applications = []
-billing_applications << Right.create!(:resource => "billing_applications", :operation => "CREATE")
-billing_applications <<  Right.create!(:resource => "billing_applications", :operation => "READ")
-billing_applications <<  Right.create!(:resource => "billing_applications", :operation => "UPDATE")
-billing_applications << Right.create!(:resource => "billing_applications", :operation => "DELETE")
-billing_applications.each do|billing_application|
-  Role.all.each do|role|
-    role.rights << billing_application
+  billing_applications = []
+  billing_applications << Right.create!(:resource => "billing_applications", :operation => "CREATE")
+  billing_applications <<  Right.create!(:resource => "billing_applications", :operation => "READ")
+  billing_applications <<  Right.create!(:resource => "billing_applications", :operation => "UPDATE")
+  billing_applications << Right.create!(:resource => "billing_applications", :operation => "DELETE")
+  billing_applications.each do|billing_application|
+    Role.all.each do|role|
+      role.rights << billing_application
+    end
   end
+
 end
 
-
+r = Right.create!(:resource => "application", :operation => "download")
+Role.all.each do|role|
+  role.rights << r
+end
 
 
 

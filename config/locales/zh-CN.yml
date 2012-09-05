@@ -1,5 +1,13 @@
 #encoding: utf-8
 zh-CN:
+
+  time:
+    formats:
+      mmddhhss: "%b %e at %l:%M%p"
+      default: "%Y-%m-%d"
+      short: "%m月%d日"
+      long: "%Y年%m月%d日 %H:%M"
+
   operate:
     edit: "修改"
     delete: "删除"
@@ -10,6 +18,8 @@ zh-CN:
     commit: "提交"
     update: "确认更新"
     details: "详细信息"
+    download: "下载"
+
   submit:
     location:
       new: "创建"
@@ -218,6 +228,7 @@ zh-CN:
         type: "申请类型"
         created_at: "申请时间"
         reason: "事由"
+        attachment_file: "附件文件"
       leave_application:
         use: "请假/出差类型"
         reason: "请假/出差事由"

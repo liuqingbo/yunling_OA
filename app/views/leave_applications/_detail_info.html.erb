@@ -6,13 +6,13 @@
         <%= I18n.t 'activerecord.attributes.leave_application.start_at' %>
       </label>
     </td>
-    <td width="30%" class="la"><%= application.start_at %></td>
+    <td width="30%" class="la"><%= l(Time.parse(application.start_at), :format => :long) %></td>
     <td width="20%" class="la">
       <label>
         <%= I18n.t 'activerecord.attributes.leave_application.end_at' %>
       </label>
     </td>
-    <td width="30%" class="la"><%= application.end_at %></td>
+    <td width="30%" class="la"><%= l(Time.parse(application.end_at), :format => :long) %></td>
   </tr>
   <%if application.real_end_at?%>
       <tr>
@@ -21,7 +21,7 @@
            <%= I18n.t 'activerecord.attributes.leave_application.real_end_at'%>
           </label>
         </td>
-        <td colspan="3" class="la"><%= application.real_end_at%></td>
+        <td colspan="3" class="la"><%= l(Time.parse(application.real_end_at), :format => :long)%></td>
       </tr>
   <%end%>
 
