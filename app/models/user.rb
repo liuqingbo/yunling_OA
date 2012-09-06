@@ -69,6 +69,8 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => true
 
+  validates :real_name, :presence => true
+
   validates :password, :confirmation => true
 
   validate  :password_must_be_present
