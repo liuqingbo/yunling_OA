@@ -1,7 +1,5 @@
 class LeaveApplicationsController < ApplicationController
 
-  # before_filter :get_type_value
-
   def index
     @size = current_user.send_applications.leave_applications.size
     @leave_applications = current_user.send_applications.leave_applications
@@ -71,6 +69,5 @@ class LeaveApplicationsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
 
 end

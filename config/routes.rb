@@ -10,6 +10,8 @@ YunlingOA::Application.routes.draw do
 
   resources :leave_applications
 
+  resources :business_trip_applications
+
   resources :item_applications
 
   resources :expense_applications
@@ -36,6 +38,7 @@ YunlingOA::Application.routes.draw do
   namespace :admin do
     resources :leave_applications
     resources :work_logs
+    resources :business_trip_applications
   end
 
   namespace :finance do

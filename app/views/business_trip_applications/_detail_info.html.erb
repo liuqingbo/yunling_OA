@@ -33,21 +33,18 @@
     </td>
     <td colspan="3"><%= application.use%></td>
   </tr>
-  <!--<%if application.use == I18n.t("init_data.leave_application.use.travel_leave")%>-->
-   <!--<tr>-->
-    <!--<td>-->
-      <!--<label for="business_travel_destination">-->
-       <!--<%= I18n.t 'activerecord.attributes.leave_application.business_travel_destination'%>-->
-      <!--</label>-->
-    <!--</td>-->
-    <!--<td colspan="3"><%= application.business_travel_destination%></td>-->
+    <td>
+      <label for="business_travel_destination">
+       <%= I18n.t 'activerecord.attributes.business_trip_application.business_travel_destination'%>
+      </label>
+    </td>
+    <td colspan="3"><%= application.business_travel_destination%></td>
   <!--</tr>-->
-  <!--<%end%>-->
 
   <tr>
     <td>
       <label for="reason">
-        <%= I18n.t 'activerecord.attributes.leave_application.reason' %>
+        <%= I18n.t 'activerecord.attributes.business_trip_application.reason' %>
       </label>
     </td>
     <td colspan="3"><%= application.reason %></td>
