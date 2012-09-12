@@ -16,6 +16,11 @@ class Application < ActiveRecord::Base
   end
   has_many :receivers,  :through => :application_receivers
 
+  FINANCE_OPINION = {
+      :approved => I18n.t("init_data.expense_application.finance_opinion.approved"),
+      :rejected => I18n.t("init_data.expense_application.finance_opinion.rejected")
+  }
+
   include ActiveModel::Transitions
   state_machine do
     state :pending

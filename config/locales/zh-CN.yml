@@ -19,6 +19,7 @@ zh-CN:
     update: "确认更新"
     details: "详细信息"
     download: "下载"
+    select: "请选择"
 
   submit:
     location:
@@ -142,6 +143,13 @@ zh-CN:
 #    approved: "同意"
 #    rejected: "拒绝"
 #    reason: "原因"
+  views_finance_expense:
+    finance_opinion_info: "处理"
+    choose_your_opinion: "请选择是否付费"
+  views_finance_billing:
+    choose_your_opinion: "请选择是否开具"
+  views_finance_contract:
+    choose_your_opinion: "请选择是否定立"
 
   activerecord:
     errors:
@@ -249,24 +257,30 @@ zh-CN:
         business_travel_destination: "出差目的地"
       expense_application:
         use: "花销用途"
+        project_name: "项目名称"
         reason: "明细"
         item_name: "费用名称"
+        expense_type: "类型"
+        finance_opinion: "是否付费"
         sum: "预计花费(￥)"
       payment_application:
         use: "付款方式"
-        reason: "明细"
+        reason: "说明"
         receive_payment_company: "收款单位"
         sum: "付款金额"
+        finance_opinion: "是否付费"
       contract_application:
         contract_name: "合同名称"
         use: "合同性质"
         sum: "合同总额"
-        reason: "明细"
+        reason: "说明"
+        finance_opinion: "是否定立"
       billing_application:
         purchase_company: "购货单位名称"
         use: "发票性质"
         sum: "发票总金额"
         reason: "开票内容"
+        finance_opinion: "是否开具"
 
       application_receiver:
         state: "处理状态"
@@ -307,7 +321,14 @@ zh-CN:
         project: "项目"
         office: "办公"
         business_affair: "业务招待"
-        travel: 差旅
+        travel: "差旅"
+      expense_type:
+        reimbursement: "报销"
+        loan: "借款"
+      finance_opinion:
+        pending: "未处理"
+        approved: "是"
+        rejected: "否"
     leave_application:
       use:
         casual_leave: "事假"
