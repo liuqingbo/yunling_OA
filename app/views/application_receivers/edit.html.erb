@@ -55,7 +55,7 @@
 
   <div class="field">
     <label for="state"><%=  I18n.t 'views_application_receivers.state_prompt_info', :default => 'your option' %></label><br />
-    <%= f.select(:state, state_for_select)%>
+    <%= f.select(:state, select_state)%>
   </div>
 
   <div id="application_receiver_reason_field">
