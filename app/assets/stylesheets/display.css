@@ -621,13 +621,6 @@ table tr td.vat { vertical-align:top; }
 
 table tr td.narrow { padding:2px 5px;}
 
-/* users */
-
-a.admin
-{
-	color:#c00;
-	font-weight:bold;
-}
 
 /* last post */
 table tr td.lp {
