@@ -31,12 +31,12 @@
   <% @billing_applications.each do |application| %>
     <tr>
       <td><%= application.sender_real_name%></td>
-      <td><%= link_to application.purchase_company, finance_billing_application_path(application), :class => "admin" %></td>
+      <td><%= link_to application.purchase_company, finance_billing_application_path(application), :class => mark_if_necessary(application) %></td>
       <td><%= application.sum%></td>
       <td><%= application.use%></td>
       <td><%= application.created_at%></td>
       <td>
-        <%if !application.finance_opinion || application.finance_opinion.eql?("pending")%>
+        <%if finance_opinion_pending?(application)%>
             <%= link_to(I18n.t("views_finance_expense.finance_opinion_info"),
                         edit_finance_billing_application_path(application), :remote => true)%>
         <%else%>

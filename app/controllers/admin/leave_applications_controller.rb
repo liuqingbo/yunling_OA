@@ -1,7 +1,7 @@
 class Admin::LeaveApplicationsController < Admin::BaseController
 
   def index
-    @leave_applications = LeaveApplication.where("state='approved'")
+    @leave_applications = LeaveApplication.where("state='approved'").paginate(:page => params[:page]).order('id DESC')
   end
 
   def show

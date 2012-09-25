@@ -1,7 +1,7 @@
 class Admin::BusinessTripApplicationsController < Admin::BaseController
 
   def index
-    @business_trip_applications = BusinessTripApplication.where("state='approved'")
+    @business_trip_applications = BusinessTripApplication.where("state='approved'").paginate(:page => params[:page]).order('id DESC')
   end
 
   def show

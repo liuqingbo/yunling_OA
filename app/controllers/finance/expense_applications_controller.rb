@@ -1,6 +1,6 @@
 class Finance::ExpenseApplicationsController < Finance::BaseController
   def index
-    @expense_applications = ExpenseApplication.where("state='approved'")
+    @expense_applications = ExpenseApplication.where("state='approved'").paginate(:page => params[:page]).order('id DESC')
   end
 
   def show
