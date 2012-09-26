@@ -7,5 +7,6 @@ class BusinessTripApplication < Application
   USE = [
     I18n.t("init_data.business_trip_application.use.out_leave"),
     I18n.t("init_data.business_trip_application.use.travel_leave"),
+    I18n.t("init_data.business_trip_application.use.bussiness_out")
   ]
 end

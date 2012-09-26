@@ -11,6 +11,7 @@ class Right < ActiveRecord::Base
     "destroy" => "DELETE",
     "show" => "READ",
     "index" => "READ",
-    "download" => "download"
+    "download" => "download",
+    "statistics" => "statistics"
   }
 end

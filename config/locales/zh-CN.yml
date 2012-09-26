@@ -20,6 +20,7 @@ zh-CN:
     details: "详细信息"
     download: "下载"
     select: "请选择"
+    query: "查询"
 
   submit:
     location:
@@ -53,7 +54,9 @@ zh-CN:
       statistics: "统计"
       leave_application: "请假申请统计"
       business_trip_application: "外出/出差申请统计"
+      work_log_mgr: "工作日志管理"
       work_log: "工作日志统计"
+      work_log_query: "查询工作日志"
     finance:
       statis: "统计"
       expense_statis: "费用申请统计"
@@ -88,6 +91,12 @@ zh-CN:
     owner: "创建人"
     operate: "操作"
     logdate: "日期"
+    remote_ip: "远程IP地址"
+    select_find_date: "请选择查阅月份"
+    select_statistics_date: "请选择统计日期"
+    select_statistics_user_name: "用户姓名"
+    work_log_statistics: "工作日志统计"
+    total_num: "总条数"
 
   views_communicate_message:
     total_message_prompt: "消息总数"
@@ -121,7 +130,7 @@ zh-CN:
   views_contract_application:
     total_application_prompt: "合同申请条数"
     receiver: "接收者"
-    title: "付款申请单"
+    title: "合同申请单"
   views_billing_application:
     total_application_prompt: "开票申请条数"
     receiver: "接收者"
@@ -338,6 +347,7 @@ zh-CN:
       use:
         out_leave: "外出"
         travel_leave: "出差"
+        bussiness_out: "外派"
     payment_application:
       use:
         cash: "现金"

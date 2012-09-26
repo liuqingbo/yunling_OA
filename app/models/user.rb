@@ -35,7 +35,16 @@ class User < ActiveRecord::Base
     end
   end
 
-  has_many :work_logs
+  has_many :work_logs do
+    def filter_by_date(filter_date)
+      if filter_date.nil?
+        return self
+      end
+      where('log_date <= ? and log_date >= ?', filter_date.next_month, filter_date)
+    end
+
+
+  end
 
   scope :search_for_real_name, lambda{|q| {:conditions => ['real_name LIKE ?', "%#{q}%"]}}
 

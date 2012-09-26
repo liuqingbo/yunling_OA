@@ -66,6 +66,34 @@ $(document).ready(function(){
             timeFormat: 'hh:mm',
             dateFormat: 'yy-MM-dd'
         });
+        $(".datePicker").datepicker({
+            dateFormat: 'yy-MM-dd'
+        });
+        $(".monthPicker").datepicker({
+            dateFormat: 'yy-MM',
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+
+            onClose: function(dateText, inst) {
+                var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+                var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                $(this).val($.datepicker.formatDate('yy-MM-dd', new Date(year, month, 1)));
+            }
+        });
+
+//            dateFormat: 'yy-MM-dd',
+//            changeMonth: true,
+//            changeYear: true,
+//            showButtonPanel: true,
+//
+//            onClose: function(dateText, inst) {
+//                var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+//                var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+//                var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+//                $(this).val($.datepicker.formatDate('MM yy', new Date(year, month, 1)));
+//            }
+//        });
     });
 
 });

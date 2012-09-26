@@ -207,19 +207,22 @@ if false
     role.rights << r
   end
 
-end
-
-business_trip_applications = []
-business_trip_applications << Right.create!(:resource => "business_trip_applications", :operation => "CREATE")
-business_trip_applications <<  Right.create!(:resource => "business_trip_applications", :operation => "READ")
-business_trip_applications <<  Right.create!(:resource => "business_trip_applications", :operation => "UPDATE")
-business_trip_applications << Right.create!(:resource => "business_trip_applications", :operation => "DELETE")
-business_trip_applications.each do|business_trip_application|
-  Role.all.each do|role|
-    role.rights << business_trip_application
+  business_trip_applications = []
+  business_trip_applications << Right.create!(:resource => "business_trip_applications", :operation => "CREATE")
+  business_trip_applications <<  Right.create!(:resource => "business_trip_applications", :operation => "READ")
+  business_trip_applications <<  Right.create!(:resource => "business_trip_applications", :operation => "UPDATE")
+  business_trip_applications << Right.create!(:resource => "business_trip_applications", :operation => "DELETE")
+  business_trip_applications.each do|business_trip_application|
+    Role.all.each do|role|
+      role.rights << business_trip_application
+    end
   end
 end
 
+r = Right.create!(:resource => "work_logs", :operation => "statistics")
+Role.all.each do|role|
+  role.rights << r
+end
 
 
 
