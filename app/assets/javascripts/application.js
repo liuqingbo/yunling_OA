@@ -95,6 +95,11 @@ $(document).ready(function(){
 //            }
 //        });
     });
+    $(function() {
+        $(".reset").onclick(function(){
+            alert("ddd");
+        })
+    });
 
 });
 

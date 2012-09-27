@@ -14,6 +14,7 @@
     <label><%= I18n.t 'views_work_log.select_statistics_user_name'%></label>
     <%= text_field_tag :user_name , params[:user_name], :class=>"autocomplete_input_single_text"%>
   <%= submit_tag I18n.t('operate.query') %>
+  <%= button_tag I18n.t('operate.reset'), :class => "reset"%>
 </p>
 <% end %>
 

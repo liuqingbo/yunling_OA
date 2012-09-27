@@ -21,6 +21,7 @@ zh-CN:
     download: "下载"
     select: "请选择"
     query: "查询"
+    reset: "清空"
 
   submit:
     location:
@@ -90,11 +91,11 @@ zh-CN:
     total_notices_prompt: "日志总数"
     owner: "创建人"
     operate: "操作"
-    logdate: "日期"
+    logdate: "日志日期"
     remote_ip: "远程IP地址"
     select_find_date: "请选择查阅月份"
-    select_statistics_date: "请选择统计日期"
-    select_statistics_user_name: "用户姓名"
+    select_statistics_date: "请选择统计月份"
+    select_statistics_user_name: "请选输入查询姓名"
     work_log_statistics: "工作日志统计"
     total_num: "总条数"
 
