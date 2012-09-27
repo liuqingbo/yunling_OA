@@ -164,7 +164,7 @@ zh-CN:
 
   views_use_car_registration:
     title: "用车登记"
-    user_name: "填写人"
+    user_name: "登记人"
     real_user_name: "实际使用人"
     start_at_date: "用车日期"
     end_at_date: "归还日期"
