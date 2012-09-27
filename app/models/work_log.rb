@@ -13,7 +13,10 @@ class WorkLog < ActiveRecord::Base
       if user_name.blank?
         users = User.all
       else
-        users << User.find_by_real_name(user_name)
+        u = User.find_by_real_name(user_name)
+        unless u.nil?
+          users << u
+        end
       end
 
       result=[]

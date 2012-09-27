@@ -276,7 +276,7 @@ zh-CN:
       business_trip_application:
         use: "外出/出差类型"
         reason: "外出/出差事由"
-        business_travel_destination: "出差目的地"
+        business_travel_destination: "地点"
       expense_application:
         use: "花销用途"
         project_name: "项目名称"

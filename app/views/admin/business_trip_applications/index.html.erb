@@ -27,7 +27,7 @@
   </tr>
   <% @business_trip_applications.each do |application| %>
     <tr>
-      <td><%= link_to(application.sender_real_name, admin_leave_application_path(application), :class => "admin")%></td>
+      <td><%= link_to(application.sender_real_name, admin_business_trip_application_path(application), :class => "admin")%></td>
       <td><%= l(Time.parse(application.start_at), :format => :long) %></td>
       <td>
         <%= application.real_end_at? ? l(Time.parse(application.real_end_at), :format => :long) : l(Time.parse(application.end_at), :format => :long) %>

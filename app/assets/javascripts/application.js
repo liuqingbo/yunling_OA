@@ -96,9 +96,10 @@ $(document).ready(function(){
 //        });
     });
     $(function() {
-        $(".reset").onclick(function(){
-            alert("ddd");
-        })
+        $(".reset").click(function(event){
+            $(this).siblings("input[type='text']").val("");
+            event.preventDefault();
+        });
     });
 
 });

@@ -13,48 +13,50 @@
   <tr>
     <td width="20%" class="la">
       <label>
-        <%= I18n.t 'activerecord.attributes.leave_application.end_at' %>
+        <%= I18n.t 'views_use_car_registration.start_at_date' %>
       </label>
     </td>
-    <td width="30%" class="la"><%= l(Time.parse(application.end_at), :format => :long) %></td>
+    <td width="30%" class="la">
+      <%= use_car_registration.start_at_date %>
+    </td>
     <td width="20%" class="la">
       <label>
-        <%= I18n.t 'activerecord.attributes.leave_application.end_at' %>
+        <%= I18n.t 'views_use_car_registration.end_at_date' %>
       </label>
     </td>
-    <td width="30%" class="la"><%= l(Time.parse(application.end_at), :format => :long) %></td>
+    <td width="30%" class="la">
+      <%= use_car_registration.end_at_date %>
+    </td>
   </tr>
 
-  <%if application.real_end_at?%>
-      <tr>
-        <td>
-          <label for="real_end_at">
-           <%= I18n.t 'activerecord.attributes.leave_application.real_end_at'%>
-          </label>
-        </td>
-        <td colspan="3" class="la"><%= l(Time.parse(application.real_end_at), :format => :long)%></td>
-      </tr>
-  <%end%>
+  <tr>
+    <td width="20%" class="la">
+      <label>
+        <%= I18n.t 'views_use_car_registration.start_km_num' %>
+      </label>
+    </td>
+    <td width="30%" class="la">
+      <%= use_car_registration.start_km_num %>
+    </td>
+    <td width="20%" class="la">
+      <label>
+        <%= I18n.t 'views_use_car_registration.end_km_num' %>
+      </label>
+    </td>
+    <td width="30%" class="la">
+      <%= use_car_registration.end_km_num %>
+    </td>
+  </tr>
 
   <tr>
     <td>
-      <label for="use">
-       <%= I18n.t 'activerecord.attributes.leave_application.use'%>
+      <label>
+        <%= I18n.t 'views_use_car_registration.reason' %>
       </label>
     </td>
-    <td colspan="3"><%= application.use%></td>
-  </tr>
-
-
-  <tr>
-    <td>
-      <label for="reason">
-        <%= I18n.t 'activerecord.attributes.leave_application.reason' %>
-      </label>
+    <td colspan="3">
+      <%= use_car_registration.reason %>
     </td>
-    <td colspan="3"><%= application.reason %></td>
   </tr>
-
-  <%= render("application/detail_state_info", :application => application) %>
 </table>
 </div>

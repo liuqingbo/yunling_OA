@@ -19,14 +19,16 @@
 
 <table border="0" cellspacing="0" cellpadding="0" class="wide notices">
   <tr>
-    <th class="la" width="33%"><%= I18n.t 'views_work_log.owner' %></th>
-    <th class="la" width="33%"><%= I18n.t 'activerecord.attributes.common.create_at' %></th>
-    <th class="la" width="33%"><%= I18n.t 'views_work_log.remote_ip' %></th>
+    <th class="la" width="25%"><%= I18n.t 'views_work_log.owner' %></th>
+    <th class="la" width="25%"><%= I18n.t 'activerecord.attributes.common.create_at' %></th>
+    <th class="la" width="25%"><%= I18n.t 'views_work_log.logdate' %></th>
+    <th class="la" width="25%"><%= I18n.t 'views_work_log.remote_ip' %></th>
   </tr>
 
 <% @work_logs.each do |work_log| %>
   <tr>
     <td><%= work_log.user_real_name %></td>
+    <td><%= l(work_log.created_at, :format => :long) %></td>
     <td><%= work_log.log_date %></td>
     <td><%= work_log.remote_ip %></td>
   </tr>
