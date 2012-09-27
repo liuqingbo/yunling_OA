@@ -10,7 +10,6 @@ class Admin::WorkLogsController < Admin::BaseController
 
   def statistics
     @statistics = WorkLog.statistics_by_user(params[:user_name], params[:filter_date].nil? ? nil : params[:filter_date].to_date)
-    p @statistics
   end
 
 end

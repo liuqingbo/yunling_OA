@@ -160,6 +160,17 @@ zh-CN:
   views_finance_contract:
     choose_your_opinion: "请选择是否定立"
 
+  views_use_car_registration:
+    title: "用车登记"
+    real_user_name: "实际使用人"
+    start_at_date: "用车日期"
+    end_at_date: "归还日期"
+    reason: "用户原由"
+    start_km_num: "开始公里数"
+    end_km_num: "结束公里数"
+
+
+
   activerecord:
     errors:
       messages:
@@ -208,6 +219,7 @@ zh-CN:
       prompt_message: "提示消息"
       item_application: "物品申请"
       leave_application: "请假申请"
+      use_car_registration: "用车登记"
       business_trip_application: "外出/出差登记"
       expense_application: "费用申请"
       payment_application: "付款申请(对公)"

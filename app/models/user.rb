@@ -42,9 +42,9 @@ class User < ActiveRecord::Base
       end
       where('log_date <= ? and log_date >= ?', filter_date.next_month, filter_date)
     end
-
-
   end
+
+  has_many :use_car_registrations
 
   scope :search_for_real_name, lambda{|q| {:conditions => ['real_name LIKE ?', "%#{q}%"]}}
 
