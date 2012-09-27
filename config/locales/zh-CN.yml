@@ -55,6 +55,7 @@ zh-CN:
       statistics: "统计"
       leave_application: "请假申请统计"
       business_trip_application: "外出/出差申请统计"
+      use_car_registration: "用车登记统计"
       work_log_mgr: "工作日志管理"
       work_log: "工作日志统计"
       work_log_query: "查询工作日志"
@@ -163,6 +164,7 @@ zh-CN:
 
   views_use_car_registration:
     title: "用车登记"
+    user_name: "填写人"
     real_user_name: "实际使用人"
     start_at_date: "用车日期"
     end_at_date: "归还日期"
