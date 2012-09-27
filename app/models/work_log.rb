@@ -10,7 +10,6 @@ class WorkLog < ActiveRecord::Base
   class << self
     def statistics_by_user(user_name, filter_date)
       users = []
-      p user_name
       if user_name.blank?
         users = User.all
       else
